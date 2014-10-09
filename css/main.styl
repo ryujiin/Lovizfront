@@ -1,0 +1,206 @@
+segundo_color = #7FC940
+oscuro_color = #6BA63A
+
+html, body 
+	min-width: 960px;
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-o--font-smoothing: antialiased;
+	overflow: hidden;
+	height: 100%;
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+
+body
+	color black
+	font-family: 'Raleway', sans-serif;
+	overflow hidden
+	text-align center
+	font-size 12px
+	background-color #333
+	height 100%
+	a
+		text-decoration none
+		font-family: 'Raleway', sans-serif;
+	.normal-link
+		cursor pointer
+#content
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	.section-wrapper
+		background url(img/bg.png) repeat-x 50% 50% #DFE2E4
+		top: 0;
+		height: 100%;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		&.catalogo
+			position absolute
+			width 100%
+			margin-left 0
+			top 60px
+	.producto-list-mask
+		position relative
+		width 100%
+		height 100%
+		overflow hidden
+#products-list-wrapper, #models-list-wrapper
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	overflow: hidden;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+header 
+	width: 100%;
+	margin: auto;
+	bottom: 0 !important;
+	opacity: 1;
+	-webkit-opacity: 1;
+	-moz-opacity: 1;
+	height: 50px;
+	padding-top: 10px;
+	background: #333333;
+	position: relative;
+	z-index: 200;
+	-webkit-transform: translateZ(1);
+	overflow: hidden;
+	.conteiner
+		margin: auto;
+		max-width: 1200px;
+		overflow hidden
+		.brand
+			display inline-block
+			width 260px
+			text-align left
+			img
+				display none
+			h1
+				font-size 25px
+				font-weight 700
+				color #fff
+		.menu
+			display inline-block
+		.left-section
+			margin-left 10px
+			float left
+		.right-section
+			margin-right 10px
+			float right
+			.menu-iconos
+				margin 15px
+				color #fff
+				li
+					font-size 14px
+					padding 0 10px
+				.num-cart
+					color #717171
+					margin-left 5px
+				.login
+					cursor pointer
+					&:hover
+						color oscuro_color
+footer
+	bottom 0px
+	.footer-conteiner
+		font: 9.4px 'Raleway', sans-serif;
+		position: fixed;
+		bottom: 0;
+		color: #FFF;
+		height: 13px;
+		background-color: #333;
+		width: 100%;
+		z-index: 150;
+		padding: 12px 0 8px 0px;
+		letter-spacing: 1px;
+		ul
+			li
+				span
+					padding 8px 20px 0
+					color #bbbbbb
+					text-transform uppercase
+				.politicas
+					text-decoration underline
+					font-weight 700
+					&:hover
+						color oscuro_color
+		.group-left
+			float left
+		.group-right
+			float right
+.lista-producto
+	.producto
+		cursor pointer
+		&:hover
+			.producto_name
+				h3
+					color segundo_color
+		border-right none
+		.producto_name
+			color #333
+			h3
+				font-size 16px
+				text-transform uppercase
+				font-weight 700
+				cursor pointer
+			h4
+				font-size 13px
+				color #888
+				font-weight 700
+				text-transform uppercase
+		.producto_precio
+			font-size 15px
+			>div
+				display inline-block
+			.moneda
+				color segundo_color
+				font-weight 700
+			.cantidad
+				font-weight 700
+				.decimal
+					font-size 9px
+			.old_precio
+				text-decoration line-through
+nav
+	margin auto
+	ul
+		li
+			display inline-block
+			a
+				color #b8b8b8
+				font-weight 700
+				padding-left 18px
+				padding-right 18px
+				text-transform uppercase
+				font-size 13px
+				&:hover
+					color oscuro_color
+			&.activo
+				a
+					color #fff
+ul
+	padding 0
+	margin 0
+	li
+		list-style none
+		border-right 1px dotted #4D4D4D
+		display inline-block
+		&.last
+			border-right none
+#wrapper
+	height 100%
