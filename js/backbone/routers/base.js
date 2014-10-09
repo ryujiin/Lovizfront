@@ -4,7 +4,6 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		"tienda" : "tiendaCatalogo",
 	},
 	initialize : function () {
-		this.root();
   	},
 	root : function () {
 		console.log("Estamos en el root de nuesta applicacion");
