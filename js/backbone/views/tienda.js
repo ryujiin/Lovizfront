@@ -9,18 +9,24 @@ Loviz.Views.Tienda = Backbone.View.extend({
 	navigateHome : function(e){
 		e.preventDefault();
 		Backbone.history.navigate('/', {trigger:true});
+		this.colocar_clase(e);
+
 	},
 	navegacionPrincipal: function(e){
-		e.preventDefault();
-		li=e.toElement.parentElement;
-		menu = e.toElement.parentElement.parentElement;
-		enlace = e.toElement.pathname;
-		//recorrer menu para sacar activo
-		$(menu.children).each(function(indice,elemento){
+		e.preventDefault();	
+		var enlace = e.target.pathname;
+		
+		Backbone.history.navigate(enlace, {trigger:true});
+		this.colocar_clase(e);
+
+	},
+	colocar_clase:function(e){
+		var li=e.currentTarget;
+		//remueve todos los stilos
+		$('header .menu li').each(function(indice,elemento){
 			$(elemento).removeClass('activo');
 		});
 		$(li).addClass('activo');
 		//navegar a donde se tiene q ir
-		Backbone.history.navigate(enlace, {trigger:true});
 	}
 });
