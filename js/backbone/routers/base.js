@@ -1,6 +1,7 @@
 Loviz.Routers.Base = Backbone.Router.extend({
 	routes : {
 		"" : "root",
+		"tienda/" : "tiendaCatalogo",
 		"tienda" : "tiendaCatalogo",
 	},
 	initialize : function () {
@@ -16,5 +17,12 @@ Loviz.Routers.Base = Backbone.Router.extend({
 
 		window.app.state = "tienda";
 		window.app.categoria = null;
+		this.cargarProductos();
+	},
+	cargarProductos:function(){
+		this.productos = new Loviz.Collections.ProductosLista();
+		this.vista_producto  = new Loviz.Views.ProductoLista({collection:this.productos});
+
+		debugger;
 	}
 });
