@@ -1,4 +1,4 @@
-Loviz.Views.ProductoLista = Backbone.View.extend({
+Loviz.Views.ProductosLista = Backbone.View.extend({
   el: $('#productos'),
 
   //template: Handlebars.compile($("#album-template").html()),
@@ -11,7 +11,8 @@ Loviz.Views.ProductoLista = Backbone.View.extend({
     this.collection.forEach(this.addOne, this);
   },
 
-  addOne: function (album) {
-    console.log(album)
+  addOne: function (produ) {
+  	var producto_list = new Loviz.Views.ProductoLista({ model: produ });
+    this.$el.append(producto_list.render().el);
   }
 });
