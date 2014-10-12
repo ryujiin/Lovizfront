@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?-njg3xq');
-	src:url('fonts/icomoon.eot?#iefix-njg3xq') format('embedded-opentype'),
-		url('fonts/icomoon.woff?-njg3xq') format('woff'),
-		url('fonts/icomoon.ttf?-njg3xq') format('truetype'),
-		url('fonts/icomoon.svg?-njg3xq#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?b0ar8p');
+	src:url('fonts/icomoon.eot?#iefixb0ar8p') format('embedded-opentype'),
+		url('fonts/icomoon.woff?b0ar8p') format('woff'),
+		url('fonts/icomoon.ttf?b0ar8p') format('truetype'),
+		url('fonts/icomoon.svg?b0ar8p#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,11 +23,38 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-triangle-up:before {
+	content: "\f0aa";
+}
 .icon-cart:before {
 	content: "\e600";
 }
+.icon-cart2:before {
+	content: "\e603";
+}
 .icon-user:before {
 	content: "\e601";
+}
+.icon-close:before {
+	content: "\e604";
+}
+.icon-arrow-up:before {
+	content: "\e605";
+}
+.icon-arrow-down:before {
+	content: "\e606";
+}
+.icon-heart:before {
+	content: "\f004";
+}
+.icon-star:before {
+	content: "\f005";
+}
+.icon-star-o:before {
+	content: "\f006";
+}
+.icon-th:before {
+	content: "\f00a";
 }
 .icon-user2:before {
 	content: "\e602";

@@ -27,7 +27,7 @@
 		        			</figure>
 		        		</div>
 	        			<ul class="menu">
-	        				<li data-url="tienda" class=""><a href="/tienda/">Tienda</a></li>
+	        				<li data-url="tienda" class="tienda"><a href="/tienda/">Tienda</a></li>
 	        				<li data-url="custom"><a href="/custom/">Personalizado</a></li>
 	        				<li data-url="sobre"><a href="/sobre-loviz/">Nuestra Historia</a></li>
 	        				<li data-url="blog"><a href="/blog/">Blog</a></li>
@@ -51,7 +51,6 @@
         						<div class="scroller">
                                     <div id="tienda">
                                         <ul id="productos" class="lista-producto">
-                                            <p>productos</p>
                                         </ul>    
                                     </div>        							
                                     <div id="inicio">
@@ -69,6 +68,9 @@
                                     <div id="faq">
                                         <p>faq</p>
                                     </div>
+                                    <div id="producto_single">
+                                        
+                                    </div>
         						</div>
         					</div>
         				</div>
@@ -76,27 +78,42 @@
         		</div>
         </div>
         <footer>
-	        	<div class="footer-conteiner">
-	        		<div class="footer-center">
-	        			<ul class="group-left">
-	        				<li>
-	        					<span class="txt-1">© 2014 Loviz DelCarpio - Todos Los Derechos reservados</span>
-	        				</li>
-	        				<li>
-	        					<span class="txt-1 politicas normal-link">Nuestras Politicas</span>	        					
-	        				</li>
-	        			</ul>
-	        			<ul class="group-right">
-	        				<li>
-	        					<span class="txt-1">Nuestras Politicas</span>	        					
-	        				</li>
-	        			</ul>
-	        		</div>
+	        <div class="footer-conteiner">
+	        	<div class="footer-center">
+	        		<ul class="group-left">
+	        			<li>
+	        				<span class="txt-1">© 2014 Loviz DelCarpio - Todos Los Derechos reservados</span>
+	        			</li>
+	        			<li>
+	        				<span class="txt-1 politicas normal-link">Nuestras Politicas</span>	        					
+	        			</li>
+	        		</ul>
+	        		<ul class="group-right">
+	        			<li>
+	        				<span class="txt-1">Nuestras Politicas</span>	        					
+	        			</li>
+	        		</ul>
 	        	</div>
+	        </div>
+            <div class="producto-filter">
+                <div class="producto-filter-wrapper">
+                    <div class="filter-field">
+                        <div class="text-over">Seleccionar Categoria</div>
+                        <div class="selected">Pantuflas</div>
+                        <div class="widget-selector">
+                            <span class="icon-triangle-up"></span>
+                        </div>
+                    </div>
+                    <div class="filter-field"></div>
+                    <div class="filter-field"></div>
+                    <div class="filter-field"></div>
+                    <div class="filter-field"></div>
+                </div>
+            </div>
         </footer>	
     	</div>
     <script id="producto_lista_theme" type="text/template">
-        <li class="producto">
+        <a class="enlace_producto" data-id="{{id}}" href="/tienda/{{slug}}_{{id}}/">
             <figure class="img_producto">
                 <img src="{{thum}}" alt="" class="">
             </figure>
@@ -105,16 +122,40 @@
                 <h4>{{nombre}} {{color}}</h4>
             </div>
             <div class="producto_precio">
+                {%if en_oferta %}
                 <div class="old_precio">
                     <span class="moneda">S/.</span>
-                    <span class="cantidad">45<span class="decimales">,00</span></span>
+                    <span class="cantidad">{{precio}}</span>
                 </div>
+                {% endif %}
                 <div class="precio">
                     <span class="moneda">S/.</span>                                                 
-                    <span class="cantidad">45<span class="decimales">,00</span></span>
+                    <span class="cantidad">{{precio_mostrar}}</span>
                 </div>                                              
             </div>
-        </li>
+        </a>
+    </script>
+    <script id="produto_single_theme" type="text/template">
+        <div class="sidebar side-left">
+            <div class="letra enlinea">Volver a Productos</div>
+            <div class="etiqueta enlinea">
+                <span class="icon-th"></span>
+            </div>
+        </div>
+        <div class="sidebar side-rigth">d</div>
+        <div class="pr_info">
+            <figure class="imagen_princ">
+                <img src="{{imagen_p}}" alt="{{nombre}} {{marca}} {{color}}">
+            </figure>
+            <div class="etiquetas_princ">
+                <span class="etis">Informacion</span>/<span>Ver Galeria</span>
+            </div>
+        </div>
+        <div class="pr_galeria"></div>
+        <div class="pr_relacionados"></div>
+        <div class="pr_datos">
+            
+        </div>
     </script>
 
 
@@ -126,10 +167,13 @@
       <script src="/js/init.js"></script>
       
       <script src="/js/backbone/models/productolista.js"></script>
+      <script src="/js/backbone/models/prod_single.js"></script>
       <script src="/js/backbone/collections/productolista.js"></script>      
+      <script src="/js/backbone/collections/prod_single_collection.js"></script>      
       <script src="/js/backbone/views/tienda.js"></script>
       <script src="/js/backbone/views/productoslista.js"></script>
       <script src="/js/backbone/views/producto_lista.js"></script>
+      <script src="/js/backbone/views/producto_single.js"></script>
       <script src="/js/backbone/routers/base.js"></script>
 
 	  <script src="/js/main.js"></script>

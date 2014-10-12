@@ -3,10 +3,11 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		"" : "root",
 		"tienda/" : "tiendaCatalogo",
 		"tienda" : "tiendaCatalogo",
+		"tienda/:slug_:id/":"singleProducto",
 		"custom/": "custom_Url",
 	},
 	initialize : function () {
-		this.capas = ['tienda','inicio','custom','sobre','blog','faq'];
+		this.capas = ['tienda','inicio','custom','sobre','blog','faq','producto_single'];
   	},
 	root : function () {
 		console.log("Estamos en el root de nuesta applicacion");
@@ -23,6 +24,29 @@ Loviz.Routers.Base = Backbone.Router.extend({
 
 		this.cargarProductos();
 	},
+	singleProducto:function(slug,id){
+		var producto_modelo,buscar,producto_views;
+
+		window.app.state="producto_single";
+		this.escondercapas();
+		$('header .menu li.tienda').addClass('activo');
+		
+		producto_modelo = new Loviz.Models.Producto_Single({id:id});
+		
+		if (window.views.productosingle==null) {
+			buscar = producto_modelo.fetch();
+			buscar.done(function(){
+				producto_views = new Loviz.Views.ProductoSingle({
+					model:producto_modelo,
+				});
+				producto_views.render();
+			});
+			window.views.productosingle = producto_views;
+		};
+		
+				
+
+	},
 	custom_Url:function(){
 		window.app.state = "custom";
 		this.escondercapas();
@@ -30,7 +54,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	cargarProductos:function(){
 		var self = this;
-		this.productos = new Loviz.Collections.ProductosLista();
+		this.productos = new Loviz.Collections.ProductoLista();
 		this.vista_producto  = new Loviz.Views.ProductosLista({collection:this.productos});
 
 		window.collections.lista_productos = this.productos;
@@ -57,7 +81,9 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			};
 		});
 		if (window.app.state !=='tienda') {
-			window.views.lista_productos.$el.empty();
+			if (window.views.lista_productos) {
+				window.views.lista_productos.$el.empty();
+			};
 		};
 	}
 });

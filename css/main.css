@@ -3,8 +3,9 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 body{color:#000;font-family:'Raleway',sans-serif;overflow:hidden;text-align:center;font-size:12px;background-color:#333;height:100%;}
 body a{text-decoration:none;font-family:'Raleway',sans-serif}
 body .normal-link{cursor:pointer}
+body .enlinea{display:inline-block}
 #content{display:block;width:100%;overflow:hidden;}
-#content .section-wrapper{background:url("img/bg.png") repeat-x 50% 50% #dfe2e4;top:0;height:100%;position:absolute;text-align:center;width:100%;}
+#content .section-wrapper{background:url("/css/img/bg.png") repeat-x 50% 50% #dfe2e4;top:0;height:100%;position:absolute;text-align:center;width:100%;}
 #content .section-wrapper.catalogo{position:absolute;width:100%;margin-left:0;top:60px}
 #content .producto-list-mask{position:relative;width:100%;height:100%;overflow:hidden}
 #products-list-wrapper,#models-list-wrapper{position:absolute;z-index:1;left:0;width:100%;top:0;bottom:0;overflow:hidden;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
@@ -28,8 +29,13 @@ footer .footer-conteiner ul li .politicas{text-decoration:underline;font-weight:
 footer .footer-conteiner ul li .politicas:hover{color:#6ba63a}
 footer .footer-conteiner .group-left{float:left}
 footer .footer-conteiner .group-right{float:right}
-.lista-producto .producto{cursor:pointer;border-right:none;}
+.lista-producto{position:relative;}
+.lista-producto a{color:#333}
+.lista-producto .producto{cursor:pointer;width:215px;height:215px;border-right:none;}
 .lista-producto .producto:hover .producto_name h3{color:#7fc940}
+.lista-producto .producto:hover .img_producto img{transform:scale(1.2)}
+.lista-producto .producto .img_producto{margin-top:25px;}
+.lista-producto .producto .img_producto img{transition:1s ease}
 .lista-producto .producto .producto_name{color:#333;}
 .lista-producto .producto .producto_name h3{font-size:16px;text-transform:uppercase;font-weight:700;cursor:pointer}
 .lista-producto .producto .producto_name h4{font-size:13px;color:#888;font-weight:700;text-transform:uppercase}
@@ -39,6 +45,22 @@ footer .footer-conteiner .group-right{float:right}
 .lista-producto .producto .producto_precio .cantidad{font-weight:700;}
 .lista-producto .producto .producto_precio .cantidad .decimal{font-size:9px}
 .lista-producto .producto .producto_precio .old_precio{text-decoration:line-through}
+#producto_single{position:relative;}
+#producto_single .sidebar{position:absolute;background:#fff;font-size:12px;font-weight:800;text-transform:uppercase;top:230px;transition:1s ease;}
+#producto_single .sidebar.side-left{left:-115px;cursor:pointer;}
+#producto_single .sidebar.side-left:hover{left:0}
+#producto_single .sidebar.side-rigth{right:0}
+#producto_single .sidebar:hover{background:#333;color:#7fc940}
+#producto_single .sidebar .enlinea{padding:10px}
+#producto_single .sidebar .letra{width:90px}
+#producto_single .sidebar .etiqueta{border-left:1px solid #fff;font-size:28px;line-height:20px}
+#producto_single .pr_info .imagen_princ img{width:800px}
+#producto_single .pr_info .etiquetas_princ{font-size:15px;margin-top:-50px;cursor:pointer;}
+#producto_single .pr_info .etiquetas_princ span{color:#333;font-size:20px;font-weight:800;text-transform:uppercase}
+.producto-filter{box-shadow:6px 6px 16px #333;position:fixed;width:100%;background:#fff;z-index:100;color:#000;bottom:28px;}
+.producto-filter .producto-filter-wrapper{max-width:1200px;margin:auto;height:57px}
+.producto-filter-wrapper{text-align:left;position:relative;float:none;}
+.producto-filter-wrapper .filter-field{text-align:left;float:left;width:20%;background:url("img/greypix.gif");background-repeat:repeat-y;padding-top:21px;height:37px;text-transform:uppercase;position:relative;cursor:pointer;font-size:14px}
 nav{margin:auto;}
 nav ul li{display:inline-block;}
 nav ul li a{color:#b8b8b8;font-weight:700;padding-left:18px;padding-right:18px;text-transform:uppercase;font-size:13px;}

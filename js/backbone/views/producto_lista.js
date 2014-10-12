@@ -1,10 +1,10 @@
 Loviz.Views.ProductoLista = Backbone.View.extend({
 
-  tagName: 'article',
-  className: 'song',
+  tagName: 'li',
+  className: 'producto',
 
   events: {
-    'click': 'navigate'
+    'click .enlace_producto': 'navigateSingleProducto',
   },
 
   template: swig.compile($("#producto_lista_theme").html()),
@@ -19,5 +19,11 @@ Loviz.Views.ProductoLista = Backbone.View.extend({
     this.$el.html(html);
     return this;
   },
+  navigateSingleProducto: function(e){
+    e.preventDefault(); 
+    var enlace = e.currentTarget.pathname;
+
+    Backbone.history.navigate(enlace, {trigger:true});
+  }
 });
 
