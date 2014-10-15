@@ -231,34 +231,85 @@ footer
 				font-size 20px
 				font-weight 800
 				text-transform uppercase
-.producto-filter
-	box-shadow 6px 6px 16px #333
-	position fixed
-	width 100%
-	background #fff
-	z-index 100
-	color black
-	bottom 28px
+#filter-items-widget, #filter-model-widget, #productos-filtros
+	font-size: 14px;
+#productos-filtros
+	box-shadow: 6px 6px 16px #333
+	bottom: 28px
+	position: fixed
+	width: 100%
+	background: white
+	z-index: 100
+	color: black
+	&>div
+		transition: all .3s;
+		-webkit-transition: all .3s;
+	#tipo_producto
+		.text-over
+			padding-left 15px
+			display none
+			position absolute
+		.selected
+			font-size 24px
+			margin-top -7px
+			right auto
+			left 15px
+			top 20px
+			font-weight 800
 	.producto-filter-wrapper
-		max-width 1200px
-		margin auto
-		height 57px
-.producto-filter-wrapper
-	text-align left
-	position relative
-	float none
-	.filter-field
-		text-align left
-		float left
-		width 20%
-		background url('img/greypix.gif')
-		background-repeat repeat-y
-		padding-top 21px
-		height 37px
-		text-transform uppercase
-		position relative
-		cursor pointer
-		font-size 14px
+		max-width: 1200px;
+		min-width: 960px;
+		margin: auto;
+		height: 57px;
+		.filter-field 
+			text-align: left;
+			float: left;
+			width: 20%;
+			background: url('img/greypix.gif');
+			background-repeat: repeat-y;
+			padding-top: 21px;
+			height: 37px;
+			text-transform: uppercase;
+			position: relative;
+			cursor: pointer;
+			font-size: 13px
+			transition: all .3s;
+			-webkit-transition: all .3s
+			font-weight 600
+			&:hover
+				background segundo_color
+				.selected
+					color #000!important
+			.selected
+				right 30px
+				position absolute
+				text-align right
+				top 20px
+				opacity 1
+				&.gray
+					color #999
+			.title
+				position absolute
+				left 40%
+				top 20px
+				text-align left
+				width 120px
+				margin-left -60px!important
+			.widget-selector
+				right 7px
+				position absolute
+				top 23px
+				opacity 0.5
+.producto-filter-wrapper, .products-filter-final 
+	text-align: left;
+	margin: auto;
+	max-width: 1200px;
+	min-width: 960px;
+	display: block;
+	clear: both;
+	float: none;
+	position: relative;
+
 nav
 	margin auto
 	ul
@@ -287,3 +338,7 @@ ul
 			border-right none
 #wrapper
 	height 100%
+
+.filter-field
+	transition: all .3s;
+	-webkit-transition: all .3s;
