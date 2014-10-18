@@ -58,7 +58,7 @@ footer .footer-conteiner .group-right{float:right}
 #producto_single .pr_info .etiquetas_princ{font-size:15px;margin-top:-50px;cursor:pointer;}
 #producto_single .pr_info .etiquetas_princ span{color:#333;font-size:20px;font-weight:800;text-transform:uppercase}
 #filter-items-widget,#filter-model-widget,#productos-filtros{font-size:14px}
-#productos-filtros{box-shadow:6px 6px 16px #333;bottom:28px;position:fixed;width:100%;background:#fff;z-index:100;color:#000;}
+#productos-filtros{display:none;box-shadow:6px 6px 16px #333;bottom:28px;position:fixed;width:100%;background:#fff;z-index:100;color:#000;}
 #productos-filtros>div{transition:all .3s;-webkit-transition:all .3s}
 #productos-filtros #tipo_producto .text-over{padding-left:15px;display:none;position:absolute}
 #productos-filtros #tipo_producto .selected{font-size:24px;margin-top:-7px;right:auto;left:15px;top:20px;font-weight:800}
@@ -81,3 +81,4 @@ ul li{list-style:none;border-right:1px dotted #4d4d4d;display:inline-block;}
 ul li.last{border-right:none}
 #wrapper{height:100%}
 .filter-field{transition:all .3s;-webkit-transition:all .3s}
+.overlay-background{width:100%;height:100%;position:fixed;background:url("img/popup_bg.png");margin-top:-2px;z-index:103;cursor:pointer}
