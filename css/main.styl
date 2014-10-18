@@ -228,9 +228,55 @@ footer
 			cursor pointer
 			span
 				color #333
-				font-size 20px
-				font-weight 800
+				font-size 18px
+				font-weight 600
 				text-transform uppercase
+				&:hover
+					color segundo_color
+	.info-wrapper
+		display none
+		width 100%
+		margin-top 35px
+		.info-holder
+			background white
+			width 750px
+			margin auto
+			position relative
+			.close-iframe
+				background #fff
+				position absolute
+				width 60px
+				height 60px
+				right -61px
+				&:hover
+					background #333
+					span
+						color segundo_color
+				span
+					font-size 54px
+			.info
+				padding-top 30px
+				padding-bottom 30px
+				width 700px
+				margin auto
+				h2
+					font-size 32px
+					text-transform uppercase
+					color #333
+					margin 20px 0
+					font-weight 800
+				.descripcion
+					width 450px
+					margin 30px auto
+					height 172px
+					line-height 22px
+					font-size 14px
+			.info-image-holder
+				position absolute
+				bottom -70px
+				left -60px
+				img
+					width 200px
 #filter-items-widget, #filter-model-widget, #productos-filtros
 	font-size: 14px;
 #productos-filtros
@@ -339,7 +385,7 @@ ul
 #wrapper
 	height 100%
 
-.filter-field
+.filter-field,:hover
 	transition: all .3s;
 	-webkit-transition: all .3s;
 
