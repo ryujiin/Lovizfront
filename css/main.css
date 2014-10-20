@@ -54,21 +54,10 @@ footer .footer-conteiner .group-right{float:right}
 #producto_single .sidebar .enlinea{padding:10px}
 #producto_single .sidebar .letra{width:90px}
 #producto_single .sidebar .etiqueta{border-left:1px solid #fff;font-size:28px;line-height:20px}
-#producto_single .pr_info .imagen_princ img{width:800px}
-#producto_single .pr_info .etiquetas_princ{font-size:15px;margin-top:-50px;cursor:pointer;}
-#producto_single .pr_info .etiquetas_princ span{color:#333;font-size:18px;font-weight:600;text-transform:uppercase;}
-#producto_single .pr_info .etiquetas_princ span:hover{color:#7fc940}
-#producto_single .info-wrapper{display:none;width:100%;margin-top:35px;}
-#producto_single .info-wrapper .info-holder{background:#fff;width:750px;margin:auto;position:relative;}
-#producto_single .info-wrapper .info-holder .close-iframe{background:#fff;position:absolute;width:60px;height:60px;right:-61px;}
-#producto_single .info-wrapper .info-holder .close-iframe:hover{background:#333;}
-#producto_single .info-wrapper .info-holder .close-iframe:hover span{color:#7fc940}
-#producto_single .info-wrapper .info-holder .close-iframe span{font-size:54px}
-#producto_single .info-wrapper .info-holder .info{padding-top:30px;padding-bottom:30px;width:700px;margin:auto;}
-#producto_single .info-wrapper .info-holder .info h2{font-size:32px;text-transform:uppercase;color:#333;margin:20px 0;font-weight:800}
-#producto_single .info-wrapper .info-holder .info .descripcion{width:450px;margin:30px auto;height:172px;line-height:22px;font-size:14px}
-#producto_single .info-wrapper .info-holder .info-image-holder{position:absolute;bottom:-70px;left:-60px;}
-#producto_single .info-wrapper .info-holder .info-image-holder img{width:200px}
+#producto_single .info-producto{max-width:1200px;margin:auto;background:#fff;position:relative;}
+#producto_single .info-producto .informacion{display:inline-block;width:200px}
+#producto_single .info-producto .imagen_principal{display:inline-block;width:600px;}
+#producto_single .info-producto .imagen_principal img{width:100%}
 #filter-items-widget,#filter-model-widget,#productos-filtros{font-size:14px}
 #productos-filtros{display:none;box-shadow:6px 6px 16px #333;bottom:28px;position:fixed;width:100%;background:#fff;z-index:100;color:#000;}
 #productos-filtros>div{transition:all .3s;-webkit-transition:all .3s}
@@ -92,5 +81,5 @@ ul{padding:0;margin:0;}
 ul li{list-style:none;border-right:1px dotted #4d4d4d;display:inline-block;}
 ul li.last{border-right:none}
 #wrapper{height:100%}
-.filter-field,:hover{transition:all .3s;-webkit-transition:all .3s}
+.filter-field,:hover,.pr_footer{transition:all .3s;-webkit-transition:all .3s}
 .overlay-background{width:100%;height:100%;position:fixed;background:url("img/popup_bg.png");margin-top:-2px;z-index:103;cursor:pointer}
