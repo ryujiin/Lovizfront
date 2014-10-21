@@ -16,8 +16,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 
 		window.app.state = "inicio";
 		//borrar el resto de contenidos
-		this.escondercapas();
-
+		this.preloader('Loviz DelCarpio');
 	},
 	tiendaCatalogo: function(){
 		var filtro;
@@ -25,12 +24,14 @@ Loviz.Routers.Base = Backbone.Router.extend({
 
 		window.app.state = "tienda";
 
+		//Cargador cuando este listo
+		this.preloader();
 		this.cargarProductos();
 		window.views.producto_filter = new Loviz.Views.Producto_filter();
 	},
 	notFound:function(){
 		debugger;
-	},
+	},	
 	singleProducto:function(slug,id){
 		var producto_modelo,buscar,producto_views;
 
@@ -90,6 +91,14 @@ Loviz.Routers.Base = Backbone.Router.extend({
 				window.views.lista_productos.$el.empty();
 			};
 		};
+	},
+	preloader:function(title){
+		console.log(title);
+		$.each(this.capas,function(ind,elem){			
+			$('#'+elem).hide('fast');
+		});
+		/*Crear modelo de loader*/
+		p = new Loviz.Models.Loader({titulo:title});
+		l = new Loviz.Views.Loader({model:p});
 	}
-
 });

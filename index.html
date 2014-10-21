@@ -10,213 +10,102 @@
     	  <link rel="shortcut icon" href="/css/img/logodelcarpio2_1.ico" />
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/iconos.css">
-        <link rel="stylesheet" href="/css/jquery.kyco.preloader.css">
         <link rel="stylesheet" href="/css/main.css">
         <script src="/js/vendor/modernizr.js"></script>
     </head>
     <body>
-    	<div id="wrapper">
-            <!--
-            <div id="overlay">
-                <div class="overlay-background">
-                    <div class="preloader">
-                        <div class="preloader-header">
-                            <div class="preloader-header-contenedor">Tienda</div>
-                        </div>
-                        <div class="preloader-line-load"></div>
-                        <div class="preloader-line-total"></div>
-                        <div class="preloader-footer"></div>
+        <div class="conte_principal">
+            <header>
+                <div class="contenedor">
+                    <div class="logo enlinea">
+                        <h1>Loviz Delcarpio</h1>
                     </div>
-                </div>
-            </div>
-            -->
-    		<header>
-	        	<div class="conteiner">
-	        		<nav class="left-section">
-	        			<div class="brand logo">
-		        			<figure class="img-log">
-                                <a href="/">
-    		        				<img src="" alt="">
-    		        				<h1>Loviz DelCarpio</h1>
-                                </a>
-		        			</figure>
-		        		</div>
-	        			<ul class="menu">
-	        				<li data-url="tienda" class="tienda"><a href="/tienda/">Tienda</a></li>
-	        				<li data-url="custom"><a href="/custom/">Personalizado</a></li>
-	        				<li data-url="sobre"><a href="/sobre-loviz/">Nuestra Historia</a></li>
-	        				<li data-url="blog"><a href="/blog/">Blog</a></li>
-	        				<li data-url="faq"><a href="/faq/">FAQ</a></li>
-	        			</ul>
-	        		</nav>
-	        		<nav class="right-section">
-	        			<ul class="menu menu-iconos">
-	        				<li><span class="icon-cart"></span><span class="num-cart">0</span></li>
-	        				<li class="login"><span class="icon-head"></span></li>
-	        				<li class="last"><span>ES</span></li>
-	        			</ul>
-	        		</nav>
-	        	</div>
+                    <nav class="menu-principal enlinea">
+                        <ul class="menu">
+                            <li><a href="/tienda/">Tienda</a></li>
+                            <li><a href="/custom/">Personalizado</a></li>
+                            <li><a href="/sobre-loviz/">Nuestra Historia</a></li>
+                            <li><a href="/blog/">Blog</a></li>
+                            <li><a href="/faq/">FAQ</a></li>
+                        </ul>
+                    </nav>
+                    <div class="links-principales enlinea">
+                        <ul class="menu iconos-left">
+                            <li class="carrito">
+                                <span class="icon-cart"></span>
+                                <span class="num-cart">0</span>
+                            </li>
+                            <li class="login">
+                                <span class="icon-head"></span>
+                            </li>
+                            <li class="idioma">
+                                <span>ES</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>                
             </header>
-            <div id="content">
-            		<div class="section-wrapper new-section catalogo">
-            			<div class="producto-list-mask">
-            				<div class="products-list-drag-area">
-            					<div id="products-list-wrapper">
-            						<div class="scroller">
-                                        <div id="tienda">
-                                            <ul id="productos" class="lista-producto">
-                                            </ul>    
-                                        </div>        							
-                                        <div id="inicio">
-                                            <p>inicio</p>
-                                        </div>
-                                        <div id="custom">
-                                            <p>custom</p>
-                                        </div>
-                                        <div id="sobre">
-                                            <p>sobre</p>
-                                        </div>
-                                        <div id="blog">
-                                            <p>blog</p>
-                                        </div>
-                                        <div id="faq">
-                                            <p>faq</p>
-                                        </div>
-                                        <div id="producto_single">
-                                            
-                                        </div>
-            						</div>
-            					</div>
-            				</div>
-            			</div>
-            		</div>
-            </div>
+            <section id="contenido">
+                <div id="loader-wrapper">
+                </div>
+                <div id="inicio">
+                    <div class="prueba">
+                        <img src="http://satorisan.com/website/images/home/fw14/1_collection.jpg" alt="">
+                    </div>
+                </div>
+                <div id="tienda">
+                    <div class="contefondo">
+                        
+                    </div>
+                </div>
+                <div id="custom"></div>
+            </section>
             <footer>
-    	        <div class="footer-conteiner">
-    	        	<div class="footer-center">
-    	        		<ul class="group-left">
-    	        			<li>
-    	        				<span class="txt-1">© 2014 Loviz DelCarpio - Todos Los Derechos reservados</span>
-    	        			</li>
-    	        			<li>
-    	        				<span class="txt-1 politicas normal-link">Nuestras Politicas</span>	        					
-    	        			</li>
-    	        		</ul>
-    	        		<ul class="group-right">
-    	        			<li>
-    	        				<span class="txt-1">Nuestras Politicas</span>	        					
-    	        			</li>
-    	        		</ul>
-    	        	</div>
-    	        </div>
-                <div id="productos-filtros">
-                    <div class="producto-filter-wrapper">
-                        <div id="tipo_producto" class="filter-field">
-                            <div class="text-over">Seleccionar Categoria</div>
-                            <div class="selected">Pantuflas</div>
-                            <div class="widget-selector">
-                                <span class="icon-triangle-up"></span>
-                            </div>
+                <div class="contenedor">
+                    <div class="footer">
+                        <div class="left">
+                            <span class="letra1">© 2014 LOVIZ DELCARPIO - TODOS LOS DERECHOS RESERVADOS</span>                        
                         </div>
-                        <div class="filter-field">
-                            <div class="title">Estilo</div>
-                            <div class="selected gray">Todos</div>
-                            <div class="widget-selector">
-                                <span class="icon-triangle-up"></span>
-                            </div>
-                        </div>
-                        <div class="filter-field">
-                            <div class="title">Color</div>
-                            <div class="selected gray">Todos</div>
-                            <div class="widget-selector">
-                                <span class="icon-triangle-up"></span>
-                            </div>
-                        </div>
-                        <div class="filter-field">
-                            <div class="title">Talla</div>
-                            <div class="selected gray">Todos</div>
-                            <div class="widget-selector">
-                                <span class="icon-triangle-up"></span>
-                            </div>
-                        </div>
-                        <div class="filter-field">
-                            <div class="title">Precio</div>
-                            <div class="selected gray">Todos</div>
-                            <div class="widget-selector">
-                                <span class="icon-triangle-up"></span>
-                            </div>
+                        <div class="right">
+                            <ul class="menu">
+                                <li><a href="#">Contacto</a></li>
+                                <li><a href="#">Ayuda</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </footer>	
-    	</div>
-        <script id="producto_lista_theme" type="text/template">
-            <a class="enlace_producto" data-id="{{id}}" href="/tienda/{{slug}}_{{id}}/">
-                <figure class="img_producto">
-                    <img src="{{thum}}" alt="" class="">
-                </figure>
-                <div class="producto_name">
-                    <h3>{{categoria}} {{estilo}}</h3>
-                    <h4>{{nombre}} {{color}}</h4>
-                </div>
-                <div class="producto_precio">
-                    {%if en_oferta %}
-                    <div class="old_precio">
-                        <span class="moneda">S/.</span>
-                        <span class="cantidad">{{precio}}</span>
-                    </div>
-                    {% endif %}
-                    <div class="precio">
-                        <span class="moneda">S/.</span>                                                 
-                        <span class="cantidad">{{precio_mostrar}}</span>
-                    </div>                                              
-                </div>
-            </a>
-        </script>
-        <script id="produto_single_theme" type="text/template">
-            <div class="sidebar side-left">
-                <div class="letra enlinea">Volver a Productos</div>
-                <div class="etiqueta enlinea">
-                    <span class="icon-th"></span>
-                </div>
+            </footer>
+        </div>
+        <!--Templates de scripts-->
+        <script type="text/template" id="loader_template">
+            <div class="titulo">
+                <h2>{{titulo}}...</h2>
             </div>
-            <div class="sidebar side-rigth">Nid</div>           
-            <div class="info-producto">
-                <div class="imagen_principal">
-                    <figure class="producto_img">
-                        <img src="{{imagen_p}}" alt="{{nombre}} - {{marca}}">
-                    </figure>
-                </div>
-                <div class="informacion">
-                    <h2>{{fullname}}</h2>
-                    <h3>{{marca}}</h3>
-                    <p class="descripcion">{{descripcion}}</p>
-                </div>
-            </div>
-            <div class="galeria"></div>
+            <div class="bag-loader"></div>
+            <div id="loader"></div>
         </script>
+        <!--Fin de los Templates-->
 
+        <script src="/js/vendor/jquery-1.11.1.js"></script>
+        <script src="/js/vendor/underscore.js"></script>
+	    <script src="/js/vendor/swig.js"></script>	
+        <script src="/js/vendor/backbone-min.js"></script>
 
-      <script src="/js/vendor/jquery-1.11.1.js"></script>
-      <script src="/js/vendor/underscore.js"></script>
-	  <script src="/js/vendor/swig.js"></script>	
-      <script src="/js/vendor/backbone-min.js"></script>
-      <script src="/js/vendor/queryloader2.min.js"></script>
+        <script src="/js/init.js"></script>      
 
-      <script src="/js/init.js"></script>
-      
-      <script src="/js/backbone/models/productolista.js"></script>
-      <script src="/js/backbone/models/prod_single.js"></script>
-      <script src="/js/backbone/collections/productolista.js"></script>      
-      <script src="/js/backbone/collections/prod_single_collection.js"></script>      
-      <script src="/js/backbone/views/tienda.js"></script>
-      <script src="/js/backbone/views/productoslista.js"></script>
-      <script src="/js/backbone/views/producto_lista.js"></script>
-      <script src="/js/backbone/views/producto_single.js"></script>
-      <script src="/js/backbone/views/prducto-filter.js"></script>
-      <script src="/js/backbone/routers/base.js"></script>
-
-	  <script src="/js/main.js"></script>
+        <script src="/js/backbone/models/productolista.js"></script>
+        <script src="/js/backbone/models/prod_single.js"></script>
+        <script src="/js/backbone/models/loader_model.js"></script>
+        <script src="/js/backbone/collections/productolista.js"></script>      
+        <script src="/js/backbone/collections/prod_single_collection.js"></script>      
+        <script src="/js/backbone/views/tienda.js"></script>
+        <script src="/js/backbone/views/productoslista.js"></script>
+        <script src="/js/backbone/views/producto_lista.js"></script>
+        <script src="/js/backbone/views/producto_single.js"></script>
+        <script src="/js/backbone/views/loader_view.js"></script>
+        <script src="/js/backbone/views/prducto-filter.js"></script>
+        <script src="/js/backbone/routers/base.js"></script>
+	    
+        <script src="/js/main.js"></script>
     </body>
 </html>

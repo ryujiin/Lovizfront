@@ -1,0 +1,1 @@
+Loviz.Models.Loader = Backbone.Model.extend({});
