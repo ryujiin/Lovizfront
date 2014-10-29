@@ -13,12 +13,16 @@ body .right{float:right}
 footer{background:#333;position:fixed;bottom:0;width:100%;font-size:10px;padding:12px 0 8px 0;height:13px;z-index:10000;}
 footer a{color:#fff;font-size:11px;text-transform:uppercase;font-weight:600;text-shadow:1px 1px 0 #000}
 footer .footer .menu li{padding:0 20px}
-.footer-holder{background:#fff;position:fixed;width:100%;bottom:32px;}
+.footer-holder{box-shadow:6px 6px 16px #333;background:#fff;position:fixed;width:100%;bottom:32px;}
 .footer-holder .filter-field{text-align:left;float:left;width:20%;background:url("img/greypix.gif");background-repeat:repeat-y;padding-top:20px;height:37px;text-transform:uppercase;position:relative;cursor:pointer;font-size:13px;}
+.footer-holder .filter-field:hover{background-color:#7fc940;}
+.footer-holder .filter-field:hover .gray{color:#333 !important}
 .footer-holder .filter-field .text-over{display:none;position:absolute;left:0}
-.footer-holder .filter-field .selected{color:#1b1b1b;font-size:24px;font-weight:800;position:absolute}
-.footer-holder .filter-field .widget-selector{position:absolute;opacity:.5;right:10px;top:26px}
-.footer-holder #type-selection .selected{left:10px}
+.footer-holder .filter-field .selected{color:#1b1b1b;font-weight:800;position:absolute;right:25px;}
+.footer-holder .filter-field .selected.gray{color:#999}
+.footer-holder .filter-field .title{font-weight:800;position:absolute;left:10px}
+.footer-holder .filter-field .widget-selector{position:absolute;opacity:.5;right:10px;top:22px}
+.footer-holder #type-selection .selected{left:10px;font-size:24px;top:14px}
 h1,h2,h3,h4{margin:0;padding:0}
 header{background:#333;color:#fff;padding-top:10px;height:50px;text-transform:uppercase;}
 header a{color:#fff}

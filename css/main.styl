@@ -57,6 +57,7 @@ footer
 			li
 				padding 0 20px
 .footer-holder
+	box-shadow 6px 6px 16px #333
 	background #fff
 	position fixed
 	width 100%
@@ -73,23 +74,35 @@ footer
 		position relative
 		cursor pointer
 		font-size 13px
+		&:hover
+			background-color ver_claro
+			.gray
+				color #333!important
 		.text-over
 			display none
 			position absolute
 			left 0
 		.selected
 			color #1B1B1B
-			font-size 24px
 			font-weight 800
 			position absolute
+			right 25px
+			&.gray
+				color #999
+		.title
+			font-weight 800
+			position absolute
+			left 10px
 		.widget-selector
 			position absolute
 			opacity 0.5
 			right 10px
-			top 26px
+			top 22px
 	#type-selection
 		.selected
 			left 10px
+			font-size 24px
+			top 14px
 h1,h2,h3,h4
 	margin 0
 	padding 0
