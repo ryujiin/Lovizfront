@@ -24,6 +24,6 @@ Loviz.Views.ProductoLista = Backbone.View.extend({
     var enlace = e.currentTarget.pathname;
 
     Backbone.history.navigate(enlace, {trigger:true});
-  }
+  },
 });
 

@@ -28,5 +28,5 @@ Loviz.Views.Tienda = Backbone.View.extend({
 		});
 		$(li).addClass('activo');
 		//navegar a donde se tiene q ir
-	}
+	},
 });

@@ -14,5 +14,10 @@ Loviz.Views.ProductosLista = Backbone.View.extend({
   addOne: function (produ) {
   	var producto_list = new Loviz.Views.ProductoLista({ model: produ });
     this.$el.append(producto_list.render().el);
+  },
+  cargaCompleta:function(){
+    this.$el.find('img').on('load',function(){
+      $('body').addClass('loaded');
+    });
   }
 });

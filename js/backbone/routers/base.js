@@ -12,31 +12,35 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		this.capas = ['tienda','inicio','custom','sobre','blog','faq','producto_single'];
   	},
 	root : function () {
-		console.log("Estamos en el root de nuesta applicacion");
-
 		window.app.state = "inicio";
 		//borrar el resto de contenidos
 		this.preloader('Loviz DelCarpio');
+
+		this.cargarSliderHome();
+
+		this.mostrarcapas();
 	},
 	tiendaCatalogo: function(){
-		var filtro;
 		console.log('esta en la tienda');
 
 		window.app.state = "tienda";
 
-		//Cargador cuando este listo
-		this.preloader();
+		//Aparece el PreCargador
+		this.preloader('Tienda');
+		//Carga productos
 		this.cargarProductos();
-		window.views.producto_filter = new Loviz.Views.Producto_filter();
+		//Se muestra el Div
+		this.mostrarcapas();
+
 	},
-	notFound:function(){
-		debugger;
-	},	
 	singleProducto:function(slug,id){
 		var producto_modelo,buscar,producto_views;
 
 		window.app.state="producto_single";
-		this.escondercapas();
+
+		//Aparece el PreCargador
+		this.preloader('Cargando Producto');
+		
 		$('header .menu li.tienda').addClass('activo');
 		
 		producto_modelo = new Loviz.Models.Producto_Single({id:id});
@@ -51,6 +55,8 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			});
 			window.views.productosingle = producto_views;
 		};
+		//Se muestra el Div
+		this.mostrarcapas();
 	},
 	custom_Url:function(){
 		window.app.state = "custom";
@@ -59,6 +65,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	cargarProductos:function(){
 		var self = this;
+		
 		this.productos = new Loviz.Collections.ProductoLista();
 		this.vista_producto  = new Loviz.Views.ProductosLista({collection:this.productos});
 
@@ -68,37 +75,49 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		var buscar = this.productos.fetch();
 		
 		buscar.done(function(){
-			self.escondercapas();
+			window.views.lista_productos.cargaCompleta();
+
 		});
 	},
-	escondercapas:function(){
-		$.each(this.capas,function(ind,elem){
-			if (elem===window.app.state) {				
-				$('#'+elem).fadeIn('slow');
-			}else{
-				$('#'+elem).fadeOut( "slow" );
-			}
+	cargarSliderHome : function(){
+		var modelo,slider_view;
+		slider_view = new Loviz.Views.HomeSlider({
+			model: new Loviz.Models.SliderHome(),
 		});
-		//Colocar clases Del Menu
-		$('header .menu li').each(function(ind,elem){
-			var li = $(elem).data("url")
-			if (li === window.app.state) {
-				$(elem).addClass('activo')
-			};
-		});
+	},
+	mostrarcapas:function(){
+		var div=$('#'+window.app.state);
+		//Volverlo todo invisble;
+		$('.invisible').hide();
+		//mostrar div que se necesita
+		div.show();
+
 		if (window.app.state !=='tienda') {
 			if (window.views.lista_productos) {
 				window.views.lista_productos.$el.empty();
 			};
 		};
+		//Poner activo el navegador
+		$('header .menu-principal li').each(function(ind,elem){
+			var li = $(elem).data("url")
+			if (li === window.app.state) {
+				$(elem).addClass('activo')
+			};
+		});
 	},
 	preloader:function(title){
-		console.log(title);
+		//Verifica si esta la clase Loaded y si esta la borra
+		if ($('body').hasClass('loaded')) {
+			$('body').removeClass('loaded');
+		};
 		$.each(this.capas,function(ind,elem){			
 			$('#'+elem).hide('fast');
 		});
 		/*Crear modelo de loader*/
 		p = new Loviz.Models.Loader({titulo:title});
 		l = new Loviz.Views.Loader({model:p});
-	}
+	},
+	notFound:function(){
+		debugger;
+	},
 });

@@ -19,6 +19,8 @@ body
 		margin 0 auto
 	img
 		width 100%
+	.invisible
+		display none
 	.left
 		float left
 	.letra1
@@ -26,11 +28,15 @@ body
 	.right
 		float right
 #contenido
-	position relative
+	width 100%
+	overflow hidden
 	.contefondo
-		background url("/css/img/bg.png") repeat-x 50% 50% #dfe2e4
-		height 100%
+		width 100%
 		text-align center
+		position absolute
+		top 61px
+		height 90%
+		background url("/css/img/bg.png") repeat-x 50% 50% #dfe2e4
 footer
 	background #333
 	position fixed
@@ -50,7 +56,41 @@ footer
 		.menu
 			li
 				padding 0 20px
-h1,h2,h3
+.footer-holder
+	background #fff
+	position fixed
+	width 100%
+	bottom 32px
+	.filter-field
+		text-align left
+		float left
+		width 20%
+		background url('img/greypix.gif')
+		background-repeat repeat-y
+		padding-top 20px
+		height 37px
+		text-transform uppercase
+		position relative
+		cursor pointer
+		font-size 13px
+		.text-over
+			display none
+			position absolute
+			left 0
+		.selected
+			color #1B1B1B
+			font-size 24px
+			font-weight 800
+			position absolute
+		.widget-selector
+			position absolute
+			opacity 0.5
+			right 10px
+			top 26px
+	#type-selection
+		.selected
+			left 10px
+h1,h2,h3,h4
 	margin 0
 	padding 0
 header
@@ -77,7 +117,7 @@ header
 					text-shadow 1px 1px 0px #1B1B1B
 					&:hover
 						color ver_oscuro
-				.activo
+				&.activo
 					a
 						color #fff
 	.links-principales
@@ -95,10 +135,78 @@ header
 		list-style none
 		display inline-block
 		border-right 1px dotted #4d4d4d
-
-
-
-
+#productos
+	margin 0
+	padding 0
+	.producto
+		display inline-block
+		margin-top 20px
+		width 220px
+		&:hover
+			.producto_name
+				h3
+					color ver_oscuro
+			.img_producto
+				img
+					transform : scale(1.2);
+		.img_producto
+			img
+				width 152px
+				margin 0 auto
+				transition: 1s ease;
+		.producto_name
+			text-transform uppercase
+			h3
+				color #333
+				transition: 1s all;
+			h4
+				color #888
+				font-size 13px
+		.producto_precio
+			font-weight 800
+			color #333
+			.moneda
+				color ver_oscuro
+				font-size 12px
+			.old_precio
+				text-decoration line-through
+				margin 0 5px
+				font-size 12px
+#producto_single
+	.marco_producto
+		width 1200px
+		margin 80px auto
+		display table
+		.imagen_principal
+			vertical-align middle
+			width 600px
+		.descripcion
+			width 450px
+			vertical-align middle
+			background #fff
+			padding 20px 30px
+			position relative
+			.cerrar_producto
+				width 35px
+				height 35px
+				background #fff
+				position absolute
+				top 0
+				right -36px
+				&:hover
+					cursor pointer
+					background #333
+					span
+						color ver_oscuro
+				span
+					font-size 32px
+					color #6E6E6E
+		.colores
+			ul
+				li
+					list-style none
+					width 100px
+					display inline-block
 
 
 

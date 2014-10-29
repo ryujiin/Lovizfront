@@ -22,11 +22,11 @@
                     </div>
                     <nav class="menu-principal enlinea">
                         <ul class="menu">
-                            <li><a href="/tienda/">Tienda</a></li>
-                            <li><a href="/custom/">Personalizado</a></li>
-                            <li><a href="/sobre-loviz/">Nuestra Historia</a></li>
-                            <li><a href="/blog/">Blog</a></li>
-                            <li><a href="/faq/">FAQ</a></li>
+                            <li data-url="tienda"><a href="/tienda/">Tienda</a></li>
+                            <li data-url="custom"><a href="/custom/">Personalizado</a></li>
+                            <li data-url="sobre"><a href="/sobre-loviz/">Nuestra Historia</a></li>
+                            <li data-url="blog"><a href="/blog/">Blog</a></li>
+                            <li data-url="faq"><a href="/faq/">FAQ</a></li>
                         </ul>
                     </nav>
                     <div class="links-principales enlinea">
@@ -46,22 +46,62 @@
                 </div>                
             </header>
             <section id="contenido">
-                <div id="loader-wrapper">
-                </div>
-                <div id="inicio">
-                    <div class="prueba">
-                        <img src="http://satorisan.com/website/images/home/fw14/1_collection.jpg" alt="">
+                <div class="contefondo">
+                    <div id="loader-wrapper">
                     </div>
-                </div>
-                <div id="tienda">
-                    <div class="contefondo">
-                        
+                    <div id="inicio" class="invisible">
                     </div>
+                    <div id="tienda" class="invisible">                      
+                        <ul id="productos"></ul>
+                        <div class="footer-holder">
+                            <div class="contenedor">
+                                <div id="producto-filter">
+                                    <div id="type-selection" class="filter-field">
+                                        <div class="text-over">Seleccione Categoria</div>
+                                        <div class="selected">Calzado</div>
+                                        <div class="widget-selector">
+                                            <span class="icon-triangle-up"></span>
+                                        </div>
+                                    </div>
+                                    <div id="model-selection" class="filter-field">
+                                        <div class="title">Modelo</div>
+                                        <div class="selected gray">Todos</div>
+                                        <div class="widget-selector">
+                                            <span class="icon-triangle-up"></span>
+                                        </div>
+                                    </div>
+                                    <div id="color-selection" class="filter-field">
+                                        <div class="title">Color</div>
+                                        <div class="selected gray">Todos</div>
+                                        <div class="widget-selector">
+                                            <span class="icon-triangle-up"></span>
+                                        </div>
+                                    </div>
+                                    <div id="size-selection" class="filter-field">
+                                        <div class="title">Tamaño</div>
+                                        <div class="selected gray">Todos</div>
+                                        <div class="widget-selector">
+                                            <span class="icon-triangle-up"></span>
+                                        </div>
+                                    </div>
+                                    <div id="price-selection" class="filter-field">
+                                        <div class="title">Precio</div>
+                                        <div class="selected gray">Todos</div>
+                                        <div class="widget-selector">
+                                            <span class="icon-triangle-up"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="producto_single" class="invisible">
+                    </div>
+                    <div id="custom" class="invisible"></div>
                 </div>
-                <div id="custom"></div>
             </section>
             <footer>
-                <div class="contenedor">
+                <div class="contenedor">                    
                     <div class="footer">
                         <div class="left">
                             <span class="letra1">© 2014 LOVIZ DELCARPIO - TODOS LOS DERECHOS RESERVADOS</span>                        
@@ -84,6 +124,69 @@
             <div class="bag-loader"></div>
             <div id="loader"></div>
         </script>
+
+        <script type="text/template" id="home_slider_theme">
+            <div class="prueba">
+                <img src="{{imagen}}" alt="">
+            </div>
+        </script>
+
+        <script type="text/template" id="producto_lista_theme">
+           <a class="enlace_producto" data-id="{{id}}" href="/tienda/{{slug}}_{{id}}/">
+                <figure class="img_producto">
+                    <img src="{{thum}}" alt="" class="">
+                </figure>
+                <div class="producto_name">
+                    <h3>{{categoria}} {{estilo}}</h3>
+                    <h4>{{nombre}} {{color}}</h4>
+                </div>
+                <div class="producto_precio">
+                    {%if en_oferta %}
+                    <div class="old_precio enlinea">
+                        <span class="moneda">S/.</span>
+                        <span class="cantidad">{{precio}}</span>
+                    </div>
+                    {% endif %}
+                    <div class="precio enlinea">
+                        <span class="moneda">S/.</span>                                                 
+                        <span class="cantidad">{{precio_mostrar}}</span>
+                    </div>                                              
+                </div>
+            </a>
+        </script>
+
+        <script id="produto_single_theme" type="text/template">
+            <div class="marco_producto">
+                <figure class="imagen_principal enlinea">
+                    <img src="{{imagen_p}}" alt="{{full_name}} - {{marca}}">
+                </figure>
+                <div class="descripcion enlinea">
+                    <div class="cerrar_producto">
+                        <span class="icon-cross"></span>
+                    </div>
+                    <h2>{{full_name}}</h2>
+                    <h3>{{marca}}</h3>
+                    <p>{{descripcion}}</p>
+                    <div class="colores">
+                        <strong>Colores Disponibles</strong>
+                        <ul class="lista-colores">
+                            <li>
+                                <a href="/tienda/{{slug}}_{{id}}/">
+                                    <img src="{{thum}}" alt="{{full_name}}">
+                                </a>
+                            </li>
+                            {%for pariente in parientes%}
+                            <li>
+                                <a href="/tienda/{{pariente.slug}}/">
+                                    <img src="{{pariente.thum}}" alt="{{pariente.full_name}}">
+                                </a>
+                            </li>
+                            {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+            </div>            
+        </script>
         <!--Fin de los Templates-->
 
         <script src="/js/vendor/jquery-1.11.1.js"></script>
@@ -96,14 +199,19 @@
         <script src="/js/backbone/models/productolista.js"></script>
         <script src="/js/backbone/models/prod_single.js"></script>
         <script src="/js/backbone/models/loader_model.js"></script>
+        <script src="/js/backbone/models/home_slider_model.js"></script>
+
         <script src="/js/backbone/collections/productolista.js"></script>      
-        <script src="/js/backbone/collections/prod_single_collection.js"></script>      
+        <script src="/js/backbone/collections/prod_single_collection.js"></script>
+
         <script src="/js/backbone/views/tienda.js"></script>
         <script src="/js/backbone/views/productoslista.js"></script>
         <script src="/js/backbone/views/producto_lista.js"></script>
         <script src="/js/backbone/views/producto_single.js"></script>
         <script src="/js/backbone/views/loader_view.js"></script>
         <script src="/js/backbone/views/prducto-filter.js"></script>
+        <script src="/js/backbone/views/home_slider_view.js"></script>
+
         <script src="/js/backbone/routers/base.js"></script>
 	    
         <script src="/js/main.js"></script>
