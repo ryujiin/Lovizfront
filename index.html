@@ -185,7 +185,49 @@
                         </ul>
                     </div>
                 </div>
-            </div>            
+            </div>
+            <div class="footer-holder">
+                <div class="contenedor">
+                    <div class="producto-basket">
+                        <div class="filter-field titulo_precio">
+                            <h2 class="nombre_produto">{{full_name}}</h2>
+                            {%for varia in variaciones%}                            
+                            <div class="precio {%if loop.first %}visible{%endif%}" data-variacion="{{varia.id}}">
+                                <div class="moneda">S/.</div>
+                                <div class="cantidad">{{varia.precio_venta}}</div>
+                            </div>                            
+                            {%endfor%}
+                        </div>
+                        <div class="filter-field">
+                            <div class="title">Talla</div>
+                            <div class="selected">-</div>
+                            <div class="widget-selector">
+                                <span class="icon-triangle-up"></span>
+                            </div>
+                        </div>
+                        <div class="filter-field">
+                            <div class="title">Cantidad</div>
+                            <div class="selected">1</div>
+                            <div class="widget-selector">
+                                <span class="icon-triangle-up"></span>
+                            </div>
+                        </div>
+                        <div class="filter-field add-to-cart">
+                            <span class="icon-cart3"></span>
+                            <div class="title">Agregar al Carro</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="back-tienda">
+                
+                <div class="back-to-text">
+                    Volver a Productos
+                </div>
+                <div class="grilla-menu">
+                    <span class="icon-th"></span>
+                </div>
+            </div>
         </script>
         <!--Fin de los Templates-->
 

@@ -5,6 +5,7 @@ body .enlinea{display:inline-block}
 body .contenedor{width:1200px;margin:0 auto}
 body img{width:100%}
 body .invisible{display:none}
+body .visible{display:block !important}
 body .left{float:left}
 body .letra1{color:#bbb}
 body .right{float:right}
@@ -17,6 +18,16 @@ footer .footer .menu li{padding:0 20px}
 .footer-holder .filter-field{text-align:left;float:left;width:20%;background:url("img/greypix.gif");background-repeat:repeat-y;padding-top:20px;height:37px;text-transform:uppercase;position:relative;cursor:pointer;font-size:13px;}
 .footer-holder .filter-field:hover{background-color:#7fc940;}
 .footer-holder .filter-field:hover .gray{color:#333 !important}
+.footer-holder .filter-field.add-to-cart{font-size:20px;}
+.footer-holder .filter-field.add-to-cart .title,.footer-holder .filter-field.add-to-cart span{display:inline-block;position:absolute}
+.footer-holder .filter-field.add-to-cart .title{text-align:right;right:10px}
+.footer-holder .filter-field.add-to-cart span{left:10px}
+.footer-holder .filter-field.titulo_precio{width:40% !important;}
+.footer-holder .filter-field.titulo_precio:hover{background-color:#fff}
+.footer-holder .filter-field.titulo_precio h2{font-size:16px}
+.footer-holder .filter-field.titulo_precio .precio{position:absolute;top:15px;right:10px;font-weight:bold;font-size:25px;display:none;}
+.footer-holder .filter-field.titulo_precio .precio >div{display:inline-block}
+.footer-holder .filter-field.titulo_precio .precio .moneda{color:#7fc940;font-size:13px}
 .footer-holder .filter-field .text-over{display:none;position:absolute;left:0}
 .footer-holder .filter-field .selected{color:#1b1b1b;font-weight:800;position:absolute;right:25px;}
 .footer-holder .filter-field .selected.gray{color:#999}
@@ -47,6 +58,12 @@ header .links-principales li:hover{color:#6ba63a}
 #productos .producto .producto_precio{font-weight:800;color:#333;}
 #productos .producto .producto_precio .moneda{color:#6ba63a;font-size:12px}
 #productos .producto .producto_precio .old_precio{text-decoration:line-through;margin:0 5px;font-size:12px}
+#producto_single .back-tienda{background-color:#fff;position:fixed;top:50%;cursor:pointer;left:-80px;}
+#producto_single .back-tienda:hover{left:0;background-color:#333;color:#6ba63a;}
+#producto_single .back-tienda:hover .grilla-menu{border-left:1px solid #dfe2e4}
+#producto_single .back-tienda .back-to-text{width:80px;float:left;font-size:11px;font-weight:bold;text-transform:uppercase;padding-top:13px}
+#producto_single .back-tienda .grilla-menu{float:left;width:50px;height:50px;}
+#producto_single .back-tienda .grilla-menu span{font-size:30px;line-height:50px}
 #producto_single .marco_producto{width:1200px;margin:80px auto;display:table;}
 #producto_single .marco_producto .imagen_principal{vertical-align:middle;width:600px}
 #producto_single .marco_producto .descripcion{width:450px;vertical-align:middle;background:#fff;padding:20px 30px;position:relative;}

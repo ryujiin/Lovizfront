@@ -21,12 +21,15 @@ body
 		width 100%
 	.invisible
 		display none
+	.visible
+		display block!important
 	.left
 		float left
 	.letra1
 		color #bbbbbb
 	.right
 		float right
+	
 #contenido
 	width 100%
 	overflow hidden
@@ -78,6 +81,34 @@ footer
 			background-color ver_claro
 			.gray
 				color #333!important
+		&.add-to-cart
+			font-size 20px
+			.title,span
+				display inline-block
+				position absolute
+			.title
+				text-align right
+				right 10px
+			span
+				left 10px
+		&.titulo_precio
+			width 40%!important
+			&:hover
+				background-color #fff
+			h2
+				font-size 16px
+			.precio
+				position absolute
+				top 15px
+				right 10px
+				font-weight bold
+				font-size 25px
+				display none
+				>div
+					display inline-block
+				.moneda
+					color ver_claro
+					font-size 13px
 		.text-over
 			display none
 			position absolute
@@ -186,6 +217,32 @@ header
 				margin 0 5px
 				font-size 12px
 #producto_single
+	.back-tienda
+		background-color #fff
+		position fixed
+		top 50%
+		cursor pointer
+		left -80px
+		&:hover
+			left 0px
+			background-color #333
+			color ver_oscuro
+			.grilla-menu
+				border-left 1px solid #dfe2e4
+		.back-to-text
+			width 80px
+			float left
+			font-size 11px
+			font-weight bold
+			text-transform uppercase
+			padding-top 13px
+		.grilla-menu
+			float left
+			width 50px
+			height 50px
+			span
+				font-size 30px
+				line-height 50px
 	.marco_producto
 		width 1200px
 		margin 80px auto
