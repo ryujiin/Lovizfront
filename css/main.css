@@ -9,13 +9,20 @@ body .visible{display:block !important}
 body .left{float:left}
 body .letra1{color:#bbb}
 body .right{float:right}
+body .nolink{cursor:default}
 #contenido{width:100%;overflow:hidden;}
 #contenido .contefondo{width:100%;text-align:center;position:absolute;top:61px;height:90%;background:url("/css/img/bg.png") repeat-x 50% 50% #dfe2e4}
 footer{background:#333;position:fixed;bottom:0;width:100%;font-size:10px;padding:12px 0 8px 0;height:13px;z-index:10000;}
 footer a{color:#fff;font-size:11px;text-transform:uppercase;font-weight:600;text-shadow:1px 1px 0 #000}
 footer .footer .menu li{padding:0 20px}
+.footer-contenido{background:#333;position:absolute;color:#acacac;bottom:57px;width:100%;text-align:center;font-weight:bold;display:none;}
+.footer-contenido .conte{padding:10px;}
+.footer-contenido .conte .option-value{padding:3px 0;}
+.footer-contenido .conte .option-value:hover{color:#fff;transition:0s}
+.footer-contenido .pin-selection{color:#7fc940;position:absolute;font-size:25px;height:15px;bottom:1px;left:47%}
 .footer-holder{box-shadow:6px 6px 16px #333;background:#fff;position:fixed;width:100%;bottom:32px;}
-.footer-holder .filter-field{text-align:left;float:left;width:20%;background:url("img/greypix.gif");background-repeat:repeat-y;padding-top:20px;height:37px;text-transform:uppercase;position:relative;cursor:pointer;font-size:13px;}
+.footer-holder .filter-field{text-align:left;float:left;width:20%;background:url("img/greypix.gif");background-repeat:repeat-y;padding-top:20px;height:37px;text-transform:uppercase;position:relative;cursor:pointer;font-size:14px;}
+.footer-holder .filter-field.selecionado{background-color:#7fc940}
 .footer-holder .filter-field:hover{background-color:#7fc940;}
 .footer-holder .filter-field:hover .gray{color:#333 !important}
 .footer-holder .filter-field.add-to-cart{font-size:20px;}
@@ -28,10 +35,11 @@ footer .footer .menu li{padding:0 20px}
 .footer-holder .filter-field.titulo_precio .precio{position:absolute;top:15px;right:10px;font-weight:bold;font-size:25px;display:none;}
 .footer-holder .filter-field.titulo_precio .precio >div{display:inline-block}
 .footer-holder .filter-field.titulo_precio .precio .moneda{color:#7fc940;font-size:13px}
+.footer-holder .filter-field .olvido{position:absolute;width:100px;background-color:#fff;text-transform:initial;left:-120px;top:-65px;text-align:center;padding:5px;box-shadow:0 0 5px rgba(0,0,0,0.2);border-radius:5px;display:none}
 .footer-holder .filter-field .text-over{display:none;position:absolute;left:0}
 .footer-holder .filter-field .selected{color:#1b1b1b;font-weight:800;position:absolute;right:25px;}
 .footer-holder .filter-field .selected.gray{color:#999}
-.footer-holder .filter-field .title{font-weight:800;position:absolute;left:10px}
+.footer-holder .filter-field .title{font-weight:800;position:absolute;left:25px}
 .footer-holder .filter-field .widget-selector{position:absolute;opacity:.5;right:10px;top:22px}
 .footer-holder #type-selection .selected{left:10px;font-size:24px;top:14px}
 h1,h2,h3,h4{margin:0;padding:0}
@@ -58,7 +66,7 @@ header .links-principales li:hover{color:#6ba63a}
 #productos .producto .producto_precio{font-weight:800;color:#333;}
 #productos .producto .producto_precio .moneda{color:#6ba63a;font-size:12px}
 #productos .producto .producto_precio .old_precio{text-decoration:line-through;margin:0 5px;font-size:12px}
-#producto_single .back-tienda{background-color:#fff;position:fixed;top:50%;cursor:pointer;left:-80px;}
+#producto_single .back-tienda{background-color:#fff;position:fixed;top:40%;cursor:pointer;left:-80px;}
 #producto_single .back-tienda:hover{left:0;background-color:#333;color:#6ba63a;}
 #producto_single .back-tienda:hover .grilla-menu{border-left:1px solid #dfe2e4}
 #producto_single .back-tienda .back-to-text{width:80px;float:left;font-size:11px;font-weight:bold;text-transform:uppercase;padding-top:13px}

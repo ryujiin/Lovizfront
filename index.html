@@ -156,6 +156,11 @@
         </script>
 
         <script id="produto_single_theme" type="text/template">
+            <div class="formulario_producto">
+                <input type="number" name="cantidad" min="1" max="5" value='1'>
+                <input type="number" name="variacion">                
+                <input type="number" name="producto" value="{{id}}">                
+            </div>
             <div class="marco_producto">
                 <figure class="imagen_principal enlinea">
                     <img src="{{imagen_p}}" alt="{{full_name}} - {{marca}}">
@@ -171,13 +176,13 @@
                         <strong>Colores Disponibles</strong>
                         <ul class="lista-colores">
                             <li>
-                                <a href="/tienda/{{slug}}_{{id}}/">
+                                <a class="nolink" href="/tienda/{{slug}}_{{id}}/">
                                     <img src="{{thum}}" alt="{{full_name}}">
                                 </a>
                             </li>
                             {%for pariente in parientes%}
                             <li>
-                                <a href="/tienda/{{pariente.slug}}/">
+                                <a class="link" href="/tienda/{{pariente.slug}}_{{pariente.id}}/">
                                     <img src="{{pariente.thum}}" alt="{{pariente.full_name}}">
                                 </a>
                             </li>
@@ -186,6 +191,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="footer-holder">
                 <div class="contenedor">
                     <div class="producto-basket">
@@ -198,7 +204,23 @@
                             </div>                            
                             {%endfor%}
                         </div>
-                        <div class="filter-field">
+                        <div class="filter-field talla">
+                            <div class="olvido">
+                                No olvide seleccionar una talla
+                            </div>
+                            <div class="footer-contenido talla_contenido">
+                                <div class="conte">
+                                    {%for varia in variaciones %}
+                                    <div class="option-value" data-variacion='{{varia.id}}' data-talla='{{varia.talla}}'>
+                                        <span>{{varia.talla}}</span>
+                                    </div>
+                                    {%endfor%}
+                                </div>
+                                <div class="pin-selection">
+                                    <span class="icon-triangle-up"></span>
+                                </div>
+                            </div>
+
                             <div class="title">Talla</div>
                             <div class="selected">-</div>
                             <div class="widget-selector">
@@ -220,7 +242,6 @@
                 </div>
             </div>
             <div class="back-tienda">
-                
                 <div class="back-to-text">
                     Volver a Productos
                 </div>
@@ -228,6 +249,7 @@
                     <span class="icon-th"></span>
                 </div>
             </div>
+
         </script>
         <!--Fin de los Templates-->
 

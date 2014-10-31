@@ -2,6 +2,8 @@ Loviz.Views.Tienda = Backbone.View.extend({
 	events: {
 		'click .logo' : 'navigateHome',
 		'click header .menu li' : 'navegacionPrincipal',
+		'click a.nolink' : 'nomandarLink',
+		'click a.link' : 'linknormal',
 	},
 	initialize : function ($el) {
 		this.$el = $el;
@@ -29,4 +31,14 @@ Loviz.Views.Tienda = Backbone.View.extend({
 		$(li).addClass('activo');
 		//navegar a donde se tiene q ir
 	},
+	nomandarLink:function(e){
+		e.preventDefault();
+	},
+	linknormal:function(e){
+		e.preventDefault();
+		var link = e.currentTarget.pathname;
+		
+		Backbone.history.navigate(link, {trigger:true});
+
+	}
 });

@@ -29,7 +29,8 @@ body
 		color #bbbbbb
 	.right
 		float right
-	
+	.nolink
+		cursor default	
 #contenido
 	width 100%
 	overflow hidden
@@ -59,6 +60,29 @@ footer
 		.menu
 			li
 				padding 0 20px
+.footer-contenido
+	background #333
+	position absolute
+	color #acacac
+	bottom 57px
+	width 100%
+	text-align center
+	font-weight bold
+	display none
+	.conte
+		padding 10px
+		.option-value
+			padding 3px 0
+			&:hover
+				color #fff
+				transition 0s
+	.pin-selection
+		color ver_claro
+		position absolute
+		font-size 25px
+		height 15px
+		bottom 1px
+		left 47%
 .footer-holder
 	box-shadow 6px 6px 16px #333
 	background #fff
@@ -76,7 +100,9 @@ footer
 		text-transform uppercase
 		position relative
 		cursor pointer
-		font-size 13px
+		font-size 14px
+		&.selecionado
+			background-color ver_claro
 		&:hover
 			background-color ver_claro
 			.gray
@@ -109,6 +135,18 @@ footer
 				.moneda
 					color ver_claro
 					font-size 13px
+		.olvido
+			position absolute
+			width 100px
+			background-color #fff
+			text-transform initial
+			left -120px
+			top -65px
+			text-align center
+			padding 5px
+			box-shadow 0 0 5px rgba(0,0,0,0.2)
+			border-radius 5px
+			display none
 		.text-over
 			display none
 			position absolute
@@ -123,7 +161,7 @@ footer
 		.title
 			font-weight 800
 			position absolute
-			left 10px
+			left 25px
 		.widget-selector
 			position absolute
 			opacity 0.5
@@ -220,7 +258,7 @@ header
 	.back-tienda
 		background-color #fff
 		position fixed
-		top 50%
+		top 40%
 		cursor pointer
 		left -80px
 		&:hover

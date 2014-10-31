@@ -34,33 +34,33 @@ Loviz.Routers.Base = Backbone.Router.extend({
 
 	},
 	singleProducto:function(slug,id){
-		var producto_modelo,buscar,producto_views;
+		var self = this;
+		var modeloJSON,buscar;
 
 		window.app.state="producto_single";
 
-		//Aparece el PreCargador
 		this.preloader('Cargando Producto');
-		
-		$('header .menu li.tienda').addClass('activo');
-		
-		producto_modelo = new Loviz.Models.Producto_Single({id:id});
-		
-		if (window.views.productosingle==null) {
-			buscar = producto_modelo.fetch();
-			buscar.done(function(){
-				producto_views = new Loviz.Views.ProductoSingle({
-					model:producto_modelo,
+
+		//Verifica exitencia de producto
+		self.producto_modelo = new Loviz.Models.Producto_Single({id:id});
+	
+		buscar = self.producto_modelo.fetch();
+		buscar.done(function () {
+			if (self.producto_views) {
+				modeloJSON = self.producto_modelo.toJSON();
+				self.producto_views.model.set(modeloJSON);
+			}else{
+				self.producto_views = new Loviz.Views.ProductoSingle({
+					model:self.producto_modelo,
 				});
-				producto_views.render();
-			});
-			window.views.productosingle = producto_views;
-		};
-		//Se muestra el Div
-		this.mostrarcapas();
+				self.producto_views.render();	
+			}			
+		})
 	},
 	custom_Url:function(){
 		window.app.state = "custom";
 		this.escondercapas();
+
 
 	},
 	cargarProductos:function(){
@@ -118,6 +118,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		l = new Loviz.Views.Loader({model:p});
 	},
 	notFound:function(){
+		console.log('No se encontro la pagina')
 		debugger;
 	},
 });

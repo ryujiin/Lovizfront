@@ -12,6 +12,5 @@ Loviz.Views.Loader = Backbone.View.extend({
 	    var album = this.model.toJSON()
 	    var html = this.template(album);
 	    this.$el.html(html);
-	    
 	},
 });
