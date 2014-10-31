@@ -8,6 +8,8 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
     'click .add-to-cart' : 'addtocart',
     'click .filter-field.talla' : 'selecciontalla',
     'click .filter-field.talla .option-value' : 'tallaelegida',
+    'click .filter-field.cantidad' : 'seleccionCantidad',
+    'click .filter-field.cantidad .option-value' : 'cantidadelegida',
   },
 
   template: swig.compile($("#produto_single_theme").html()),
@@ -53,14 +55,29 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
     var conte = $('.filter-field.talla .footer-contenido');
     $(div).toggleClass('selecionado');
     $(conte).slideToggle('slow');
-    console.log(this)
   },
   tallaelegida:function(e){
     var div = e.currentTarget;
     var variacion = $(div).data('variacion');
     var talla = $(div).data('talla');
     $('.talla .selected').html(talla);
+    //Colocar variacion a formulario
     $('.formulario_producto input[name=variacion]').val(variacion)
+    //Mostrar precio
+    $('.titulo_precio .precio').removeClass('visible');
+    $('.titulo_precio .precio.'+variacion).addClass('visible');
+  },
+  seleccionCantidad:function () {
+    var div = $('.filter-field.cantidad');
+    var conte = $('.filter-field.cantidad .footer-contenido');
+    $(div).toggleClass('selecionado');
+    $(conte).slideToggle('slow');
+  },
+  cantidadelegida: function (e) {
+    var div = e.currentTarget;
+    var cantidad = $(div).data('cantidad');
+    $('.cantidad .selected').html(cantidad);
+    $('.formulario_producto input[name=cantidad]').val(cantidad)
   }
 });
 

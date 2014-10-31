@@ -33,8 +33,10 @@ footer .footer .menu li{padding:0 20px}
 .footer-holder .filter-field.titulo_precio:hover{background-color:#fff}
 .footer-holder .filter-field.titulo_precio h2{font-size:16px}
 .footer-holder .filter-field.titulo_precio .precio{position:absolute;top:15px;right:10px;font-weight:bold;font-size:25px;display:none;}
-.footer-holder .filter-field.titulo_precio .precio >div{display:inline-block}
-.footer-holder .filter-field.titulo_precio .precio .moneda{color:#7fc940;font-size:13px}
+.footer-holder .filter-field.titulo_precio .precio .moneda{display:inline-block;color:#7fc940;font-size:13px}
+.footer-holder .filter-field.titulo_precio .precio .cantidad_precio,.footer-holder .filter-field.titulo_precio .precio .precio-mostrar{display:inline-block}
+.footer-holder .filter-field.titulo_precio .precio .precio-old{position:absolute;left:-55px;top:5px;font-size:11px;}
+.footer-holder .filter-field.titulo_precio .precio .precio-old .cantidad_precio{text-decoration:line-through}
 .footer-holder .filter-field .olvido{position:absolute;width:100px;background-color:#fff;text-transform:initial;left:-120px;top:-65px;text-align:center;padding:5px;box-shadow:0 0 5px rgba(0,0,0,0.2);border-radius:5px;display:none}
 .footer-holder .filter-field .text-over{display:none;position:absolute;left:0}
 .footer-holder .filter-field .selected{color:#1b1b1b;font-weight:800;position:absolute;right:25px;}

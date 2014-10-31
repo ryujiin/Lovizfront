@@ -197,10 +197,18 @@
                     <div class="producto-basket">
                         <div class="filter-field titulo_precio">
                             <h2 class="nombre_produto">{{full_name}}</h2>
-                            {%for varia in variaciones%}                            
-                            <div class="precio {%if loop.first %}visible{%endif%}" data-variacion="{{varia.id}}">
-                                <div class="moneda">S/.</div>
-                                <div class="cantidad">{{varia.precio_venta}}</div>
+                            {%for varia in variaciones%}                   
+                            <div class="precio {%if loop.first %}visible{%endif%} {{varia.id}}" data-variacion="{{varia.id}}">
+                                {%if varia.oferta != 0 %}
+                                <div class="precio-old">
+                                    <div class="moneda">S/.</div>
+                                    <div class="cantidad_precio">{{varia.precio_minorista}}</div>    
+                                </div>
+                                {%endif%}
+                                <div class="precio-mostrar">
+                                    <div class="moneda">S/.</div>
+                                    <div class="cantidad_precio">{{varia.precio_venta}}</div>    
+                                </div>                                
                             </div>                            
                             {%endfor%}
                         </div>
@@ -227,7 +235,19 @@
                                 <span class="icon-triangle-up"></span>
                             </div>
                         </div>
-                        <div class="filter-field">
+                        <div class="filter-field cantidad">
+                            <div class="footer-contenido cantidad_contenido">
+                                <div class="conte">
+                                    <div class="option-value" data-cantidad='1'><span>1</span></div>
+                                    <div class="option-value" data-cantidad='2'><span>2</span></div>
+                                    <div class="option-value" data-cantidad='3'><span>3</span></div>
+                                    <div class="option-value" data-cantidad='4'><span>4</span></div>
+                                    <div class="option-value" data-cantidad='5'><span>5</span></div>
+                                </div>
+                                <div class="pin-selection">
+                                    <span class="icon-triangle-up"></span>
+                                </div>
+                            </div>
                             <div class="title">Cantidad</div>
                             <div class="selected">1</div>
                             <div class="widget-selector">
