@@ -36,7 +36,9 @@
                                 <span class="num-cart">0</span>
                             </li>
                             <li class="login">
-                                <span class="icon-head"></span>
+                                <a class="link" href="/mi_cuenta/">
+                                    <span class="icon-head"></span>                                    
+                                </a>
                             </li>
                             <li class="idioma">
                                 <span>ES</span>
@@ -51,47 +53,16 @@
                     <div id="capaPage">
                         <div class="page">
                             <div class="marco_page">
-                                <div id="logearse">
-                                    <h2 class="titulo_page">Identificarse o crear una cuenta</h2>
-                                    <div class="crear_cuenta enlinea cajalogin">
-                                        <h3>Nuevo Cliente</h3>
-                                        <p>Al crear una cuenta en LovizdelCarpio.com tu proceso de compra es más rápido porque tus datos ya están registrados en nuestra tienda, además podrás hacer un seguimiento de tus pedidos y estar informado de las últimas novedades.</p>
-                                        <button>Crear Cuenta</button>
-                                    </div>
-                                    <div class="logearse enlinea cajalogin">
-                                        <h3>Clientes Registrados</h3>
-                                        <p>Si usted tiene una cuenta con nosotros, por favor acceda.</p>
-                                        <div class="formulario_login">
-                                            <form id="formu_login" method="post">
-                                                <p>
-                                                    <label for="Email">Email*</label>
-                                                    <input type="text" name="email">
-                                                </p>
-                                                <p>
-                                                    <label for="Password">Contraseña*</label>
-                                                    <input type="password" name="password">    
-                                                </p>
-                                                <div class="botones">
-                                                    <a href="/pass_olvidado/">¿Has olvidado su contraseña?</a>
-                                                    <input type="submit" class="login-acceder" value="Acceder">
-                                                </div>    
-                                            </form>
-                                            
-                                        </div>
-                                    </div>    
-                                </div>
                                 <div id="area_user">
                                 </div>                           
                             </div>                            
                         </div>
                     </div>
-                    <div id="loader-wrapper">
-                    </div>
-                    <div id="inicio" class="invisible">
-                    </div>
+                    <div id="loader-wrapper"></div>
+                    <div id="inicio" class="invisible"></div>
                     <div id="tienda" class="invisible">                      
                         <ul id="productos"></ul>
-                        <div class="footer-holder">
+                        <div id="filtros_productos" class="footer-holder">
                             <div class="contenedor">
                                 <div id="producto-filter">
                                     <div id="type-selection" class="filter-field">
@@ -176,7 +147,35 @@
                 <button class="left salir_cuenta">Salir</button>
             </h2>
             <p class="bienvenida">Hola {{email}}, estas en el area de usaurio de LovizDelCarpio.com!</p>
+        </script>
 
+        <script id="loagearse_template" type="text/template">
+            <h2 class="titulo_page">Identificarse o crear una cuenta</h2>
+            <div class="crear_cuenta enlinea cajalogin">
+                <h3>Nuevo Cliente</h3>
+                <p>Al crear una cuenta en LovizdelCarpio.com tu proceso de compra es más rápido porque tus datos ya están registrados en nuestra tienda, además podrás hacer un seguimiento de tus pedidos y estar informado de las últimas novedades.</p>
+                <button>Crear Cuenta</button>
+            </div>
+            <div class="logearse enlinea cajalogin">
+                <h3>Clientes Registrados</h3>
+                <p>Si usted tiene una cuenta con nosotros, por favor acceda.</p>
+                <div class="formulario_login">
+                    <form id="formu_login" method="post">
+                        <p>
+                            <label for="Email">Email*</label>
+                            <input type="text" name="email">
+                        </p>
+                        <p>
+                            <label for="Password">Contraseña*</label>
+                            <input type="password" name="password">    
+                        </p>
+                        <div class="botones">
+                            <a href="/pass_olvidado/">¿Has olvidado su contraseña?</a>
+                            <input type="submit" class="login-acceder" value="Acceder">
+                        </div>    
+                    </form>                                            
+                </div>
+            </div>
         </script>
 
         <script type="text/template" id="producto_lista_theme">
@@ -317,8 +316,9 @@
                     <span class="icon-th"></span>
                 </div>
             </div>
-
         </script>
+
+
         <!--Fin de los Templates-->
 
         <script src="/js/vendor/jquery-1.11.1.js"></script>

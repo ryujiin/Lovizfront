@@ -12,7 +12,8 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	initialize : function () {
 		this.capas = ['tienda','inicio','custom','sobre','blog','faq','producto_single'];
 		this.obt_galleta();
-		//this.obt_carro();
+		window.views.home=this.cargarSliderHome()
+	
   	},
 	root : function () {
 		window.app.state = "inicio";
@@ -22,7 +23,6 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		this.cargarSliderHome();
 
 		this.mostrarcapas();
-		$('#inicio').show();
 	},
 	tiendaCatalogo: function(){
 		console.log('esta en la tienda');
@@ -64,8 +64,6 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	custom_Url:function(){
 		window.app.state = "custom";
 		this.escondercapas();
-
-
 	},
 	cargarProductos:function(){
 		var self = this;
@@ -88,6 +86,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		slider_view = new Loviz.Views.HomeSlider({
 			model: new Loviz.Models.SliderHome(),
 		});
+		return slider_view
 	},
 	mostrarcapas:function(){
 		var div=$('#'+window.app.state);
@@ -146,7 +145,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	obt_carro: function () {
 		if (window.views.carro) {
-			
+
 		}else{
 
 		}
@@ -171,6 +170,18 @@ Loviz.Routers.Base = Backbone.Router.extend({
 */
 	},
 	perfil_user:function(){
+		var model_perfil,vista_perfil;
+		window.app.state = 'usuario'
+		console.log(window.app.state)
+
+		window.views.tienda.desplegar_overlay();
+
+		model_perfil = new Loviz.Models.Perfil();
+
+		vista_perfil = new Loviz.Views.Perfil({
+			model:model_perfil
+		});
+		window.models.perfil=model_perfil;
 
 	}
 });

@@ -4,9 +4,7 @@ Loviz.Views.Tienda = Backbone.View.extend({
 		'click header .menu-principal li' : 'navegacionPrincipal',
 		'click a.nolink' : 'nomandarLink',
 		'click a.link' : 'linknormal',
-		'click .links-principales .login' : 'abrirLogin',
 		'click .overlayverde' : 'cerrarOverlay',
-		'submit #formu_login' : 'enviar_login',
 	},
 	initialize : function ($el) {
 		this.$el = $el;
@@ -47,41 +45,19 @@ Loviz.Views.Tienda = Backbone.View.extend({
 		Backbone.history.navigate(link, {trigger:true});
 
 	},
-	abrirLogin:function () {
-		var self = this;
-		var storage = $.localStorage;
-		var token = storage.get('token_login')
+	desplegar_overlay:function(){
 		$('.overlayverde').slideDown('slow',function () {
 			$('#capaPage').slideDown('slow');
-			$('#capaPage').addClass('seve');
-			if (token) {
-				self.datos_user();
-			}else{
-				$('#logearse').show();
-			}			
-		})
+		});
 	},
 	cerrarOverlay : function () {
 		if ($('#capaPage').has('seve')) {
 			$('#capaPage').slideUp('slow');
 		};
 		$('.overlayverde').slideUp('slow');
-	},
-	enviar_login:function(e){
-		var self = this;
-		e.preventDefault();
-		var self = this;
-		var email=$('#formu_login input[name=email]').val();
-		var pass=$('#formu_login input[name=password]').val();
-		$.post('http://localhost:8000/api-token-auth/',{username : email, password :pass})
-		.done(function(data){
-			var storage = $.localStorage;
-			storage.set({'token_login' : data.token});
-			self.datos_user();
-			$('#logearse').hide();
-		}).fail( function(data){
-			console.log('fallo la seccion por '+data);
-		})
+		if (window.app.state==="usuario") {
+			this.navigateHome();
+		};
 	},
 	datos_user:function(){
 		var sessionStorage=$.sessionStorage;
