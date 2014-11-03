@@ -47,6 +47,44 @@
             </header>
             <section id="contenido">
                 <div class="contefondo">
+                    <div class="overlayverde"></div>
+                    <div id="capaPage">
+                        <div class="page">
+                            <div class="marco_page">
+                                <div id="logearse">
+                                    <h2 class="titulo_page">Identificarse o crear una cuenta</h2>
+                                    <div class="crear_cuenta enlinea cajalogin">
+                                        <h3>Nuevo Cliente</h3>
+                                        <p>Al crear una cuenta en LovizdelCarpio.com tu proceso de compra es más rápido porque tus datos ya están registrados en nuestra tienda, además podrás hacer un seguimiento de tus pedidos y estar informado de las últimas novedades.</p>
+                                        <button>Crear Cuenta</button>
+                                    </div>
+                                    <div class="logearse enlinea cajalogin">
+                                        <h3>Clientes Registrados</h3>
+                                        <p>Si usted tiene una cuenta con nosotros, por favor acceda.</p>
+                                        <div class="formulario_login">
+                                            <form id="formu_login" method="post">
+                                                <p>
+                                                    <label for="Email">Email*</label>
+                                                    <input type="text" name="email">
+                                                </p>
+                                                <p>
+                                                    <label for="Password">Contraseña*</label>
+                                                    <input type="password" name="password">    
+                                                </p>
+                                                <div class="botones">
+                                                    <a href="/pass_olvidado/">¿Has olvidado su contraseña?</a>
+                                                    <input type="submit" class="login-acceder" value="Acceder">
+                                                </div>    
+                                            </form>
+                                            
+                                        </div>
+                                    </div>    
+                                </div>
+                                <div id="area_user">
+                                </div>                           
+                            </div>                            
+                        </div>
+                    </div>
                     <div id="loader-wrapper">
                     </div>
                     <div id="inicio" class="invisible">
@@ -129,6 +167,16 @@
             <div class="prueba">
                 <img src="{{imagen}}" alt="">
             </div>
+        </script>
+
+        <script id="perfil_template" type="text/template">
+            <h2 class="titulo_page">
+                <span class="icon-head"></span>
+                Mi Cuenta
+                <button class="left salir_cuenta">Salir</button>
+            </h2>
+            <p class="bienvenida">Hola {{email}}, estas en el area de usaurio de LovizDelCarpio.com!</p>
+
         </script>
 
         <script type="text/template" id="producto_lista_theme">
@@ -277,12 +325,17 @@
         <script src="/js/vendor/underscore.js"></script>
 	    <script src="/js/vendor/swig.js"></script>	
         <script src="/js/vendor/backbone-min.js"></script>
+        
+        <script src="/js/vendor/jquery.cookie.js"></script>
+        <script src="/js/vendor/jquery.storageapi.min.js"></script>
 
         <script src="/js/init.js"></script>      
 
         <script src="/js/backbone/models/productolista.js"></script>
+        <script src="/js/backbone/models/carroModel.js"></script>
         <script src="/js/backbone/models/prod_single.js"></script>
         <script src="/js/backbone/models/loader_model.js"></script>
+        <script src="/js/backbone/models/perfil.js"></script>
         <script src="/js/backbone/models/home_slider_model.js"></script>
 
         <script src="/js/backbone/collections/productolista.js"></script>      
@@ -295,6 +348,7 @@
         <script src="/js/backbone/views/loader_view.js"></script>
         <script src="/js/backbone/views/prducto-filter.js"></script>
         <script src="/js/backbone/views/home_slider_view.js"></script>
+        <script src="/js/backbone/views/perfil.js"></script>
 
         <script src="/js/backbone/routers/base.js"></script>
 	    

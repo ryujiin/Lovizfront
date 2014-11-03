@@ -1,5 +1,4 @@
-Loviz.Collections.ProductoLista = Backbone.Collection.extend({
-	model : Loviz.Models.ProductoLista,
+Loviz.Collections.ProductoLista = Backbone.Model.extend({
 	url : 'https://lovizdc.herokuapp.com/api/listaproducto/',
-	name : 'Productos Lista',
+	name : 'ProductosLista',
 });

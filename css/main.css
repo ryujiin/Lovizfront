@@ -10,8 +10,15 @@ body .left{float:left}
 body .letra1{color:#bbb}
 body .right{float:right}
 body .nolink{cursor:default}
+body .overlayverde{background:url("http://satorisan.com/website/images/popup_bg.png");width:100%;height:100%;position:fixed;display:none}
 #contenido{width:100%;overflow:hidden;}
 #contenido .contefondo{width:100%;text-align:center;position:absolute;top:61px;height:90%;background:url("/css/img/bg.png") repeat-x 50% 50% #dfe2e4}
+#capaPage{width:70%;position:absolute;left:15%;margin:auto;height:100%;display:none;}
+#capaPage .page{background-color:#fff;margin:auto;height:100%;}
+#capaPage .page .marco_page{padding:60px;}
+#capaPage .page .marco_page .cajalogin{width:48%}
+#capaPage .page .marco_page h2.titulo_page{color:#1b1b1b;font-size:35px;font-weight:normal;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:30px}
+#logearse,#area_user{display:none}
 footer{background:#333;position:fixed;bottom:0;width:100%;font-size:10px;padding:12px 0 8px 0;height:13px;z-index:10000;}
 footer a{color:#fff;font-size:11px;text-transform:uppercase;font-weight:600;text-shadow:1px 1px 0 #000}
 footer .footer .menu li{padding:0 20px}

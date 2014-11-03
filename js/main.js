@@ -1,6 +1,15 @@
 //Loviz Tienda
 $(document).ready(function(){
 	console.log('main.js loaded');
+    // Existe localStorage? 
+    var storage;
+    try {
+        if (localStorage.getItem) {
+            storage = localStorage;
+        }
+    } catch(e) {
+        storage = {};
+    }
 	
 	//creo las variables que necesito
 	window.views.tienda = new Loviz.Views.Tienda( $('body') );
@@ -8,5 +17,29 @@ $(document).ready(function(){
 
 	Backbone.history.start({
 		pushState:true,
+	});
+
+	function getCookie(name){
+    	var cookieValue = null;
+    	if (document.cookie && document.cookie != '') {
+        	var cookies = document.cookie.split(';');
+        	for (var i = 0; i < cookies.length; i++) {
+            	var cookie = jQuery.trim(cookies[i]);
+            	// Does this cookie string begin with the name we want?	 
+            	if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                	cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                	break;
+            	}
+        	}
+    	}
+    	return cookieValue;
+	}	 
+	$.ajaxSetup({
+     	beforeSend: function(xhr, settings) {
+         	if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+             	// Only send the token to relative URLs i.e. locally.
+                xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+         	}
+     	} 
 	});
 });
