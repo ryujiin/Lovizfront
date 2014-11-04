@@ -6,6 +6,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		"tienda/:slug_:id/":"singleProducto",
 		"custom/": "custom_Url",
 		"mi_cuenta/": "perfil_user",
+		"carrito/": "carrito",
 
 		'*notFound': 'notFound',
 	},
@@ -13,7 +14,8 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		this.capas = ['tienda','inicio','custom','sobre','blog','faq','producto_single'];
 		this.crear_perfil();
 		this.obt_galleta();
-		this.obt_carro();	
+		this.obt_carro();
+		this.bind('route',this.paginaVista);
   	},
 	root : function () {
 		window.app.state = "inicio";
@@ -73,6 +75,10 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		window.app.state = "custom";
 		this.escondercapas();
 	},
+	carrito:function(){
+		window.app.state = 'carrito';
+		window.views.tienda.desplegar_overlay();
+	},
 	cargarProductos:function(){
 		var self = this;
 		if (window.views.lista_productos) {
@@ -114,7 +120,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	ocultar_todo:function(){
 		$.each(this.capas,function(ind,elem){
 			if (elem===window.app.state) {
-				$('#'+elem).show('fast');	
+				$('#'+elem).show('fast');
 			}else{
 				$('#'+elem).hide('fast');
 			}
@@ -140,33 +146,56 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		};
 	},
 	obt_carro: function () {
+		var self = this;
 		if (window.views.carro) {
 		}else{
 			var modelo = new Loviz.Models.Carro();
       		window.views.carro = new Loviz.Views.Carro({
       			model:modelo
       		});
-			var token = $.localStorage.get('token_login');
+			var token = $.sessionStorage.get('token_login');
 			var user = $.sessionStorage.get('usuario');
 			if (token) {
 				modelo.fetch({
-					headers:{'Authorization':'JWT '+localStorage.token_login}
+					headers:{'Authorization':'JWT '+token}
 				}).fail(function(data){
 					modelo.set('sesion_carro',galleta);
 					modelo.set('estado','Abierto');
 					if (user) {
 						modelo.set('propietario',user)
 					};
-					modelo.save();
+					modelo.save().done(function(){
+						self.obt_lineas();
+					})
+				}).done(function(){
+					self.obt_lineas();
 				});
 			}else{
-				modelo.fetch()
+				modelo.fetch({
+					data:$.param({session:galleta})
+				})
 				.fail(function(data){
 					modelo.set('sesion_carro',galleta);
 					modelo.set('estado','Abierto');
-					modelo.save();
-				});
+					modelo.save().done(function(){
+						self.obt_lineas();
+					})
+				})
+				.done(function(){
+					self.obt_lineas();
+				})
 			}
+		}
+	},
+	obt_lineas:function(){
+		if (window.views.lineas) {
+		}else{
+			//var coleccion_lista = new Loviz.Collections.Lineas();
+
+			//window.views.carro_compras = new Loviz.Views.CarroCompras();
+			//window.views.lineas = new Loviz.Views.Lineas({collection:coleccion_lista});
+			//debugger;
+
 		}
 	},
 	perfil_user:function(){
@@ -174,8 +203,10 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		window.views.tienda.desplegar_overlay();
 
 		if (window.views.perfil) {
+			window.views.perfil.$el.show();
 		}else{
 			this.crear_perfil();
+			window.views.perfil.$el.show();			
 		}		
 	},
 	crear_perfil:function(){
@@ -187,4 +218,15 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		});
 		window.views.perfil=vista_perfil;
 	},
+	paginaVista:function(){
+         if(window.location.host === 'lovizdelcarpio.com'){
+			var url = Backbone.history.getFragment();
+			if (!/^\//.test(url) && url != ""){
+				url = "/" + url;
+			}
+			if(! _.isUndefined(_gaq)){
+				_gaq.push(['_trackPageview', url]);
+			} 
+		}
+	}
 });

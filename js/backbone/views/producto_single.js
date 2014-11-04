@@ -41,7 +41,9 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
     //revisar valores de formulario
     var variacion = $('.formulario_producto input[name=variacion]').val();
     if (variacion!=='') {
-      debugger;
+      if (window.views.carro) {
+        var carro = window.views.carro.model.get('id');
+      };
     }else{
       this.selecciontalla('olvido');
     }

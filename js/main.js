@@ -1,24 +1,17 @@
 //Loviz Tienda
 $(document).ready(function(){
 	console.log('main.js loaded');
-    // Existe localStorage? 
-    var storage;
-    try {
-        if (localStorage.getItem) {
-            storage = localStorage;
-        }
-    } catch(e) {
-        storage = {};
-    }
-	
+    
 	//creo las variables que necesito
 	window.views.tienda = new Loviz.Views.Tienda( $('body') );
+
 	window.routers.base = new Loviz.Routers.Base();
 
 	Backbone.history.start({
 		pushState:true,
 	});
 
+    //Funcion para el CRF
 	function getCookie(name){
     	var cookieValue = null;
     	if (document.cookie && document.cookie != '') {

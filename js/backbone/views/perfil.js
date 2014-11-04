@@ -9,7 +9,8 @@ Loviz.Views.Perfil = Backbone.View.extend({
 	},
 
 	initialize : function () {
-    var token = $.localStorage.get('token_login');
+    var token = $.sessionStorage.get('token_login');
+    var self = this;
     if (token) {
       this.datos_user();
     }else{
@@ -21,12 +22,10 @@ Loviz.Views.Perfil = Backbone.View.extend({
     var perfil = this.model.toJSON()
     var html = this.template(perfil);
     this.$el.html(html);
-    this.$el.show();
   },
   renderLogin:function(){
     var html = this.template_loguin();
     this.$el.html(html);
-    this.$el.show();
   },
   salir:function(){
   	window.views.tienda.cerrarOverlay();
@@ -43,7 +42,7 @@ Loviz.Views.Perfil = Backbone.View.extend({
     var pass=$('#formu_login input[name=password]').val();
     $.post('http://localhost:8000/api-token-auth/',{username : email, password :pass})
     .done(function(data){
-      var storage = $.localStorage;
+      var storage = $.sessionStorage;
       storage.set({'token_login' : data.token});
       self.datos_user();
       $('#logearse').hide();
@@ -52,13 +51,13 @@ Loviz.Views.Perfil = Backbone.View.extend({
     })
   },
   datos_user:function(){
-    var token = $.localStorage.get('token_login');
+    var token = $.sessionStorage.get('token_login');
     var self = this;
     var sessionStorage=$.sessionStorage;
-    
+
     if (token) {
       self.model.fetch({
-        headers:{'Authorization':'JWT '+localStorage.token_login}
+        headers:{'Authorization':'JWT '+token}
       })
       .done(function(data){
         $.sessionStorage.set('usuario',data.usuario)

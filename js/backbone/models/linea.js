@@ -1,4 +1,4 @@
-Loviz.Models.LineaCarro = Backbone.Model.extend({
-	url : '/api/lineas/',
-	name : 'LineaCarro',
+Loviz.Models.Linea = Backbone.Model.extend({
+	url : 'http://localhost:8000/api/lineas/',
+	name : 'Linea',
 });
