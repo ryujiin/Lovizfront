@@ -11,8 +11,9 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	initialize : function () {
 		this.capas = ['tienda','inicio','custom','sobre','blog','faq','producto_single'];
+		this.crear_perfil();
 		this.obt_galleta();
-	
+		this.obt_carro();	
   	},
 	root : function () {
 		window.app.state = "inicio";
@@ -140,47 +141,50 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	obt_carro: function () {
 		if (window.views.carro) {
-
 		}else{
-
+			var modelo = new Loviz.Models.Carro();
+      		window.views.carro = new Loviz.Views.Carro({
+      			model:modelo
+      		});
+			var token = $.localStorage.get('token_login');
+			var user = $.sessionStorage.get('usuario');
+			if (token) {
+				modelo.fetch({
+					headers:{'Authorization':'JWT '+localStorage.token_login}
+				}).fail(function(data){
+					modelo.set('sesion_carro',galleta);
+					modelo.set('estado','Abierto');
+					if (user) {
+						modelo.set('propietario',user)
+					};
+					modelo.save();
+				});
+			}else{
+				modelo.fetch()
+				.fail(function(data){
+					modelo.set('sesion_carro',galleta);
+					modelo.set('estado','Abierto');
+					modelo.save();
+				});
+			}
 		}
-		/*
-		var self = this,carros,carro,modelo,busq_carro,vistacarro;
-      	carro = new Loviz.Models.Carro();
-      	carros = new Loviz.Collections.Carros();
-      	busq_carro = carros.fetch();
-      	busq_carro.done(function(){
-      		if (carros.length==0) {
-      			carro.set('sesion_carro',galleta);
-				carro.set('estado','Abierto');
-				carro.set('propietario','');
-				carro.save();
-      		}else{
-      			carro = carros.first();
-      		};
-      		vistacarro = new Loviz.Views.Carro({model:carro});
-      		window.views.carro = vistacarro;
-      		self.buscaLineas();
-      	});
-*/
 	},
 	perfil_user:function(){
 		window.app.state = 'usuario'
 		window.views.tienda.desplegar_overlay();
 
-
 		if (window.views.perfil) {
-
 		}else{
-			var model_perfil,vista_perfil;
+			this.crear_perfil();
+		}		
+	},
+	crear_perfil:function(){
+		var model_perfil,vista_perfil;
 
-			model_perfil = new Loviz.Models.Perfil();
-
-			vista_perfil = new Loviz.Views.Perfil({
-				model:model_perfil
-			});
-			window.views.perfil=vista_perfil;
-		}
-		
-	}
+		model_perfil = new Loviz.Models.Perfil();
+		vista_perfil = new Loviz.Views.Perfil({
+			model:model_perfil
+		});
+		window.views.perfil=vista_perfil;
+	},
 });
