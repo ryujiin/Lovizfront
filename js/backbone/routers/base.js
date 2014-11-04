@@ -12,7 +12,6 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	initialize : function () {
 		this.capas = ['tienda','inicio','custom','sobre','blog','faq','producto_single'];
 		this.obt_galleta();
-		window.views.home=this.cargarSliderHome()
 	
   	},
 	root : function () {
@@ -20,9 +19,9 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		//borrar el resto de contenidos
 		this.preloader('Loviz DelCarpio');
 
-		this.cargarSliderHome();
-
-		this.mostrarcapas();
+		window.views.home=this.cargarSliderHome()
+		
+		window.views.home.aparecer();
 	},
 	tiendaCatalogo: function(){
 		console.log('esta en la tienda');
@@ -33,9 +32,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		this.preloader('Tienda');
 		//Carga productos
 		this.cargarProductos();
-		//Se muestra el Div
-		this.mostrarcapas();
-
+		$('#tienda').show()
 	},
 	singleProducto:function(slug,id){
 		var self = this;
@@ -67,19 +64,21 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	cargarProductos:function(){
 		var self = this;
+		if (window.views.lista_productos) {
+			window.views.tienda.pagina_cargada();
+		}else{
+			this.productos_Collection = new Loviz.Collections.ProductoLista();
+			this.productos_Vista  = new Loviz.Views.ProductosLista({collection:this.productos_Collection});
+
+			window.collections.lista_productos = this.productos_Collection;
+			window.views.lista_productos = this.productos_Vista;
+			var buscar = this.productos_Collection.fetch();
 		
-		this.productos = new Loviz.Collections.ProductoLista();
-		this.vista_producto  = new Loviz.Views.ProductosLista({collection:this.productos});
-
-		window.collections.lista_productos = this.productos;
-		window.views.lista_productos = this.vista_producto;
-
-		var buscar = this.productos.fetch();
-		
-		buscar.done(function(){
-			window.views.lista_productos.cargaCompleta();
-
-		});
+			buscar.done(function(){
+				window.views.lista_productos.primeraCarga();
+				window.views.lista_productos.aparecer();
+			});
+		}
 	},
 	cargarSliderHome : function(){
 		var modelo,slider_view;
@@ -87,26 +86,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			model: new Loviz.Models.SliderHome(),
 		});
 		return slider_view
-	},
-	mostrarcapas:function(){
-		var div=$('#'+window.app.state);
-		//Volverlo todo invisble;
-		$('.invisible').hide();
-		//mostrar div que se necesita
-		div.show();
-
-		if (window.app.state !=='tienda') {
-			if (window.views.lista_productos) {
-				window.views.lista_productos.$el.empty();
-			};
-		};
-		//Poner activo el navegador
-		$('header .menu-principal li').each(function(ind,elem){
-			var li = $(elem).data("url")
-			if (li === window.app.state) {
-				$(elem).addClass('activo')
-			};
-		});
+		
 	},
 	preloader:function(title){
 		//Verifica si esta la clase Loaded y si esta la borra

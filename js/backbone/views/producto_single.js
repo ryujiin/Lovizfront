@@ -28,10 +28,10 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
     Backbone.history.navigate('/tienda/', {trigger:true});    
   },
   cargaCompleta:function(){
-      this.$el.find('img').on('load',function(){
-        $('body').addClass('loaded');
-      });
-      this.$el.show()
+    this.$el.find('img').load(function(){
+      $('body').addClass('loaded');
+    })
+    this.$el.show();
   },
   cerrar_info:function(){
     this.$el.fadeOut();

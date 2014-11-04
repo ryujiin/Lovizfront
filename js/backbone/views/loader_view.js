@@ -2,9 +2,6 @@ Loviz.Views.Loader = Backbone.View.extend({
 	el:$('#loader-wrapper'),
   	template: swig.compile($("#loader_template").html()),
 
-	events: {
-		'click .logo' : 'navigateHome',
-	},
 	initialize : function () {
 		this.render();
 	},

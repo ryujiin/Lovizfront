@@ -59,24 +59,7 @@ Loviz.Views.Tienda = Backbone.View.extend({
 			this.navigateHome();
 		};
 	},
-	datos_user:function(){
-		var sessionStorage=$.sessionStorage;
-		var perfil = new Loviz.Models.Perfil()
-		var perfil_vista;
-
-		if (window.views.perfil) {
-			console.log('si sale')
-		}else{
-			perfil.fetch({
-			headers:{'Authorization':'JWT '+localStorage.token_login}
-			}).done(function(){
-				Backbone.history.navigate('/mi_cuenta/', {trigger:true});  	
-
-				perfil_vista = new Loviz.Views.Perfil({
-					model:perfil
-				})
-				window.views.perfil = perfil_vista;
-			})
-		}		
-	}
+	pagina_cargada: function(){
+		this.$el.addClass('loaded');
+	},
 });

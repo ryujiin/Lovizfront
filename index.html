@@ -22,11 +22,11 @@
                     </div>
                     <nav class="menu-principal enlinea">
                         <ul class="menu">
-                            <li data-url="tienda"><a href="/tienda/">Tienda</a></li>
-                            <li data-url="custom"><a href="/custom/">Personalizado</a></li>
-                            <li data-url="sobre"><a href="/sobre-loviz/">Nuestra Historia</a></li>
-                            <li data-url="blog"><a href="/blog/">Blog</a></li>
-                            <li data-url="faq"><a href="/faq/">FAQ</a></li>
+                            <li data-url="tienda"><a class="link" href="/tienda/">Tienda</a></li>
+                            <li data-url="custom"><a class="link" href="/custom/">Personalizado</a></li>
+                            <li data-url="sobre"><a class="link" href="/sobre-loviz/">Nuestra Historia</a></li>
+                            <li data-url="blog"><a class="link" href="/blog/">Blog</a></li>
+                            <li data-url="faq"><a class="link" href="/faq/">FAQ</a></li>
                         </ul>
                     </nav>
                     <div class="links-principales enlinea">
@@ -59,8 +59,8 @@
                         </div>
                     </div>
                     <div id="loader-wrapper"></div>
-                    <div id="inicio" class="invisible"></div>
-                    <div id="tienda" class="invisible">                      
+                    <div id="inicio"></div>
+                    <div id="tienda" >                      
                         <ul id="productos"></ul>
                         <div id="filtros_productos" class="footer-holder">
                             <div class="contenedor">
@@ -104,9 +104,9 @@
                             </div>
                         </div>
                     </div>
-                    <div id="producto_single" class="invisible">
+                    <div id="producto_single">
                     </div>
-                    <div id="custom" class="invisible"></div>
+                    <div id="custom"></div>
                 </div>
             </section>
             <footer>
@@ -338,8 +338,7 @@
         <script src="/js/backbone/models/perfil.js"></script>
         <script src="/js/backbone/models/home_slider_model.js"></script>
 
-        <script src="/js/backbone/collections/productolista.js"></script>      
-        <script src="/js/backbone/collections/prod_single_collection.js"></script>
+        <script src="/js/backbone/collections/producto_lista.js"></script> 
 
         <script src="/js/backbone/views/tienda.js"></script>
         <script src="/js/backbone/views/productoslista.js"></script>
