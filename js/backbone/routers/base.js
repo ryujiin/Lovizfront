@@ -16,17 +16,24 @@ Loviz.Routers.Base = Backbone.Router.extend({
   	},
 	root : function () {
 		window.app.state = "inicio";
+		this.ocultar_todo();
+
 		//borrar el resto de contenidos
 		this.preloader('Loviz DelCarpio');
 
-		window.views.home=this.cargarSliderHome()
-		
-		window.views.home.aparecer();
+		if (window.views.home) {
+			window.views.home.aparecer();
+		}else{
+			window.views.home=this.cargarSliderHome()
+			window.views.home.aparecer();
+		}
 	},
 	tiendaCatalogo: function(){
+
 		console.log('esta en la tienda');
 
 		window.app.state = "tienda";
+		this.ocultar_todo();
 
 		//Aparece el PreCargador
 		this.preloader('Tienda');
@@ -35,10 +42,13 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		$('#tienda').show()
 	},
 	singleProducto:function(slug,id){
+		window.app.state="producto_single";
+
+		this.ocultar_todo();
+
 		var self = this;
 		var modeloJSON,buscar;
 
-		window.app.state="producto_single";
 
 		this.preloader('Cargando Producto');
 
@@ -86,16 +96,12 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			model: new Loviz.Models.SliderHome(),
 		});
 		return slider_view
-		
 	},
 	preloader:function(title){
 		//Verifica si esta la clase Loaded y si esta la borra
 		if ($('body').hasClass('loaded')) {
 			$('body').removeClass('loaded');
 		};
-		$.each(this.capas,function(ind,elem){			
-			$('#'+elem).hide('fast');
-		});
 		/*Crear modelo de loader*/
 		p = new Loviz.Models.Loader({titulo:title});
 		l = new Loviz.Views.Loader({model:p});
@@ -103,6 +109,15 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	notFound:function(){
 		console.log('No se encontro la pagina')
 		debugger;
+	},
+	ocultar_todo:function(){
+		$.each(this.capas,function(ind,elem){
+			if (elem===window.app.state) {
+				$('#'+elem).show('fast');	
+			}else{
+				$('#'+elem).hide('fast');
+			}
+		});
 	},
 	obt_galleta : function(){
 		galleta = $.cookie('carrito');
@@ -150,18 +165,22 @@ Loviz.Routers.Base = Backbone.Router.extend({
 */
 	},
 	perfil_user:function(){
-		var model_perfil,vista_perfil;
 		window.app.state = 'usuario'
-		console.log(window.app.state)
-
 		window.views.tienda.desplegar_overlay();
 
-		model_perfil = new Loviz.Models.Perfil();
 
-		vista_perfil = new Loviz.Views.Perfil({
-			model:model_perfil
-		});
-		window.models.perfil=model_perfil;
+		if (window.views.perfil) {
 
+		}else{
+			var model_perfil,vista_perfil;
+
+			model_perfil = new Loviz.Models.Perfil();
+
+			vista_perfil = new Loviz.Views.Perfil({
+				model:model_perfil
+			});
+			window.views.perfil=vista_perfil;
+		}
+		
 	}
 });

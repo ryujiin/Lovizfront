@@ -19,6 +19,5 @@ Loviz.Views.ProductosLista = Backbone.View.extend({
   },
   aparecer : function(){
     $('#tienda').show();
-    debugger;
   }
 });

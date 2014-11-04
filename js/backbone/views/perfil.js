@@ -11,11 +11,11 @@ Loviz.Views.Perfil = Backbone.View.extend({
 	initialize : function () {
     var token = $.localStorage.get('token_login');
     if (token) {
-      this.render();
+      this.datos_user();
     }else{
       this.renderLogin();
     }
-    	this.listenTo(this.model, "change", this.render, this);
+    this.listenTo(this.model, "change", this.render, this);
 	},
 	render: function () {
     var perfil = this.model.toJSON()
@@ -55,9 +55,9 @@ Loviz.Views.Perfil = Backbone.View.extend({
     var token = $.localStorage.get('token_login');
     var self = this;
     var sessionStorage=$.sessionStorage;
-
+    
     if (token) {
-      window.models.perfil.fetch({
+      self.model.fetch({
         headers:{'Authorization':'JWT '+localStorage.token_login}
       })
       .done(function(data){
