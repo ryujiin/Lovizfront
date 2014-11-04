@@ -12,14 +12,13 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	initialize : function () {
 		this.capas = ['tienda','inicio','custom','sobre','blog','faq','producto_single'];
-		this.crear_perfil();
 		this.obt_galleta();
-		this.obt_carro();
+		//this.obt_carro();
 		this.bind('route',this.paginaVista);
   	},
 	root : function () {
 		window.app.state = "inicio";
-		this.ocultar_todo();
+		//this.ocultar_todo();
 
 		//borrar el resto de contenidos
 		this.preloader('Loviz DelCarpio');
@@ -36,7 +35,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		console.log('esta en la tienda');
 
 		window.app.state = "tienda";
-		this.ocultar_todo();
+		//this.ocultar_todo();
 
 		//Aparece el PreCargador
 		this.preloader('Tienda');
@@ -47,7 +46,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	singleProducto:function(slug,id){
 		window.app.state="producto_single";
 
-		this.ocultar_todo();
+		//this.ocultar_todo();
 
 		var self = this;
 		var modeloJSON,buscar;

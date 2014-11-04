@@ -17,6 +17,14 @@ Loviz.Views.Perfil = Backbone.View.extend({
       this.renderLogin();
     }
     this.listenTo(this.model, "change", this.render, this);
+
+    window.routers.base.on('route',function(e){
+      if (e==='perfil_user') {
+        self.$el.show();
+      }else{
+        self.$el.hide();
+      }
+    });
 	},
 	render: function () {
     var perfil = this.model.toJSON()

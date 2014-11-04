@@ -7,9 +7,30 @@ $(document).ready(function(){
 
 	window.routers.base = new Loviz.Routers.Base();
 
+    //creo perfil User    
+    window.views.perfil = crear_perfil();
+
+
 	Backbone.history.start({
 		pushState:true,
 	});
+    /*
+    Funciones para Lovizdelcarpio.com
+    */
+    //Funcion para crear usuario
+    function crear_perfil () {
+        if (window.views.perfil) {
+            return window.views.perfil
+        }else{
+            var model_perfil,vista_perfil;
+            model_perfil = new Loviz.Models.Perfil();
+            vista_perfil = new Loviz.Views.Perfil({
+                model:model_perfil
+            });
+            window.views.perfil=vista_perfil;
+            return window.views.perfil
+        }
+    };
 
     //Funcion para el CRF
 	function getCookie(name){
