@@ -6,8 +6,16 @@ Loviz.Views.HomeSlider = Backbone.View.extend({
 		
 	},
 	initialize : function () {
+		var self = this;
 		this.render();
 		this.cargado();
+		window.routers.base.on('route',function(e){
+	      if (e==='root') {
+	        self.$el.show();
+	      }else{
+	        self.$el.hide();
+	      }
+	    });
 	},
 	render: function () {
 	    var album = this.model.toJSON()

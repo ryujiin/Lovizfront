@@ -15,7 +15,15 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
   template: swig.compile($("#produto_single_theme").html()),
 
   initialize: function () {
+    var self = this;
     this.listenTo(this.model, "change", this.render, this);
+    window.routers.base.on('route',function(e){
+      if (e==='singleProducto') {
+        self.$el.show();
+      }else{
+        self.$el.hide();
+      }
+    });
   },
 
   render: function () {

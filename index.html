@@ -31,10 +31,8 @@
                     </nav>
                     <div class="links-principales enlinea">
                         <ul class="menu iconos-left">
-                            <li class="carrito">
-                                <span class="icon-cart"></span>
-                                <span class="num-cart">0</span>
-                                <div id="mini_carrito"></div>
+                            <li id="mini_carrito" class="carrito">
+                                
                             </li>
                             <li class="login">
                                 <a class="link" href="/mi_cuenta/">
@@ -177,6 +175,11 @@
                     </form>                                            
                 </div>
             </div>
+        </script>
+
+        <script id="mini_carrito_template" type="text/template">
+            <span class="icon-cart"></span>
+            <span class="num-cart">{{lineas}}</span>
         </script>
 
         <script id="carro_template" type="text/template">

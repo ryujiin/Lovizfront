@@ -2,7 +2,15 @@ Loviz.Views.ProductosLista = Backbone.View.extend({
   el: $('#productos'),
 
   initialize: function () {
+    var self = this;
     this.listenTo(this.collection, "add", this.addOne, this);
+    window.routers.base.on('route',function(e){
+      if (e==='tiendaCatalogo') {
+        self.$el.show();
+      }else{
+        self.$el.hide();
+      }
+    });
   },
   render: function () {
     this.collection.forEach(this.addOne, this);

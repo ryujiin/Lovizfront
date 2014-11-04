@@ -11,9 +11,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		'*notFound': 'notFound',
 	},
 	initialize : function () {
-		this.capas = ['tienda','inicio','custom','sobre','blog','faq','producto_single'];
 		this.obt_galleta();
-		//this.obt_carro();
 		this.bind('route',this.paginaVista);
   	},
 	root : function () {
@@ -116,15 +114,6 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		console.log('No se encontro la pagina')
 		debugger;
 	},
-	ocultar_todo:function(){
-		$.each(this.capas,function(ind,elem){
-			if (elem===window.app.state) {
-				$('#'+elem).show('fast');
-			}else{
-				$('#'+elem).hide('fast');
-			}
-		});
-	},
 	obt_galleta : function(){
 		galleta = $.cookie('carrito');
 		if (galleta==null) {
@@ -143,59 +132,6 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			};
 			return pass
 		};
-	},
-	obt_carro: function () {
-		var self = this;
-		if (window.views.carro) {
-		}else{
-			var modelo = new Loviz.Models.Carro();
-      		window.views.carro = new Loviz.Views.Carro({
-      			model:modelo
-      		});
-			var token = $.sessionStorage.get('token_login');
-			var user = $.sessionStorage.get('usuario');
-			if (token) {
-				modelo.fetch({
-					headers:{'Authorization':'JWT '+token}
-				}).fail(function(data){
-					modelo.set('sesion_carro',galleta);
-					modelo.set('estado','Abierto');
-					if (user) {
-						modelo.set('propietario',user)
-					};
-					modelo.save().done(function(){
-						self.obt_lineas();
-					})
-				}).done(function(){
-					self.obt_lineas();
-				});
-			}else{
-				modelo.fetch({
-					data:$.param({session:galleta})
-				})
-				.fail(function(data){
-					modelo.set('sesion_carro',galleta);
-					modelo.set('estado','Abierto');
-					modelo.save().done(function(){
-						self.obt_lineas();
-					})
-				})
-				.done(function(){
-					self.obt_lineas();
-				})
-			}
-		}
-	},
-	obt_lineas:function(){
-		if (window.views.lineas) {
-		}else{
-			//var coleccion_lista = new Loviz.Collections.Lineas();
-
-			//window.views.carro_compras = new Loviz.Views.CarroCompras();
-			//window.views.lineas = new Loviz.Views.Lineas({collection:coleccion_lista});
-			//debugger;
-
-		}
 	},
 	perfil_user:function(){
 		window.app.state = 'usuario'

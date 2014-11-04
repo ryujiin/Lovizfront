@@ -10,6 +10,9 @@ $(document).ready(function(){
     //creo perfil User    
     window.views.perfil = crear_perfil();
 
+    //creo Carro
+    window.views.carro = crear_carro();
+
 
 	Backbone.history.start({
 		pushState:true,
@@ -31,6 +34,49 @@ $(document).ready(function(){
             return window.views.perfil
         }
     };
+    //Funcion para crear Carro
+    function crear_carro () {
+        var modelo = new Loviz.Models.Carro();
+        var carro = new Loviz.Views.CarroCompras({
+            model:modelo
+        });
+        window.views.mini_carrito = new Loviz.Views.Carro({
+            model:modelo
+        })
+        var token = $.sessionStorage.get('token_login');
+        var user = $.sessionStorage.get('usuario');
+        if (token) {
+            modelo.fetch({
+                headers:{'Authorization':'JWT '+token}
+            }).fail(function(data){
+                modelo.set('sesion_carro',galleta);
+                modelo.set('estado','Abierto');
+                if (user) {
+                    modelo.set('propietario',user)
+                };
+                modelo.save().done(function(data){
+                    $.sessionStorage.set('carro_id',data.id);
+                })
+            }).done(function(data){
+                $.sessionStorage.set('carro_id',data.id);
+            });
+        }else{
+            modelo.fetch({
+                data:$.param({session:galleta})
+            })
+            .fail(function(data){
+                modelo.set('sesion_carro',galleta);
+                modelo.set('estado','Abierto');
+                modelo.save().done(function(data){
+                    $.sessionStorage.set('carro_id',data.id)                    
+                })
+            })
+            .done(function(data){
+                $.sessionStorage.set('carro_id',data.id)
+            })
+        }
+        return carro
+    }
 
     //Funcion para el CRF
 	function getCookie(name){

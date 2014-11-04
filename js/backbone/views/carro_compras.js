@@ -3,16 +3,19 @@ Loviz.Views.CarroCompras = Backbone.View.extend({
   	template: swig.compile($("#carro_template").html()),
 
 	initialize: function () {
+		var self = this;
 		this.render();
-    	//this.listenTo(this.collection, "add", this.addOne, this);
+		window.routers.base.on('route',function(e){
+	      if (e==='carrito') {
+	        self.$el.show();
+	      }else{
+	        self.$el.hide();
+	      }
+	    });
 	},
 	render: function () {
 	    var html = this.template();
 	    this.$el.html(html);
-		//this.collection.forEach(this.addOne, this);
 	},
-	addOne: function (linea) {
-		//var linea_lista = new Loviz.Views.Linea({ model: linea });
-		//this.$el.append(linea_lista.render().el);
-	},
+
 });

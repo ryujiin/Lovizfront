@@ -1,8 +1,10 @@
 Loviz.Views.Carro = Backbone.View.extend({
-  	template: swig.compile($("#loader_template").html()),
+	el:$('#mini_carrito'),
+
+  	template: swig.compile($("#mini_carrito_template").html()),
 
 	initialize : function () {
-		this.render();
+    	this.listenTo(this.model, "change", this.render, this);
 	},
 	render: function () {
 	    var album = this.model.toJSON()
