@@ -1,12 +1,9 @@
-Loviz.Views.Linea = Backbone.View.extend({
-
-  tagName: 'tr',
-  className: 'linea_carro',
-
+Loviz.Views.Mini_Linea = Backbone.View.extend({
+  el: $('#minilinea'),
   events: {
   },
 
-  template: swig.compile($("#linea_template").html()),
+  template: swig.compile($("#mini_linea_template").html()),
 
   initialize: function () {
     this.listenTo(this.model, "change", this.render, this);
@@ -16,6 +13,8 @@ Loviz.Views.Linea = Backbone.View.extend({
     var album = this.model.toJSON()
     var html = this.template(album);
     this.$el.html(html);
-    return this;
   },
+  aparecer : function () {
+    this.$el.slideDown('slow').delay(3000).slideUp('fast');
+  }
 });

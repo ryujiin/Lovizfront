@@ -85,15 +85,19 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	crear_vistaLineas:function () {
 		if(window.views.lineas===undefined){
 			var coleccion_lineas = new Loviz.Collections.Lineas();
-			window.views.lineas = new Loviz.Views.Lineas({
+			var carro = $.sessionStorage.get('carro_id');
+			var vista_lineas = new Loviz.Views.Lineas({
 				collection:coleccion_lineas
 			});
-			coleccion_lineas.fetch().done(function () {
+			coleccion_lineas.fetch({
+				data:$.param({carro:carro})
+			}).done(function () {
 				var num = coleccion_lineas.length
 				if (num===0) {
 					window.views.lineas.render_vacio();	
-				};					
-			})
+				}
+			});
+			return vista_lineas;
 		}
 	},
 	cargarProductos:function(){

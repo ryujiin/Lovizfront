@@ -57,14 +57,21 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
         if (window.views.lineas) {
           var modelo = new Loviz.Models.Linea()
           modelo.set({carro:carrito,producto:producto,variacion:variacion,cantidad:cantidad});
-          modelo.save().done(function (data) {
-            debugger;
+          window.views.mini_linea = new Loviz.Views.Mini_Linea({
+            model:modelo
+          });
+          modelo.save().done(function () {
+            window.views.mini_linea.render();
+            window.views.mini_linea.aparecer();
+            window.views.mini_carrito.model.fetch();
           });
         };
       };
     }else{
       this.selecciontalla('olvido');
     }
+  },
+  crear_linea_chiquita:function () {
   },
   selecciontalla:function(o){
     this.num++

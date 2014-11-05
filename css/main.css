@@ -83,6 +83,7 @@ header .links-principales li:hover{color:#6ba63a}
 #producto_single .back-tienda .back-to-text{width:80px;float:left;font-size:11px;font-weight:bold;text-transform:uppercase;padding-top:13px}
 #producto_single .back-tienda .grilla-menu{float:left;width:50px;height:50px;}
 #producto_single .back-tienda .grilla-menu span{font-size:30px;line-height:50px}
+#producto_single .formulario_producto{display:none}
 #producto_single .marco_producto{width:1200px;margin:80px auto;display:table;}
 #producto_single .marco_producto .imagen_principal{vertical-align:middle;width:600px}
 #producto_single .marco_producto .descripcion{width:450px;vertical-align:middle;background:#fff;padding:20px 30px;position:relative;}
@@ -91,6 +92,9 @@ header .links-principales li:hover{color:#6ba63a}
 #producto_single .marco_producto .descripcion .cerrar_producto:hover span{color:#6ba63a}
 #producto_single .marco_producto .descripcion .cerrar_producto span{font-size:32px;color:#6e6e6e}
 #producto_single .marco_producto .colores ul li{list-style:none;width:100px;display:inline-block}
+#minilinea{width:300px;position:fixed;background:#fff;right:50px;text-align:center;box-shadow:0 2px 2px rgba(0,0,0,0.5);display:none;z-index:1;}
+#minilinea figure{width:80px;margin:0 auto}
+#minilinea p{margin:.6em}
 #loader-wrapper{text-align:center;}
 #loader-wrapper .bag-loader{background:url("/css/img/bg.png") repeat-x 50% 50% #dfe2e4;width:100%;position:absolute;height:100%;top:61px}
 #loader-wrapper .titulo{text-transform:uppercase;position:absolute;top:120px;z-index:2;width:100%}

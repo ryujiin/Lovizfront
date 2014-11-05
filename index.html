@@ -48,6 +48,8 @@
             </header>
             <section id="contenido">
                 <div class="contefondo">
+                    <div id="minilinea">
+                    </div>
                     <div class="overlayverde"></div>
                     <div id="capaPage">
                         <div class="page">
@@ -125,7 +127,7 @@
             </footer>
         </div>
         <!--Templates de scripts-->
-        <script type="text/template" id="loader_template">
+        <script id="loader_template" type="text/template">
             <div class="titulo">
                 <h2>{{titulo}}...</h2>
             </div>
@@ -133,7 +135,7 @@
             <div id="loader"></div>
         </script>
 
-        <script type="text/template" id="home_slider_theme">
+        <script id="home_slider_theme" type="text/template">
             <div class="prueba">
                 <img src="{{imagen}}" alt="">
             </div>
@@ -178,10 +180,39 @@
         </script>
 
         <script id="mini_carrito_template" type="text/template">
-            <a href="/carrito/">
+            <a class="link" href="/carrito/">
                 <span class="icon-cart"></span>
                 <span class="num-cart">{{lineas}}</span>
             </a>            
+        </script>
+
+        <script id="mini_linea_template" type="text/template">
+            <figure class="thum_mini_linea">
+                <img src="{{thum}}" alt="{{nombre}}">
+            </figure>
+            <div class="nombre_mini_linea">
+                <h4>{{nombre}}</h4>
+                <p>Añadido al carrito</p>
+            </div>
+        </script>
+
+        <script id="linea_template" type="text/template">
+            <td class="linea-img">
+                <figure>
+                    <img src="{{thum}}" alt="{{nombre}}">
+                </figure>    
+            </td>
+            <td class="linea-nombre">
+                {{nombre}}
+            </td>
+            <td class="linea-talla">
+                {{talla}}
+            </td>
+            <td class="linea-precio"></td>
+            <td class="linea-cantidad">
+                <input type="number" name='cantidad-linea' value="{{cantidad}}">
+            </td>
+            <td class="linea-subtotal"></td>
         </script>
 
         <script id="carro_template" type="text/template">
@@ -198,7 +229,24 @@
             <button>Seguir Comprando</button>
         </script>
 
-        <script type="text/template" id="producto_lista_theme">
+        <srcript id="carro_lleno_template" type="text/template">
+            <table class="lineas-carro">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Ref. de producto</th>
+                        <th>talla</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>subtotal</th>
+                    </tr>
+                </thead>
+                <tbody class="cuerpo_lineas_lista">
+                </tbody>
+            </table>
+        </srcript>
+
+        <script id="producto_lista_theme" type="text/template">
            <a class="enlace_producto" data-id="{{id}}" href="/tienda/{{slug}}_{{id}}/">
                 <figure class="img_producto">
                     <img src="{{thum}}" alt="" class="">
@@ -386,6 +434,7 @@
         <script src="/js/backbone/views/carro_compras.js"></script>
         <script src="/js/backbone/views/lineas.js"></script>
         <script src="/js/backbone/views/linea.js"></script>
+        <script src="/js/backbone/views/mini_linea.js"></script>
 
         <script src="/js/backbone/routers/base.js"></script>
 	    

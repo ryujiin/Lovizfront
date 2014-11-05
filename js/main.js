@@ -13,6 +13,8 @@ $(document).ready(function(){
     //creo Carro
     window.views.carro = crear_carro();
 
+    window.views.lineas = window.routers.base.crear_vistaLineas();
+
 
 	Backbone.history.start({
 		pushState:true,
