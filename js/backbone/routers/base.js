@@ -75,6 +75,26 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	carrito:function(){
 		window.app.state = 'carrito';
 		window.views.tienda.desplegar_overlay();
+
+		if (window.views.carro) {
+			if(window.views.lineas===undefined){
+				this.crear_vistaLineas();
+			}
+		}
+	},
+	crear_vistaLineas:function () {
+		if(window.views.lineas===undefined){
+			var coleccion_lineas = new Loviz.Collections.Lineas();
+			window.views.lineas = new Loviz.Views.Lineas({
+				collection:coleccion_lineas
+			});
+			coleccion_lineas.fetch().done(function () {
+				var num = coleccion_lineas.length
+				if (num===0) {
+					window.views.lineas.render_vacio();	
+				};					
+			})
+		}
 	},
 	cargarProductos:function(){
 		var self = this;
@@ -154,7 +174,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		window.views.perfil=vista_perfil;
 	},
 	paginaVista:function(){
-         if(window.location.host === 'lovizdelcarpio.com'){
+        if(window.location.host === 'lovizdelcarpio.com'){
 			var url = Backbone.history.getFragment();
 			if (!/^\//.test(url) && url != ""){
 				url = "/" + url;

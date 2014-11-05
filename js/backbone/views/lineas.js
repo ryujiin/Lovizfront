@@ -1,6 +1,6 @@
 Loviz.Views.Lineas = Backbone.View.extend({
-	el:$('#carro_compra'),
-  	template: swig.compile($("#carro_template").html()),
+	el:$('#cuerpo_lineas'),
+  	template: swig.compile($("#carro_vacio_template").html()),
 
 	initialize: function () {
     	this.listenTo(this.collection, "add", this.addOne, this);
@@ -11,5 +11,9 @@ Loviz.Views.Lineas = Backbone.View.extend({
 	addOne: function (linea) {
 		var linea_lista = new Loviz.Views.Linea({ model: linea });
 		this.$el.append(linea_lista.render().el);
+	},
+	render_vacio:function () {
+		var html = this.template();
+		$('#cuerpo_lineas').append(html)
 	},
 });

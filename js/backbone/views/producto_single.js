@@ -48,9 +48,19 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
   addtocart:function(){
     //revisar valores de formulario
     var variacion = $('.formulario_producto input[name=variacion]').val();
+    var cantidad = $('.formulario_producto input[name=cantidad]').val();
+    var producto = $('.formulario_producto input[name=producto]').val();
     if (variacion!=='') {
       if (window.views.carro) {
-        var carro = window.views.carro.model.get('id');
+        var carrito = window.views.carro.model.get('id');
+        window.routers.base.crear_vistaLineas();
+        if (window.views.lineas) {
+          var modelo = new Loviz.Models.Linea()
+          modelo.set({carro:carrito,producto:producto,variacion:variacion,cantidad:cantidad});
+          modelo.save().done(function (data) {
+            debugger;
+          });
+        };
       };
     }else{
       this.selecciontalla('olvido');

@@ -17,9 +17,12 @@ $(document).ready(function(){
 	Backbone.history.start({
 		pushState:true,
 	});
-    /*
+
+
+    /*******************************
     Funciones para Lovizdelcarpio.com
-    */
+    ********************************/
+    
     //Funcion para crear usuario
     function crear_perfil () {
         if (window.views.perfil) {

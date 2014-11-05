@@ -178,17 +178,24 @@
         </script>
 
         <script id="mini_carrito_template" type="text/template">
-            <span class="icon-cart"></span>
-            <span class="num-cart">{{lineas}}</span>
+            <a href="/carrito/">
+                <span class="icon-cart"></span>
+                <span class="num-cart">{{lineas}}</span>
+            </a>            
         </script>
 
         <script id="carro_template" type="text/template">
             <h2 class="titulo_page text-aling-left">
-                <span class="icon-head"></span>
+                <span class="icon-cart3"></span>
                 Mi Carrito de compras
                 <button class="right comprar_ya">Realizar Pedido</button>
             </h2>
-            <div class="cuerpo_lineas"></div>
+            <div id="cuerpo_lineas"></div>
+        </script>
+
+        <script id="carro_vacio_template" type="text/template">
+            <h3>Su Carrito de Compras esta vacio</h3>
+            <button>Seguir Comprando</button>
         </script>
 
         <script type="text/template" id="producto_lista_theme">
