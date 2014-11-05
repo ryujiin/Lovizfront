@@ -87,7 +87,8 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			var coleccion_lineas = new Loviz.Collections.Lineas();
 			var carro = $.sessionStorage.get('carro_id');
 			var vista_lineas = new Loviz.Views.Lineas({
-				collection:coleccion_lineas
+				model:window.views.mini_carrito.model,
+				collection:coleccion_lineas,
 			});
 			coleccion_lineas.fetch({
 				data:$.param({carro:carro})

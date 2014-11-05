@@ -197,7 +197,7 @@
         </script>
 
         <script id="linea_template" type="text/template">
-            <td class="linea-img">
+            <td width="100px" class="linea-img">
                 <figure>
                     <img src="{{thum}}" alt="{{nombre}}">
                 </figure>    
@@ -208,11 +208,12 @@
             <td class="linea-talla">
                 {{talla}}
             </td>
-            <td class="linea-precio"></td>
-            <td class="linea-cantidad">
-                <input type="number" name='cantidad-linea' value="{{cantidad}}">
+            <td class="linea-precio">S/.{{precio}}</td>
+            <td width="20px" class="linea-cantidad">
+                <input type="text" name='cantidad-linea' value="{{cantidad}}" width="5">
             </td>
-            <td class="linea-subtotal"></td>
+            <td class="linea-subtotal">S/.{{subtotal}}</td>
+            <td class="linea-accion"><span class="icon-cross"></span></td>
         </script>
 
         <script id="carro_template" type="text/template">
@@ -221,7 +222,38 @@
                 Mi Carrito de compras
                 <button class="right comprar_ya">Realizar Pedido</button>
             </h2>
+            <p id="cant_productos"></p>
             <div id="cuerpo_lineas"></div>
+            <div id="carro_info"></div>
+            <div class="pie_carro">
+                <button class="seguir_comprando">Seguir Comprando</button>
+                <button class="right comprar_ya">Realizar Pedido</button>
+            </div>
+        </script>
+
+        <script id="carro_num_template" type="text/template">
+            Existen <strong>{{lineas}} productos</strong> en el carrito de compra por el momento
+        </script>
+
+        <script id="informacion_de_carro_template" type="text/template">
+            <table class="info">
+                <tr>
+                    <td>Subtotal</td>
+                    <td>S/.100.00</td>
+                </tr>
+                <tr>
+                    <td>Descuento</td>
+                    <td>S/.100.00</td>
+                </tr>
+                <tr>
+                    <td>Envio</td>
+                    <td>S/.100.00</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>S/.100.00</td>
+                </tr>                
+            </table>
         </script>
 
         <script id="carro_vacio_template" type="text/template">
@@ -239,6 +271,7 @@
                         <th>Precio</th>
                         <th>Cantidad</th>
                         <th>subtotal</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody class="cuerpo_lineas_lista">
@@ -432,6 +465,8 @@
         <script src="/js/backbone/views/perfil.js"></script>
         <script src="/js/backbone/views/carro.js"></script>
         <script src="/js/backbone/views/carro_compras.js"></script>
+        <script src="/js/backbone/views/carro_informacion.js"></script>
+        <script src="/js/backbone/views/carro_num.js"></script>
         <script src="/js/backbone/views/lineas.js"></script>
         <script src="/js/backbone/views/linea.js"></script>
         <script src="/js/backbone/views/mini_linea.js"></script>

@@ -4,6 +4,7 @@ Loviz.Views.Linea = Backbone.View.extend({
   className: 'linea_carro',
 
   events: {
+    'click .linea-accion':'eliminar_linea',
   },
 
   template: swig.compile($("#linea_template").html()),
@@ -18,4 +19,9 @@ Loviz.Views.Linea = Backbone.View.extend({
     this.$el.html(html);
     return this;
   },
+  eliminar_linea:function () {
+    this.model.destroy();
+    this.$el.slideUp('slow');
+    window.views.mini_carrito.model.fetch()
+  }
 });

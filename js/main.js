@@ -14,6 +14,7 @@ $(document).ready(function(){
     window.views.carro = crear_carro();
 
     window.views.lineas = window.routers.base.crear_vistaLineas();
+    window.views.carro_num = crear_carro_num();
 
 
 	Backbone.history.start({
@@ -81,6 +82,14 @@ $(document).ready(function(){
             })
         }
         return carro
+    };
+    function crear_carro_num () {
+        if (window.views.carro) {
+            var modelo = window.views.mini_carrito.model;
+            var num_vista = new Loviz.Views.CarroNum({model:modelo});
+            window.views.carro_info = new Loviz.Views.CarroInfo({model:modelo});
+        };
+        return num_vista
     }
 
     //Funcion para el CRF

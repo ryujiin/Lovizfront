@@ -1,12 +1,11 @@
 Loviz.Views.Lineas = Backbone.View.extend({
-	//el : $('#cuerpo_lineas'),
   	template_vacio: swig.compile($("#carro_vacio_template").html()),
   	template: swig.compile($("#carro_lleno_template").html()),
 
 	initialize: function () {
 		this.$el = $('#cuerpo_lineas');
 		this.render_lleno();
-		this.contenedor = $('#cuerpo_lineas .cuerpo_lineas_lista');
+		this.contenedor = $('.cuerpo_lineas_lista');
     	this.listenTo(this.collection, "add", this.addOne, this);
 	},
 	render: function () {
@@ -22,6 +21,6 @@ Loviz.Views.Lineas = Backbone.View.extend({
 	},
 	render_lleno:function () {
 		var html = this.template();
-		this.$el.html(html)	
+		this.$el.html(html);
 	}
 });
