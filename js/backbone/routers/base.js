@@ -12,7 +12,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	initialize : function () {
 		this.obt_galleta();
-		this.bind('route',this.paginaVista);
+		//this.bind('route',this.paginaVista);
   	},
 	root : function () {
 		window.app.state = "inicio";
@@ -173,6 +173,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		});
 		window.views.perfil=vista_perfil;
 	},
+	/*
 	paginaVista:function(){
         if(window.location.host === 'lovizdelcarpio.com'){
 			var url = Backbone.history.getFragment();
@@ -183,5 +184,5 @@ Loviz.Routers.Base = Backbone.Router.extend({
 				_gaq.push(['_trackPageview', url]);
 			} 
 		}
-	}
+	}*/
 });
