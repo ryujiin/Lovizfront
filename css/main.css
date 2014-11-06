@@ -70,7 +70,8 @@ footer .footer .menu li{padding:0 20px}
 .footer-holder .filter-field .selected{color:#1b1b1b;font-weight:800;position:absolute;right:25px;}
 .footer-holder .filter-field .selected.gray{color:#999}
 .footer-holder .filter-field .title{font-weight:800;position:absolute;left:25px}
-.footer-holder .filter-field .widget-selector{position:absolute;opacity:.5;right:10px;top:22px}
+.footer-holder .filter-field .widget-selector{position:absolute;opacity:.5;right:10px;top:22px;}
+.footer-holder .filter-field .widget-selector.estando{opacity:1;right:40%;top:-18px;font-size:30px;width:10%;z-index:1;color:#7fc940}
 .footer-holder #type-selection .selected{left:10px;font-size:24px;top:14px}
 h1,h2,h3,h4{margin:0;padding:0}
 header{background:#333;color:#fff;padding-top:10px;height:50px;text-transform:uppercase;}
@@ -115,10 +116,14 @@ header .links-principales li:hover{color:#6ba63a}
 #filtros_productos .filter-field .seccion-orientacion{position:absolute;top:-70px;text-transform:initial;text-align:center;width:160px;display:none;}
 #filtros_productos .filter-field .seccion-orientacion .cuadro-orientacion{background:#fff;border-radius:5px;font-size:13px;padding:5px;box-shadow:0 0 10px rgba(0,0,0,0.5)}
 #filtros_productos .filter-field .title{width:30%}
-#filtros_productos .filter-field .todos-filtros{position:fixed;bottom:90px;width:100%;background:#333;left:0;color:#b8b8b8;}
+#filtros_productos .filter-field .todos-filtros{position:fixed;bottom:90px;width:100%;background:#333;left:0;color:#b8b8b8;display:none;}
 #filtros_productos .filter-field .todos-filtros a{color:#b8b8b8}
-#filtros_productos .filter-field .todos-filtros .titulo-opcion{display:inline-block}
-#filtros_productos .filter-field .todos-filtros .opcion-valor{display:inline-block}
+#filtros_productos .filter-field .todos-filtros .titulo-opcion{display:inline-block;width:240px;color:#fff;border-left:1px solid #b8b8b8;float:left;padding:20px 0;background:#1c1c1c}
+#filtros_productos .filter-field .todos-filtros .opcion-valor{display:inline-block;width:240px;padding:20px 0;border-right:1px solid #b8b8b8;position:relative;}
+#filtros_productos .filter-field .todos-filtros .opcion-valor:hover{background:url("http://satorisan.com/website/images/ruido.png") 0 0 #415136 repeat}
+#filtros_productos .filter-field .todos-filtros .opcion-valor .flecha{position:absolute;width:0;top:15%;height:0;border-top:20px solid transparent;border-left:10px solid #1c1c1c;border-bottom:20px solid transparent}
+#filtros_productos .filter-field .todos-filtros .opcion{text-align:center;font-weight:bold;}
+#filtros_productos .filter-field .todos-filtros .opcion.sinada{border:none}
 #minilinea{width:300px;position:fixed;background:#fff;right:50px;text-align:center;box-shadow:0 2px 2px rgba(0,0,0,0.5);display:none;z-index:1;}
 #minilinea figure{width:80px;margin:0 auto}
 #minilinea p{margin:.6em}

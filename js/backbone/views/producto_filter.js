@@ -52,9 +52,14 @@ Loviz.Views.Producto_filter = Backbone.View.extend({
                 $('#type-selection .text-over').fadeIn(100).animate({
                     'left':'15%',
                 },500);
+                $('#type-selection .widget-selector').addClass('estando');
+                $('#type-selection .todos-filtros').slideDown('slow');
             }else{
                 $('#type-selection .selected').fadeIn(500);
                 $('#type-selection .text-over').fadeOut(100).css('left','10px');
+                $('#type-selection .widget-selector').removeClass('estando');
+                $('#type-selection .todos-filtros').slideUp('slow');
+
             }
         }else{
             if (div.hasClass('selecionado')) {
@@ -63,12 +68,14 @@ Loviz.Views.Producto_filter = Backbone.View.extend({
                     'left':'40%',
                     'text-aling':'center',
                 });
+                $(divid+' .widget-selector').addClass('estando');
             }else{
                 $(divid+' .selected').show();
                 $(divid+' .title').animate({
                     'left':'25px',
                     'text-aling':'left',
                 },500).delay(500).show();
+                $(divid+' .widget-selector').removeClass('estando');
             }
         }
     },
@@ -77,8 +84,13 @@ Loviz.Views.Producto_filter = Backbone.View.extend({
             $('.filter-field').removeClass('selecionado');
         };
         var div = '#'+this.seccion;
+        $(div+' .widget-selector').removeClass('estando');
         $(div+' .selected').show();
         $(div+' .text-over').hide().css('left','');
         $(div+' .title').css('left','');
+    },
+    aparecer_filtro:function (e) {
+        var div = '#'+this.seccion;
+        $(div+' .todos-filtros').slideDown('slow');
     }
 });

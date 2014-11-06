@@ -285,6 +285,14 @@ footer
 			opacity 0.5
 			right 10px
 			top 22px
+			&.estando
+				opacity: 1;
+				right: 40%;
+				top: -18px;
+				font-size: 30px;
+				width: 10%;
+				z-index 1
+				color: #7fc940;
 	#type-selection
 		.selected
 			left 10px
@@ -460,12 +468,38 @@ header
 			background #333
 			left 0
 			color #b8b8b8
+			display none
 			a
 				color #b8b8b8			
 			.titulo-opcion
 				display inline-block
+				width 240px
+				color #fff
+				border-left 1px solid #b8b8b8
+				float left
+				padding 20px 0
+				background #1C1C1C
 			.opcion-valor
 				display inline-block
+				width 240px
+				padding 20px 0
+				border-right 1px solid #b8b8b8
+				position relative
+				&:hover
+					background url('http://satorisan.com/website/images/ruido.png') 0 0 #415136 repeat
+				.flecha
+					position absolute
+					width: 0;
+					top 15%
+					height: 0;
+					border-top: 20px solid transparent;
+					border-left: 10px solid #1C1C1C;
+					border-bottom: 20px solid transparent;
+			.opcion
+				text-align center
+				font-weight bold
+				&.sinada
+					border none
 #minilinea
 	width: 300px;
 	position: fixed;
