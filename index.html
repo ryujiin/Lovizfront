@@ -184,7 +184,23 @@
                 <button class="right comprar_ya siempre_lleno">Realizar Pedido</button>
             </h2>
             <p id="cant_productos"></p>
-            <div id="cuerpo_lineas"></div>
+            <div id="cuerpo_lineas" class="siempre_lleno">
+                <table class="lineas-carro">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Ref. de producto</th>
+                            <th>talla</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>subtotal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="lineas_carro_cuerpo" class="cuerpo_lineas_lista">
+                    </tbody>
+                </table>
+            </div>
             <div id="carro_info"></div>
             <div class="pie_carro">
                 <button class="seguir_comprando siempre_lleno">Seguir Comprando</button>

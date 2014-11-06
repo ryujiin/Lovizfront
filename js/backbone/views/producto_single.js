@@ -64,6 +64,7 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
             window.views.mini_linea.render();
             window.views.mini_linea.aparecer();
             window.views.mini_carrito.model.fetch();
+            window.views.lineas.collection.add(window.views.mini_linea.model);
           });
         };
       };
