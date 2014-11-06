@@ -220,14 +220,14 @@
             <h2 class="titulo_page text-aling-left">
                 <span class="icon-cart3"></span>
                 Mi Carrito de compras
-                <button class="right comprar_ya">Realizar Pedido</button>
+                <button class="right comprar_ya siempre_lleno">Realizar Pedido</button>
             </h2>
             <p id="cant_productos"></p>
             <div id="cuerpo_lineas"></div>
             <div id="carro_info"></div>
             <div class="pie_carro">
-                <button class="seguir_comprando">Seguir Comprando</button>
-                <button class="right comprar_ya">Realizar Pedido</button>
+                <button class="seguir_comprando siempre_lleno">Seguir Comprando</button>
+                <button class="right comprar_ya siempre_lleno">Realizar Pedido</button>
             </div>
         </script>
 
@@ -236,29 +236,25 @@
         </script>
 
         <script id="informacion_de_carro_template" type="text/template">
-            <table class="info">
+            <table class="info right">
                 <tr>
-                    <td>Subtotal</td>
-                    <td>S/.100.00</td>
+                    <td class="etiqueta">Subtotal</td>
+                    <td>S/.{{subtotal}}</td>
                 </tr>
                 <tr>
-                    <td>Descuento</td>
-                    <td>S/.100.00</td>
+                    <td class="etiqueta">Envio</td>
+                    <td>S/.{{envio}}</td>
                 </tr>
-                <tr>
-                    <td>Envio</td>
-                    <td>S/.100.00</td>
-                </tr>
-                <tr>
-                    <td>Total</td>
-                    <td>S/.100.00</td>
+                <tr class="total">
+                    <td class="etiqueta">Total</td>
+                    <td>S/.{{total}}</td>
                 </tr>                
             </table>
+            <div class="clear"></div>
         </script>
 
         <script id="carro_vacio_template" type="text/template">
-            <h3>Su Carrito de Compras esta vacio</h3>
-            <button>Seguir Comprando</button>
+            <button class="right">Seguir Comprando</button>
         </script>
 
         <srcript id="carro_lleno_template" type="text/template">

@@ -7,9 +7,13 @@ Loviz.Views.CarroInfo = Backbone.View.extend({
   },
 
   render: function () {
-    var album = this.model.toJSON()
-    var html = this.template(album);
+    var modelo = this.model.toJSON()
+    modelo.total = modelo.total.toFixed(2);
+    modelo.subtotal = modelo.subtotal.toFixed(2);
+    var html = this.template(modelo);
     this.$el.html(html);
-    debugger;
+    if (modelo.lineas===0) {
+      this.$el.hide();
+    };
   },
 });

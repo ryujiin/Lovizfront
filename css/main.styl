@@ -9,6 +9,20 @@ body,html
 body
 	a
 		text-decoration none
+	button
+		box-shadow rgba(73, 116, 35, 0.129412) 0px 0px 7px inset, rgba(255, 255, 255, 0.247059) 1px 1px 1px inset, rgba(0, 0, 0, 0.2) 1px 1px 5px
+		background linear-gradient(rgb(127, 201, 64) 0%, rgb(106, 165, 56) 100%)
+		color #fff
+		font-size 13px
+		font-weight bold
+		text-transform uppercase
+		padding 15px 30px 15px
+		border-radius 4px
+		border none
+		outline none
+		&:hover
+			color #87d445
+			background: linear-gradient(to bottom,  #5c5a5a 0%,#373636 100%);
 	:hover
 		transition: all .3s;
 		-webkit-transition: all .3s;
@@ -17,6 +31,8 @@ body
 	.contenedor
 		width 1200px
 		margin 0 auto
+	.clear
+		clear both
 	img
 		width 100%
 	.invisible
@@ -70,11 +86,37 @@ body
 				width 48%
 			h2.titulo_page
 				color #1B1B1B
-				font-size 35px
+				font-size 30px
 				font-weight normal
 				border-bottom 1px solid #ccc
 				padding-bottom 10px
 				margin-bottom 30px
+				span
+					color #6E6E6E
+#cant_productos
+	font-size 14px
+	text-align left
+#carro_info
+	font-size 14px
+	border-bottom 1px solid #ccc
+	margin-bottom 10px
+	td
+		font-size 16px
+		font-weight bold
+		text-align right
+		padding 4px
+	.etiqueta
+		width 100px
+		font-weight 600
+		text-align left
+		font-size 14px
+	.total
+		.etiqueta
+			font-size 16px
+			font-weight 600
+			text-transform uppercase
+		td
+			font-size 20px
 #cuerpo_lineas
 	.lineas-carro
 		width 100%
