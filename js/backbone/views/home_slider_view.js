@@ -13,7 +13,9 @@ Loviz.Views.HomeSlider = Backbone.View.extend({
 	      if (e==='root') {
 	        self.$el.show();
 	      }else{
-	        self.$el.hide();
+	      	if (window.app.page===false) {
+	        	self.$el.hide();
+	      	};
 	      }
 	    });
 	},

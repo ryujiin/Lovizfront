@@ -8,7 +8,9 @@ Loviz.Views.ProductosLista = Backbone.View.extend({
       if (e==='tiendaCatalogo') {
         self.$el.show();
       }else{
-        self.$el.hide();
+        if (window.app.page===false) {
+            self.$el.hide();
+          };
       }
     });
   },

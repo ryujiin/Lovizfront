@@ -46,11 +46,13 @@ Loviz.Views.Tienda = Backbone.View.extend({
 
 	},
 	desplegar_overlay:function(){
+		window.app.page=true;
 		$('.overlayverde').slideDown('slow',function () {
 			$('#capaPage').slideDown('slow');
 		});
 	},
 	cerrarOverlay : function () {
+		window.app.page=false;
 		if ($('#capaPage').has('seve')) {
 			$('#capaPage').slideUp('slow');
 		};
@@ -59,6 +61,7 @@ Loviz.Views.Tienda = Backbone.View.extend({
 		window.routers.base.navigate('/', {trigger:true});
 	},
 	pagina_cargada: function(){
+
 		this.$el.addClass('loaded');
 	},
 });

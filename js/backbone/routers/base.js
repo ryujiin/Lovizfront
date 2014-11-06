@@ -12,6 +12,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	initialize : function () {
 		this.obt_galleta();
+		window.app.page=false;
 		//this.bind('route',this.paginaVista);
   	},
 	root : function () {
@@ -33,7 +34,6 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		console.log('esta en la tienda');
 
 		window.app.state = "tienda";
-		//this.ocultar_todo();
 
 		//Aparece el PreCargador
 		this.preloader('Tienda');
@@ -43,9 +43,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		$('#tienda').show()
 	},
 	singleProducto:function(slug,id){
-		window.app.state="producto_single";
-
-		//this.ocultar_todo();
+		window.app.state="producto_single"
 
 		var self = this;
 		var modeloJSON,buscar;
@@ -76,7 +74,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	custom_Url:function(){
 		window.app.state = "custom";
-		this.escondercapas();
+
 	},
 	carrito:function(){
 		window.app.state = 'carrito';
