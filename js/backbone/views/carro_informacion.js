@@ -16,6 +16,8 @@ Loviz.Views.CarroInfo = Backbone.View.extend({
     this.$el.html(html);
     if (modelo.lineas===0) {
       this.$el.hide();
-    };
+    }else{
+      this.$el.show();
+    }
   },
 });

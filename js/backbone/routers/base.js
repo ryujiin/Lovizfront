@@ -7,6 +7,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		"custom/": "custom_Url",
 		"mi_cuenta/": "perfil_user",
 		"carrito/": "carrito",
+		"carrito/pago/": "pago",
 
 		'*notFound': 'notFound',
 	},
