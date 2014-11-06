@@ -39,6 +39,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		this.preloader('Tienda');
 		//Carga productos
 		this.cargarProductos();
+		this.crear_producto_filter();
 		$('#tienda').show()
 	},
 	singleProducto:function(slug,id){
@@ -48,7 +49,6 @@ Loviz.Routers.Base = Backbone.Router.extend({
 
 		var self = this;
 		var modeloJSON,buscar;
-
 
 		this.preloader('Cargando Producto');
 
@@ -67,6 +67,12 @@ Loviz.Routers.Base = Backbone.Router.extend({
 				self.producto_views.render();	
 			}			
 		})
+	},
+	crear_producto_filter:function (argument) {
+		if (window.views.producto_filter===undefined) {
+			var vista = new Loviz.Views.Producto_filter();
+			window.views.producto_filter = vista;
+		};
 	},
 	custom_Url:function(){
 		window.app.state = "custom";

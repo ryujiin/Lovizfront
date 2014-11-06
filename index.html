@@ -64,45 +64,6 @@
                     <div id="tienda" >                      
                         <ul id="productos"></ul>
                         <div id="filtros_productos" class="footer-holder">
-                            <div class="contenedor">
-                                <div id="producto-filter">
-                                    <div id="type-selection" class="filter-field">
-                                        <div class="text-over">Seleccione Categoria</div>
-                                        <div class="selected">Calzado</div>
-                                        <div class="widget-selector">
-                                            <span class="icon-triangle-up"></span>
-                                        </div>
-                                    </div>
-                                    <div id="model-selection" class="filter-field">
-                                        <div class="title">Modelo</div>
-                                        <div class="selected gray">Todos</div>
-                                        <div class="widget-selector">
-                                            <span class="icon-triangle-up"></span>
-                                        </div>
-                                    </div>
-                                    <div id="color-selection" class="filter-field">
-                                        <div class="title">Color</div>
-                                        <div class="selected gray">Todos</div>
-                                        <div class="widget-selector">
-                                            <span class="icon-triangle-up"></span>
-                                        </div>
-                                    </div>
-                                    <div id="size-selection" class="filter-field">
-                                        <div class="title">Tamaño</div>
-                                        <div class="selected gray">Todos</div>
-                                        <div class="widget-selector">
-                                            <span class="icon-triangle-up"></span>
-                                        </div>
-                                    </div>
-                                    <div id="price-selection" class="filter-field">
-                                        <div class="title">Precio</div>
-                                        <div class="selected gray">Todos</div>
-                                        <div class="widget-selector">
-                                            <span class="icon-triangle-up"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div id="producto_single">
@@ -255,6 +216,48 @@
 
         <script id="carro_vacio_template" type="text/template">
             <button class="right">Seguir Comprando</button>
+        </script>
+
+        <script id="producto_filtros_template" type="text/template">
+            <div class="contenedor">
+                <div id="producto-filter">
+                    <div id="type-selection" class="filter-field">
+                        <div class="text-over">Seleccione Categoria</div>
+                        <div class="selected">Calzado</div>
+                        <div class="widget-selector">
+                            <span class="icon-triangle-up"></span>
+                        </div>
+                    </div>
+                    <div id="model-selection" class="filter-field">
+                        <div class="title">Modelo</div>
+                        <div class="selected gray">Todos</div>
+                        <div class="widget-selector">
+                            <span class="icon-triangle-up"></span>
+                        </div>
+                    </div>
+                    <div id="color-selection" class="filter-field">
+                        <div class="title">Color</div>
+                        <div class="selected gray">Todos</div>
+                        <div class="widget-selector">
+                            <span class="icon-triangle-up"></span>
+                        </div>
+                    </div>
+                    <div id="size-selection" class="filter-field">
+                        <div class="title">Tamaño</div>
+                        <div class="selected gray">Todos</div>
+                        <div class="widget-selector">
+                            <span class="icon-triangle-up"></span>
+                        </div>
+                    </div>
+                    <div id="price-selection" class="filter-field">
+                        <div class="title">Precio</div>
+                        <div class="selected gray">Todos</div>
+                        <div class="widget-selector">
+                            <span class="icon-triangle-up"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </script>
 
         <srcript id="carro_lleno_template" type="text/template">
@@ -455,8 +458,8 @@
         <script src="/js/backbone/views/productoslista.js"></script>
         <script src="/js/backbone/views/producto_lista.js"></script>
         <script src="/js/backbone/views/producto_single.js"></script>
+        <script src="/js/backbone/views/producto_filter.js"></script>
         <script src="/js/backbone/views/loader_view.js"></script>
-        <script src="/js/backbone/views/prducto-filter.js"></script>
         <script src="/js/backbone/views/home_slider_view.js"></script>
         <script src="/js/backbone/views/perfil.js"></script>
         <script src="/js/backbone/views/carro.js"></script>

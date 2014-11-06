@@ -1,7 +1,7 @@
 body,html{color:#333;font-family:'Raleway',sans-serif;overflow:hidden;height:100%}
 body a{text-decoration:none}
-body button{box-shadow:rgba(73,116,35,0.129) 0 0 7px inset,rgba(255,255,255,0.247) 1px 1px 1px inset,rgba(0,0,0,0.2) 1px 1px 5px;background:linear-gradient(#7fc940 0%,#6aa538 100%);color:#fff;font-size:13px;font-weight:bold;text-transform:uppercase;padding:15px 30px 15px;border-radius:4px;border:none;outline:none;}
-body button:hover{color:#87d445;background:linear-gradient(to bottom,#5c5a5a 0%,#373636 100%)}
+body button,body .login-acceder{box-shadow:rgba(73,116,35,0.129) 0 0 7px inset,rgba(255,255,255,0.247) 1px 1px 1px inset,rgba(0,0,0,0.2) 1px 1px 5px;background:linear-gradient(#7fc940 0%,#6aa538 100%);color:#fff;font-size:13px;font-weight:bold;text-transform:uppercase;padding:15px 30px 15px;border-radius:4px;border:none;outline:none;}
+body button:hover,body .login-acceder:hover{color:#87d445;background:linear-gradient(to bottom,#5c5a5a 0%,#373636 100%)}
 body :hover{transition:all .3s;-webkit-transition:all .3s}
 body .enlinea{display:inline-block}
 body .contenedor{width:1200px;margin:0 auto}
@@ -22,7 +22,7 @@ body .overlayverde{background:url("http://satorisan.com/website/images/popup_bg.
 #capaPage .page{background-color:#fff;margin:auto;height:100%;}
 #capaPage .page .marco_page{padding:60px;}
 #capaPage .page .marco_page .cajalogin{width:48%}
-#capaPage .page .marco_page h2.titulo_page{color:#1b1b1b;font-size:30px;font-weight:normal;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:30px;}
+#capaPage .page .marco_page h2.titulo_page{color:#1b1b1b;font-size:30px;font-weight:normal;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:30px;text-align:left;}
 #capaPage .page .marco_page h2.titulo_page span{color:#6e6e6e}
 #cant_productos{font-size:14px;text-align:left}
 #carro_info{font-size:14px;border-bottom:1px solid #ccc;margin-bottom:10px;}
