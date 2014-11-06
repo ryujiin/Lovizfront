@@ -66,7 +66,7 @@ footer .footer .menu li{padding:0 20px}
 .footer-holder .filter-field.titulo_precio .precio .precio-old{position:absolute;left:-55px;top:5px;font-size:11px;}
 .footer-holder .filter-field.titulo_precio .precio .precio-old .cantidad_precio{text-decoration:line-through}
 .footer-holder .filter-field .olvido{position:absolute;width:100px;background-color:#fff;text-transform:initial;left:-120px;top:-65px;text-align:center;padding:5px;box-shadow:0 0 5px rgba(0,0,0,0.2);border-radius:5px;display:none}
-.footer-holder .filter-field .text-over{display:none;position:absolute;left:0}
+.footer-holder .filter-field .text-over{display:none;position:absolute;left:10px;font-size:13px;font-weight:bold}
 .footer-holder .filter-field .selected{color:#1b1b1b;font-weight:800;position:absolute;right:25px;}
 .footer-holder .filter-field .selected.gray{color:#999}
 .footer-holder .filter-field .title{font-weight:800;position:absolute;left:25px}
@@ -111,6 +111,14 @@ header .links-principales li:hover{color:#6ba63a}
 #producto_single .marco_producto .descripcion .cerrar_producto:hover span{color:#6ba63a}
 #producto_single .marco_producto .descripcion .cerrar_producto span{font-size:32px;color:#6e6e6e}
 #producto_single .marco_producto .colores ul li{list-style:none;width:100px;display:inline-block}
+#filtros_productos .filter-field{position:relative;}
+#filtros_productos .filter-field .seccion-orientacion{position:absolute;top:-70px;text-transform:initial;text-align:center;width:160px;display:none;}
+#filtros_productos .filter-field .seccion-orientacion .cuadro-orientacion{background:#fff;border-radius:5px;font-size:13px;padding:5px;box-shadow:0 0 10px rgba(0,0,0,0.5)}
+#filtros_productos .filter-field .title{width:30%}
+#filtros_productos .filter-field .todos-filtros{position:fixed;bottom:90px;width:100%;background:#333;left:0;color:#b8b8b8;}
+#filtros_productos .filter-field .todos-filtros a{color:#b8b8b8}
+#filtros_productos .filter-field .todos-filtros .titulo-opcion{display:inline-block}
+#filtros_productos .filter-field .todos-filtros .opcion-valor{display:inline-block}
 #minilinea{width:300px;position:fixed;background:#fff;right:50px;text-align:center;box-shadow:0 2px 2px rgba(0,0,0,0.5);display:none;z-index:1;}
 #minilinea figure{width:80px;margin:0 auto}
 #minilinea p{margin:.6em}

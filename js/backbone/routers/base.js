@@ -100,9 +100,6 @@ Loviz.Routers.Base = Backbone.Router.extend({
 				data:$.param({carro:carro})
 			}).done(function () {
 				var num = coleccion_lineas.length
-				if (num===0) {
-					window.views.lineas.render_vacio();	
-				}
 			});
 			return vista_lineas;
 		}
