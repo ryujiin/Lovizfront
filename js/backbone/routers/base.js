@@ -21,8 +21,6 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		//this.ocultar_todo();
 
 		//borrar el resto de contenidos
-		this.preloader('Loviz DelCarpio');
-
 		if (window.views.home) {
 			window.views.home.aparecer();
 		}else{
@@ -36,36 +34,34 @@ Loviz.Routers.Base = Backbone.Router.extend({
 
 		window.app.state = "tienda";
 
-		//Aparece el PreCargador
-		this.preloader('Tienda');
-		//Carga productos
-		this.cargarProductos();
+		this.crear_catalogo();
 		this.crear_producto_filter();
 		$('#tienda').show()
 	},
+	crear_catalogo: function () {
+		if (window.views.catalogo===undefined) {
+			var coleccion = new Loviz.Collections.Catalogo();
+			window.collections.catalogo = coleccion;
+			window.views.catalogo = new Loviz.Views.Catalogo({collection:coleccion});
+			coleccion.fetch();
+		};
+	},
 	singleProducto:function(slug,id){
 		window.app.state="producto_single"
+		window.app.produto_id=id
 
-		var self = this;
-		var modeloJSON,buscar;
-
-		this.preloader('Cargando Producto');
-
-		//Verifica exitencia de producto
-		self.producto_modelo = new Loviz.Models.Producto_Single({id:id});
-	
-		buscar = self.producto_modelo.fetch();
-		buscar.done(function () {
-			if (self.producto_views) {
-				modeloJSON = self.producto_modelo.toJSON();
-				self.producto_views.model.set(modeloJSON);
+		var self = this,modelo,vista;
+		if (window.views.productos[id]===undefined) {
+			if (window.collections.catalogo===undefined) {
+				modelo = new Loviz.Models.Producto({id:id});
+				modelo.fetch();
 			}else{
-				self.producto_views = new Loviz.Views.ProductoSingle({
-					model:self.producto_modelo,
-				});
-				self.producto_views.render();	
-			}			
-		})
+				modelo = window.collections.catalogo.get(id);
+			};
+			vista = new Loviz.Views.ProductoSingle({model:modelo});
+			window.views.productos[id]=vista;
+			modelo.fetch();
+		}
 	},
 	crear_producto_filter:function (argument) {
 		if (window.views.producto_filter===undefined) {
@@ -103,39 +99,12 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			return vista_lineas;
 		}
 	},
-	cargarProductos:function(){
-		var self = this;
-		if (window.views.lista_productos) {
-			window.views.tienda.pagina_cargada();
-		}else{
-			this.productos_Collection = new Loviz.Collections.ProductoLista();
-			this.productos_Vista  = new Loviz.Views.ProductosLista({collection:this.productos_Collection});
-
-			window.collections.lista_productos = this.productos_Collection;
-			window.views.lista_productos = this.productos_Vista;
-			var buscar = this.productos_Collection.fetch();
-		
-			buscar.done(function(){
-				window.views.lista_productos.primeraCarga();
-				window.views.lista_productos.aparecer();
-			});
-		}
-	},
 	cargarSliderHome : function(){
 		var modelo,slider_view;
 		slider_view = new Loviz.Views.HomeSlider({
 			model: new Loviz.Models.SliderHome(),
 		});
 		return slider_view
-	},
-	preloader:function(title){
-		//Verifica si esta la clase Loaded y si esta la borra
-		if ($('body').hasClass('loaded')) {
-			$('body').removeClass('loaded');
-		};
-		/*Crear modelo de loader*/
-		p = new Loviz.Models.Loader({titulo:title});
-		l = new Loviz.Views.Loader({model:p});
 	},
 	notFound:function(){
 		console.log('No se encontro la pagina')

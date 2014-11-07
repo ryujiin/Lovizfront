@@ -313,7 +313,7 @@
             </table>
         </srcript>
 
-        <script id="producto_lista_theme" type="text/template">
+        <script id="producto_catalogo_template" type="text/template">
            <a class="enlace_producto" data-id="{{id}}" href="/tienda/{{slug}}_{{id}}/">
                 <figure class="img_producto">
                     <img src="{{thum}}" alt="" class="">
@@ -331,7 +331,7 @@
                     {% endif %}
                     <div class="precio enlinea">
                         <span class="moneda">S/.</span>                                                 
-                        <span class="cantidad">{{precio_mostrar}}</span>
+                        <span class="cantidad">{{precio_venta}}</span>
                     </div>                                              
                 </div>
             </a>
@@ -485,9 +485,11 @@
         <script src="/js/backbone/models/linea.js"></script>
         <script src="/js/backbone/models/perfil.js"></script>
         <script src="/js/backbone/models/home_slider_model.js"></script>
+        <script src="/js/backbone/models/producto.js"></script>
 
         <script src="/js/backbone/collections/producto_lista.js"></script> 
         <script src="/js/backbone/collections/lineas.js"></script> 
+        <script src="/js/backbone/collections/catalogo.js"></script> 
 
         <script src="/js/backbone/views/tienda.js"></script>
         <script src="/js/backbone/views/productoslista.js"></script>
@@ -505,6 +507,8 @@
         <script src="/js/backbone/views/lineas.js"></script>
         <script src="/js/backbone/views/linea.js"></script>
         <script src="/js/backbone/views/mini_linea.js"></script>
+        <script src="/js/backbone/views/catalogo.js"></script>
+        <script src="/js/backbone/views/producto.js"></script>
 
         <script src="/js/backbone/routers/base.js"></script>
 	    

@@ -25,7 +25,7 @@ Loviz.Views.Producto_filter = Backbone.View.extend({
 	    this.$el.html(html);
 	},
     aparecer: function () {
-        this.$el.show(1200);
+        this.$el.slideDown('slow');
         this.$('.seccion-orientacion').slideDown('slow').delay(4000).slideUp('fast');
     },
     mostrar_field:function (e) {

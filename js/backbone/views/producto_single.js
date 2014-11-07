@@ -1,5 +1,4 @@
 Loviz.Views.ProductoSingle = Backbone.View.extend({
-  el : $("#producto_single"),
   tagName: 'article',
 
   events: {
@@ -17,30 +16,43 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
   initialize: function () {
     var self = this;
     this.listenTo(this.model, "change", this.render, this);
-    window.routers.base.on('route',function(e){
-      if (e==='singleProducto') {
-        self.$el.show();
-      }else{
-        self.$el.hide();
-      }
+    this.render();
+    window.routers.base.on('route',function(e,i){
+      self.aparecer(e);
     });
   },
 
   render: function () {
     var producto = this.model.toJSON()
     var html = this.template(producto);
-    this.$el.html( html );
-    this.cargaCompleta();
+    this.$el.html(html);    
+    $("#producto_single").append(this.$el);
+  },
+  aparecer:function (e) {
+    if (e==='singleProducto') {
+      var id = this.model.toJSON();
+      id = id.id
+      if (id==window.app.produto_id) {
+        this.$el.show();
+        console.log('show ' +id )
+      }else{
+        this.$el.hide();
+        console.log('hide ' +id )
+      }  
+    }else{
+      this.$el.hide();
+    }
   },
   navigateCatalogo: function(){
     Backbone.history.navigate('/tienda/', {trigger:true});    
   },
+  /*
   cargaCompleta:function(){
     this.$el.find('img').load(function(){
       $('body').addClass('loaded');
     })
     this.$el.show();
-  },
+  },*/
   cerrar_info:function(){
     this.$el.fadeOut();
     this.navigateCatalogo();
