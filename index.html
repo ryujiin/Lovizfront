@@ -14,79 +14,111 @@
         <script src="/js/vendor/modernizr.js"></script>
     </head>
     <body>
-        <div class="conte_principal">
-            <header>
-                <div class="contenedor">
-                    <div class="logo enlinea">
-                        <h1>Loviz Delcarpio</h1>
+        <header id='header'>
+            <div class="contenedor">
+                <div class="logo enlinea">
+                    <h1>Loviz DelCarpio</h1>
+                </div>
+                <nav id="menu_header" class="menu-principal enlinea">
+                    <ul class="menu">
+                        <li data-url="tienda">
+                            <span class="marquito">
+                                <a class="link" href="/tienda/">Tienda</a>                                
+                            </span>
+                        </li>
+                        <li data-url="custom">
+                            <span class="marquito">
+                                <a class="link" href="/custom/">Personalizado</a>                                
+                            </span>
+                        </li>
+                        <li data-url="sobre">
+                            <span class="marquito">
+                                <a class="link" href="/sobre-loviz/">Nuestra Historia</a>                                
+                            </span>
+                        </li>
+                        <li data-url="blog">
+                            <span class="marquito">
+                                <a class="link" href="/blog/">Blog</a>                                
+                            </span>
+                        </li>
+                        <li data-url="faq">
+                            <span class="marquito">
+                                <a class="link" href="/faq/">FAQ</a>                                
+                            </span>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="links-principales enlinea right">
+                    <ul class="menu iconos-left">
+                        <li id="mini_carrito" class="carrito">                                
+                        </li>
+                        <li class="login">
+                            <a class="link" href="/mi_cuenta/">
+                                <span class="icon-head"></span>                                    
+                            </a>
+                        </li>
+                        <li class="idioma">
+                            <span>ES</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section id="contenido">
+            <div id="fondo-page"></div>
+            <div id="minilinea">
+            </div>
+            <div class="overlayverde"></div>
+            <div id="capaPage">
+                <div class="page">
+                    <div class="marco_page">
+                        <div id="area_user"></div>
+                        <div id="carro_compra"></div>
+                    </div>                            
+                </div>
+            </div>
+            <div id="loader-wrapper"></div>
+            <div id="inicio"></div>
+            <div id="tienda" >                      
+                <ul id="productos"></ul>
+                <div id="filtros_productos" class="footer-holder">
+                </div>
+            </div>
+            <div id="producto_single">
+            </div>
+            <div id="custom"></div>
+        </section>
+        <footer id="footer">
+            <div class="contenedor">
+                <div class="footer">
+                    <div class="left">
+                        <span class="letra1">© 2014 LOVIZ DELCARPIO - TODOS LOS DERECHOS RESERVADOS</span>                        
                     </div>
-                    <nav class="menu-principal enlinea">
+                    <div class="right">
                         <ul class="menu">
-                            <li data-url="tienda"><a class="link" href="/tienda/">Tienda</a></li>
-                            <li data-url="custom"><a class="link" href="/custom/">Personalizado</a></li>
-                            <li data-url="sobre"><a class="link" href="/sobre-loviz/">Nuestra Historia</a></li>
-                            <li data-url="blog"><a class="link" href="/blog/">Blog</a></li>
-                            <li data-url="faq"><a class="link" href="/faq/">FAQ</a></li>
-                        </ul>
-                    </nav>
-                    <div class="links-principales enlinea">
-                        <ul class="menu iconos-left">
-                            <li id="mini_carrito" class="carrito">
-                                
-                            </li>
-                            <li class="login">
-                                <a class="link" href="/mi_cuenta/">
-                                    <span class="icon-head"></span>                                    
-                                </a>
-                            </li>
-                            <li class="idioma">
-                                <span>ES</span>
-                            </li>
+                            <li><a href="#">Contacto</a></li>
+                            <li><a href="#">Ayuda</a></li>
                         </ul>
                     </div>
-                </div>                
-            </header>
-            <section id="contenido">
-                <div class="contefondo">
-                    <div id="minilinea">
-                    </div>
-                    <div class="overlayverde"></div>
-                    <div id="capaPage">
-                        <div class="page">
-                            <div class="marco_page">
-                                <div id="area_user"></div>
-                                <div id="carro_compra"></div>
-                            </div>                            
-                        </div>
-                    </div>
-                    <div id="loader-wrapper"></div>
-                    <div id="inicio"></div>
-                    <div id="tienda" >                      
-                        <ul id="productos"></ul>
-                        <div id="filtros_productos" class="footer-holder">
-                        </div>
-                    </div>
-                    <div id="producto_single">
-                    </div>
-                    <div id="custom"></div>
                 </div>
-            </section>
-            <footer>
-                <div class="contenedor">                    
-                    <div class="footer">
-                        <div class="left">
-                            <span class="letra1">© 2014 LOVIZ DELCARPIO - TODOS LOS DERECHOS RESERVADOS</span>                        
-                        </div>
-                        <div class="right">
-                            <ul class="menu">
-                                <li><a href="#">Contacto</a></li>
-                                <li><a href="#">Ayuda</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!--Templates de scripts-->
         <script id="loader_template" type="text/template">
             <div class="titulo">
@@ -141,7 +173,7 @@
         </script>
 
         <script id="mini_carrito_template" type="text/template">
-            <a class="link" href="/carrito/">
+            <a class="link {% if lineas %}activo{%endif%}" href="/carrito/">
                 <span class="icon-cart"></span>
                 <span class="num-cart">{{lineas}}</span>
             </a>            
@@ -295,24 +327,6 @@
             </div>
         </script>
 
-        <srcript id="carro_lleno_template" type="text/template">
-            <table class="lineas-carro">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Ref. de producto</th>
-                        <th>talla</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>subtotal</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody class="cuerpo_lineas_lista">
-                </tbody>
-            </table>
-        </srcript>
-
         <script id="producto_catalogo_template" type="text/template">
            <a class="enlace_producto" data-id="{{id}}" href="/tienda/{{slug}}_{{id}}/">
                 <figure class="img_producto">
@@ -450,6 +464,20 @@
                 <div class="grilla-menu">
                     <span class="icon-th"></span>
                 </div>
+            </div>
+            <div class="secciones_producto">
+                <div class="up caja flechita">
+                    <span class="icon-arrow-up"></span>
+                </div>
+                <div class="info caja">
+                    1/2
+                </div>
+                <div class="dow caja flechita">
+                    <span class="icon-arrow-down"></span>
+                </div>
+            </div>
+            <div class="galeria_producto">
+                
             </div>
         </script>
 
