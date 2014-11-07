@@ -10,16 +10,17 @@ Loviz.Views.Tienda = Backbone.View.extend({
 		this.$el = $el;
 	},
 	navigateHome : function(e){
+		window.app.page=false;
 		if (e) {
-			e.preventDefault();
+			e.preventDefault();			
 		};
 		window.routers.base.navigate('/', {trigger:true});
 		this.colocar_clase(e);
 
 	},
 	navegacionPrincipal: function(e){
-		var enlace = e.target.pathname;
-		
+		var enlace = e.currentTarget;
+		enlace = $(enlace).data('url');
 		window.routers.base.navigate(enlace, {trigger:true});
 		this.colocar_clase(e);
 
@@ -44,21 +45,6 @@ Loviz.Views.Tienda = Backbone.View.extend({
 		
 		window.routers.base.navigate(link, {trigger:true});
 
-	},
-	desplegar_overlay:function(){
-		window.app.page=true;
-		$('.overlayverde').slideDown('slow',function () {
-			$('#capaPage').slideDown('slow');
-		});
-	},
-	cerrarOverlay : function () {
-		window.app.page=false;
-		if ($('#capaPage').has('seve')) {
-			$('#capaPage').slideUp('slow');
-		};
-		$('.overlayverde').slideUp('slow');
-
-		window.routers.base.navigate('/', {trigger:true});
 	},
 	pagina_cargada: function(){
 

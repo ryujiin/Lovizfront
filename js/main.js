@@ -9,6 +9,8 @@ $(document).ready(function(){
 
     //creo perfil User    
     window.views.perfil = crear_perfil();
+    window.views.overlay=new Loviz.Views.Overlayverde();
+
 
     //creo Carro
     window.views.carro = crear_carro();

@@ -13,13 +13,13 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	initialize : function () {
 		this.obt_galleta();
+		this.routesHit=0;
 		window.app.page=false;
+		Backbone.history.on('route', function() { this.routesHit++; }, this);
 		//this.bind('route',this.paginaVista);
   	},
 	root : function () {
 		window.app.state = "inicio";
-		//this.ocultar_todo();
-
 		//borrar el resto de contenidos
 		if (window.views.home) {
 			window.views.home.aparecer();
@@ -29,6 +29,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		}
 	},
 	tiendaCatalogo: function(){
+		window.app.page=false;
 
 		console.log('esta en la tienda');
 
@@ -47,6 +48,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		};
 	},
 	singleProducto:function(slug,id){
+		window.app.page=false;
 		window.app.state="producto_single"
 		window.app.produto_id=id
 
@@ -70,12 +72,13 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		};
 	},
 	custom_Url:function(){
+		window.app.page=false;
 		window.app.state = "custom";
 
 	},
 	carrito:function(){
 		window.app.state = 'carrito';
-		window.views.tienda.desplegar_overlay();
+		window.app.page = true;
 
 		if (window.views.carro) {
 			if(window.views.lineas===undefined){
@@ -131,7 +134,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	perfil_user:function(){
 		window.app.state = 'usuario'
-		window.views.tienda.desplegar_overlay();
+		window.app.page=true;
 
 		if (window.views.perfil) {
 			window.views.perfil.$el.show();
@@ -148,6 +151,13 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			model:model_perfil
 		});
 		window.views.perfil=vista_perfil;
+	},
+	back:function () {
+		if(this.routesHit > 1) {
+			window.history.back();
+		} else {
+			window.views.tienda.navigateHome();
+		}
 	},
 	/*
 	paginaVista:function(){
