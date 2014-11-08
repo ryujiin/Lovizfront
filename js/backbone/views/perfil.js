@@ -36,7 +36,6 @@ Loviz.Views.Perfil = Backbone.View.extend({
     this.$el.html(html);
   },
   salir:function(){
-  	window.views.tienda.cerrarOverlay();
   	$.localStorage.removeAll();
     $.sessionStorage.removeAll();
   	$.removeCookie('carrito',{path:'/'});
@@ -48,14 +47,14 @@ Loviz.Views.Perfil = Backbone.View.extend({
     e.preventDefault();
     var email=$('#formu_login input[name=email]').val();
     var pass=$('#formu_login input[name=password]').val();
-    $.post('http://localhost:8000/api-token-auth/',{username : email, password :pass})
+    $.post('https://lovizdc.herokuapp.com/api-token-auth/',{username : email, password :pass})
     .done(function(data){
       var storage = $.sessionStorage;
       storage.set({'token_login' : data.token});
       self.datos_user();
       $('#logearse').hide();
     }).fail( function(data){
-      console.log('fallo la seccion por '+data);
+      self.fallo_login();
     })
   },
   datos_user:function(){
@@ -77,5 +76,10 @@ Loviz.Views.Perfil = Backbone.View.extend({
   },
   error_login:function(){
     console.log('los campos estan mal')
+  },
+  fallo_login:function () {
+    this.$('#formu_login .campos input').val('');
+    this.$('#formu_login .campos input').addClass('fallo_input');    
+    this.$('.text-help').html('Su correo electrónico o contraseña es incorrecta.');
   }
 });
