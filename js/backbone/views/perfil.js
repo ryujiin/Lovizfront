@@ -51,7 +51,10 @@ Loviz.Views.Perfil = Backbone.View.extend({
     .done(function(data){
       var storage = $.sessionStorage;
       storage.set({'token_login' : data.token});
+      galleta = '';
+      $.removeCookie('carrito',{path:'/'});
       self.datos_user();
+      self.buscar_carro();
       $('#logearse').hide();
     }).fail( function(data){
       self.fallo_login();
@@ -67,7 +70,8 @@ Loviz.Views.Perfil = Backbone.View.extend({
         headers:{'Authorization':'JWT '+token}
       })
       .done(function(data){
-        $.sessionStorage.set('usuario',data.usuario)
+        $.sessionStorage.set('usuario',data.id)
+        debugger;
       })
       .fail(function(){
         self.error_login();
@@ -81,5 +85,52 @@ Loviz.Views.Perfil = Backbone.View.extend({
     this.$('#formu_login .campos input').val('');
     this.$('#formu_login .campos input').addClass('fallo_input');    
     this.$('.text-help').html('Su correo electrónico o contraseña es incorrecta.');
+  },
+  buscar_carro:function () {
+    //Buscando Nuevo carro cuando se logea
+    var self = this;
+    var token = $.sessionStorage.get('token_login');
+    var usuario = $.sessionStorage.get('usuario');
+
+    var cliente_carro_id = window.models.carro.toJSON().id;
+    var producto_cliente = window.models.carro.toJSON().lineas;
+    var carro_lado_cliente = window.models.carro;
+    var carro_lado_server = new Loviz.Models.Carro();
+    //Datos necesarios para decidir con que carro me quedo
+
+    //Buscando el nuevo carro 
+    carro_lado_server.fetch({
+      headers:{'Authorization':'JWT '+token}
+    }).done(function (data) {
+      //Si exite un carro en el servidor del mismo usuario
+      var server_id = data.id;
+      var producto_server = data.lineas;
+      //Decidiendo que carro usar si el nuevo o el que tenemos en el server
+      if (producto_server>producto_cliente) {
+        //se Decide por el nuevo carro y se modifica el del servidor para congelar el carro de ahi
+        $.sessionStorage.set('carro_id',server_id)
+        carro_lado_cliente.set('id',server_id);
+        carro_lado_cliente.set('propietario',data.propietario);
+        carro_lado_server.set('id',cliente_carro_id);
+        carro_lado_server.set('estado','Congelado');        
+        carro_lado_server.save();
+        carro_lado_cliente.fetch().done(function () {
+          //creo la vista de la nuevas lineas en el carro
+          window.views.lineas.$el.empty();
+          window.views.lineas=window.routers.base.crear_vistaLineas();
+        });
+      }else{
+        //se queda con el carro del servidor y se congela este
+        carro_lado_cliente.set('propietario',usuario);
+        carro_lado_cliente.save({headers:{'Authorization':'JWT '+token}})
+      }
+    }).fail(function () {
+      //No existe un carro en el servidor de este usuario y vuelvo este carro como suyo en el server
+      var usuario = $.sessionStorage.get('usuario');
+      carro_lado_cliente.set('propietario',usuario);
+      carro_lado_cliente.save({
+        headers:{'Authorization':'JWT '+token}
+      })
+    });
   }
 });

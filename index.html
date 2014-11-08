@@ -241,7 +241,36 @@
                     </tbody>
                 </table>
             </div>
-            <div id="carro_info"></div>
+            <div id="formu_envio">
+                <p>Selecciona el Lugar de envio para calcular costo</p>
+                    <div class="iput">
+                        <label for="">Pais</label>
+                        <select name="pais" id="pais_envio">
+                            <option value="PE" selected>Peru</option>
+                        </select>
+                    </div>
+                    <div class="input">
+                        <label for="">Departamento</label>                        
+                        <select name="departamento" id="departamento_envio">
+                            <option>Por favor Seleccione</option>
+                        </select>    
+                    </div>
+                    <div class="input">
+                        <label for="">Provincia</label>                        
+                        <select name="provincia" id="provincia_envio"></select>    
+                    </div>
+                    <div class="input">
+                        <label for="">Distrito</label>                        
+                        <select name="distrito" id="distrito_envio"></select>    
+                    </div>
+                    <div id="calle_envio" class="input">
+                        <label for="">Calle</label>                        
+                        <input type="text" class="calle_envio" name="calle_envio">
+                    </div>
+            </div>
+            <div id="carro_info">
+                
+            </div>
             <div class="pie_carro">
                 <button class="seguir_comprando siempre_lleno">Seguir Comprando</button>
                 <button class="right comprar_ya siempre_lleno">Realizar Pedido</button>
@@ -253,6 +282,9 @@
         </script>
 
         <script id="informacion_de_carro_template" type="text/template">
+            <div class="formu_direc_envio">
+               
+            </div>
             <table class="info right">
                 <tr>
                     <td class="etiqueta">Subtotal</td>
@@ -552,6 +584,7 @@
         <script src="/js/backbone/views/catalogo.js"></script>
         <script src="/js/backbone/views/producto.js"></script>
         <script src="/js/backbone/views/overlaygren.js"></script>
+        <script src="/js/backbone/views/formu_envio.js"></script>
 
         <script src="/js/backbone/routers/base.js"></script>
 	    
