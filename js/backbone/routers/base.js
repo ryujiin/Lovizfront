@@ -51,6 +51,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		window.app.page=false;
 		window.app.state="producto_single"
 		window.app.produto_id=id
+		$('body').addClass('overflow');
 
 		var self = this,modelo,vista;
 		if (window.views.productos[id]===undefined) {
@@ -61,6 +62,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 				modelo = window.collections.catalogo.get(id);
 			};
 			vista = new Loviz.Views.ProductoSingle({model:modelo});
+			vista.render();
 			window.views.productos[id]=vista;
 			modelo.fetch();
 		}

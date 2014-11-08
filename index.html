@@ -10,6 +10,7 @@
     	  <link rel="shortcut icon" href="/css/img/logodelcarpio2_1.ico" />
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/iconos.css">
+        <link rel="stylesheet" href="/css/owl.carousel.css">
         <link rel="stylesheet" href="/css/main.css">
         <script src="/js/vendor/modernizr.js"></script>
     </head>
@@ -474,14 +475,19 @@
                     <span class="icon-arrow-up"></span>
                 </div>
                 <div class="info caja">
-                    1/2
+                    <span class="down_num">1/2</span>
+                    <span class="up_num">2/2</span>
                 </div>
-                <div class="dow caja flechita">
+                <div class="down caja flechita">
                     <span class="icon-arrow-down"></span>
                 </div>
             </div>
-            <div class="galeria_producto">
-                
+            <div id="galeria_producto">
+                {%for imagen in imagenes_producto%}
+                <div class="item">
+                    <img src="{{imagen.imagen}}" alt="{{full_name}} {{marca}}">
+                </div>
+                {%endfor%}
             </div>
         </script>
 
@@ -507,6 +513,7 @@
         
         <script src="/js/vendor/jquery.cookie.js"></script>
         <script src="/js/vendor/jquery.storageapi.min.js"></script>
+        <script src="/js/vendor/owl.carousel.js"></script>
 
         <script src="/js/init.js"></script>      
 

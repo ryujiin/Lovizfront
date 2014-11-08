@@ -9,6 +9,8 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
     'click .filter-field.talla .option-value' : 'tallaelegida',
     'click .filter-field.cantidad' : 'seleccionCantidad',
     'click .filter-field.cantidad .option-value' : 'cantidadelegida',
+    'click .down':'down',
+    'click .up':'up',
   },
 
   template: swig.compile($("#produto_single_theme").html()),
@@ -16,8 +18,7 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
   initialize: function () {
     var self = this;
     this.listenTo(this.model, "change", this.render, this);
-    this.render();
-    window.routers.base.on('route',function(e,i){
+    window.routers.base.on('route',function(e){
       self.aparecer(e);
     });
   },
@@ -27,6 +28,7 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
     var html = this.template(producto);
     this.$el.html(html);    
     $("#producto_single").append(this.$el);
+    this.crear_galeria();
   },
   aparecer:function (e) {
     if (e==='singleProducto') {
@@ -46,13 +48,6 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
   navigateCatalogo: function(){
     Backbone.history.navigate('/tienda/', {trigger:true});    
   },
-  /*
-  cargaCompleta:function(){
-    this.$el.find('img').load(function(){
-      $('body').addClass('loaded');
-    })
-    this.$el.show();
-  },*/
   cerrar_info:function(){
     this.$el.fadeOut();
     this.navigateCatalogo();
@@ -83,8 +78,6 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
     }else{
       this.selecciontalla('olvido');
     }
-  },
-  crear_linea_chiquita:function () {
   },
   selecciontalla:function(o){
     this.num++
@@ -118,6 +111,25 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
     var cantidad = $(div).data('cantidad');
     $('.cantidad .selected').html(cantidad);
     $('.formulario_producto input[name=cantidad]').val(cantidad)
+  },
+  crear_galeria:function () {
+    var div = this.$('#galeria_producto');
+    div.owlCarousel({
+      navigation:true,
+      slideSpeed:300,
+      paginationSpeed:400,
+      singleItem:true,
+    });
+  },
+  down:function () {
+    this.$('.marco_producto').slideUp('slow');
+    this.$('.down_num').hide();
+    this.$('.up_num').show();
+  },
+  up:function () {
+    this.$('.marco_producto').slideDown('slow');
+    this.$('.down_num').show();
+    this.$('.up_num').hide();
   }
 });
 

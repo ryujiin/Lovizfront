@@ -12,10 +12,6 @@ Loviz.Views.HomeSlider = Backbone.View.extend({
 		window.routers.base.on('route',function(e){
 	      if (e==='root') {
 	        self.$el.show();
-	        //var alto = $( window ).height();
-	        //alto = alto-60;
-	        //alto = alto+'px';
-	        //self.$el.css('height',alto);
 	      }else{
 	      	if (window.app.page===false) {
 	        	self.$el.hide();

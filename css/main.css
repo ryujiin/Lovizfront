@@ -16,6 +16,7 @@ body .text-aling-right{text-align:right}
 body .text-aling-left{text-align:left}
 body .overlayverde{background:url("//lovizdelcarpio.com/css/img/popup_bg.png");width:100%;height:100%;position:fixed;display:none;z-index:1;}
 body .overlayverde .back{position:absolute;width:100%;height:100%}
+body.overflow{overflow:hidden}
 body .right{float:right}
 body .nolink{cursor:default}
 #capaPage{width:74%;position:absolute;left:13%;margin:auto;height:100%;z-index:1;}
@@ -24,6 +25,20 @@ body .nolink{cursor:default}
 #capaPage .page .marco_page .cajalogin{width:48%}
 #capaPage .page .marco_page h2.titulo_page{color:#1b1b1b;font-size:30px;font-weight:normal;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:30px;text-align:left;}
 #capaPage .page .marco_page h2.titulo_page span{color:#6e6e6e}
+#carro_info{font-size:14px;border-bottom:1px solid #ccc;margin-bottom:10px;}
+#carro_info td{font-size:16px;font-weight:bold;text-align:right;padding:4px}
+#carro_info .etiqueta{width:100px;font-weight:600;text-align:left;font-size:14px}
+#carro_info .total .etiqueta{font-size:16px;font-weight:600;text-transform:uppercase}
+#carro_info .total td{font-size:20px}
+#cuerpo_lineas .lineas-carro{width:100%;color:#1b1b1b;}
+#cuerpo_lineas .lineas-carro thead{font-weight:normal;font-size:10px;text-transform:uppercase;}
+#cuerpo_lineas .lineas-carro thead th{padding:10px 0}
+#cuerpo_lineas .lineas-carro .linea_carro{background-color:#f2f9ec;border-bottom:10px solid #fff;}
+#cuerpo_lineas .lineas-carro .linea_carro td{padding:10px 0;font-weight:bold;font-size:14px;text-transform:uppercase}
+#cuerpo_lineas .lineas-carro .linea_carro .linea-img figure{width:100px;padding:0 20px}
+#cuerpo_lineas .lineas-carro .linea_carro .linea-cantidad input{width:30px}
+#cuerpo_lineas .lineas-carro .linea_carro .linea-accion{padding:0 10px;}
+#cuerpo_lineas .lineas-carro .linea_carro .linea-accion span{cursor:pointer}
 #filtros_productos .filter-field{position:relative;}
 #filtros_productos .filter-field .seccion-orientacion{position:absolute;top:-70px;text-transform:initial;text-align:center;width:160px;display:none;}
 #filtros_productos .filter-field .seccion-orientacion .cuadro-orientacion{background:#fff;border-radius:5px;font-size:13px;padding:5px;box-shadow:0 0 10px rgba(0,0,0,0.5)}
@@ -41,7 +56,7 @@ body .nolink{cursor:default}
 .footer-contenido .conte .option-value{padding:3px 0;}
 .footer-contenido .conte .option-value:hover{color:#fff;transition:0s}
 .footer-contenido .pin-selection{color:#7fc940;position:absolute;font-size:25px;height:15px;bottom:1px;left:47%}
-.footer-holder{box-shadow:6px 6px 16px #333;background:#fff;position:fixed;width:100%;bottom:32px;}
+.footer-holder{box-shadow:6px 6px 16px #333;background:#fff;position:fixed;width:100%;bottom:32px;z-index:1;}
 .footer-holder .filter-field{text-align:left;float:left;width:20%;background:url("//lovizdelcarpio.com/css/img/greypix.gif");background-repeat:repeat-y;padding-top:20px;height:37px;text-transform:uppercase;position:relative;cursor:pointer;font-size:14px;}
 .footer-holder .filter-field.selecionado{background-color:#7fc940}
 .footer-holder .filter-field:hover{background-color:#7fc940;}
@@ -67,6 +82,12 @@ body .nolink{cursor:default}
 .footer-holder .filter-field .widget-selector.estando{opacity:1;right:40%;top:-18px;font-size:30px;width:10%;z-index:1;color:#7fc940}
 .footer-holder #type-selection .selected{left:10px;font-size:24px;top:14px}
 #fondo-page{position:fixed;background:url("//lovizdelcarpio.com/css/img/bg.png") repeat-x 50% 50% #dfe2e4;height:100%;width:100%;z-index:-1}
+#galeria_producto{display:block;width:100%;height:auto;position:relative;}
+#galeria_producto .owl-controls{position:absolute;top:470px;left:40%;}
+#galeria_producto .owl-controls .owl-buttons{display:none}
+#galeria_producto .owl-controls .owl-pagination{width:200px;}
+#galeria_producto .owl-controls .owl-pagination .owl-page{width:30px;height:5px;background:rgba(255,255,255,0.5);display:inline-block;margin:0 5px;}
+#galeria_producto .owl-controls .owl-pagination .owl-page.active{background:#7fc940}
 header{background:#333;color:#fff;position:fixed;width:100%;height:60px;z-index:2;}
 header a{color:#fff}
 header .contenedor{margin-top:10px}
@@ -94,14 +115,14 @@ footer a{color:#fff;font-size:11px;text-transform:uppercase;font-weight:600;text
 #productos .producto .producto_precio{font-weight:800;color:#333;}
 #productos .producto .producto_precio .moneda{color:#6ba63a;font-size:12px}
 #productos .producto .producto_precio .old_precio{text-decoration:line-through;margin:0 5px;font-size:12px}
-#producto_single .back-tienda{background-color:#fff;position:fixed;top:40%;cursor:pointer;left:-80px;}
+#producto_single .back-tienda{background-color:#fff;position:fixed;top:40%;cursor:pointer;left:-80px;z-index:2;}
 #producto_single .back-tienda:hover{left:0;background-color:#333;color:#6ba63a;}
 #producto_single .back-tienda:hover .grilla-menu{border-left:1px solid #dfe2e4}
 #producto_single .back-tienda .back-to-text{width:80px;float:left;font-size:11px;font-weight:bold;text-transform:uppercase;padding-top:13px}
 #producto_single .back-tienda .grilla-menu{float:left;width:50px;height:50px;}
 #producto_single .back-tienda .grilla-menu span{font-size:30px;line-height:50px}
 #producto_single .formulario_producto{display:none}
-#producto_single .marco_producto{width:1200px;margin:80px auto;display:table;}
+#producto_single .marco_producto{width:1200px;margin:80px auto;display:block;}
 #producto_single .marco_producto .imagen_principal{vertical-align:middle;width:600px}
 #producto_single .marco_producto .descripcion{width:450px;vertical-align:middle;background:#fff;padding:20px 30px;position:relative;}
 #producto_single .marco_producto .descripcion .cerrar_producto{width:35px;height:35px;background:#fff;position:absolute;top:0;right:-36px;}
@@ -109,9 +130,13 @@ footer a{color:#fff;font-size:11px;text-transform:uppercase;font-weight:600;text
 #producto_single .marco_producto .descripcion .cerrar_producto:hover span{color:#6ba63a}
 #producto_single .marco_producto .descripcion .cerrar_producto span{font-size:32px;color:#6e6e6e}
 #producto_single .marco_producto .colores ul li{list-style:none;width:100px;display:inline-block}
-#producto_single .secciones_producto{position:absolute;right:0;top:30%;}
+#producto_single .secciones_producto{position:absolute;right:0;top:30%;z-index:2;}
 #producto_single .secciones_producto .caja{background:#fff;width:50px;margin-bottom:1px;font-size:20px;line-height:45px;}
 #producto_single .secciones_producto .caja.flechita:hover{background:#333;color:#6ba63a;cursor:pointer}
-#producto_single .secciones_producto .info{font-size:14px;font-weight:bold}
+#producto_single .secciones_producto .info{font-size:14px;font-weight:bold;}
+#producto_single .secciones_producto .info .up_num{display:none}
+#minilinea{width:300px;position:fixed;background:#fff;right:50px;text-align:center;box-shadow:0 2px 2px rgba(0,0,0,0.5);display:none;z-index:1;}
+#minilinea figure{width:80px;margin:0 auto}
+#minilinea p{margin:.6em}
 section#contenido{padding-top:60px}
 #tienda,#producto_single{text-align:center}
