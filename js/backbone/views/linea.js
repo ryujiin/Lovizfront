@@ -20,9 +20,9 @@ Loviz.Views.Linea = Backbone.View.extend({
     return this;
   },
   eliminar_linea:function () {
-    this.$el.slideUp('slow');
+    this.$el.fadeOut('slow');
     this.model.destroy().done(function () {
       window.views.mini_carrito.model.fetch();
-    })
+    });
   }
 });

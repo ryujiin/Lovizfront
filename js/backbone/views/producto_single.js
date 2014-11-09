@@ -70,7 +70,10 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
           modelo.save().done(function () {
             window.views.mini_linea.render();
             window.views.mini_linea.aparecer();
-            window.views.mini_carrito.model.fetch();
+            window.views.mini_carrito.model.fetch().done(function () {
+              var total=window.models.carro.toJSON().total
+              $.sessionStorage.set('total_carro',total)
+            });
             window.views.lineas.collection.add(window.views.mini_linea.model);
           });
         };

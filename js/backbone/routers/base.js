@@ -21,11 +21,8 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	root : function () {
 		window.app.state = "inicio";
 		//borrar el resto de contenidos
-		if (window.views.home) {
-			window.views.home.aparecer();
-		}else{
-			window.views.home=this.cargarSliderHome()
-			window.views.home.aparecer();
+		if (window.views.home===undefined) {
+			window.views.home=this.cargarSliderHome();
 		}
 	},
 	tiendaCatalogo: function(){

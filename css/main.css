@@ -28,6 +28,7 @@ body.overflow{overflow:hidden}
 body .right{float:right}
 body .nolink{cursor:default}
 body select{border:1px solid #d5d5d5;background:#fff;padding:5px;border-radius:5px}
+body .visible{display:block !important}
 #capaPage{width:74%;position:absolute;left:13%;margin:auto;z-index:1;}
 #capaPage .page{padding:0 60px 40px;}
 #capaPage .page h2.titulo_page{color:#1b1b1b;font-size:30px;font-weight:normal;border-bottom:1px solid #ccc;padding-bottom:10px;margin:30px 0 30px;text-align:left;}

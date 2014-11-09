@@ -286,7 +286,11 @@
                     <td>S/.{{subtotal}}</td>
                 </tr>
                 <tr>
+                    {%if envio_gratis%}
+                    <td class="etiqueta">Envio gratis!*</td>                    
+                    {%else%}
                     <td class="etiqueta">Envio</td>
+                    {%endif%}
                     <td>S/.{{envio}}</td>
                 </tr>
                 <tr class="total">
@@ -433,7 +437,7 @@
                                 {%if varia.oferta != 0 %}
                                 <div class="precio-old">
                                     <div class="moneda">S/.</div>
-                                    <div class="cantidad_precio">{{varia.precio_minorista}}</div>    
+                                    <div class="cantidad_precio">{{varia.precio}}</div>    
                                 </div>
                                 {%endif%}
                                 <div class="precio-mostrar">

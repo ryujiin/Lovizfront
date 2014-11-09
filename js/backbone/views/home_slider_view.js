@@ -11,10 +11,10 @@ Loviz.Views.HomeSlider = Backbone.View.extend({
 		this.cargado();
 		window.routers.base.on('route',function(e){
 	      if (e==='root') {
-	        self.$el.show();
+	        self.$el.fadeIn('slow');
 	      }else{
 	      	if (window.app.page===false) {
-	        	self.$el.hide();
+	        	self.$el.slideUp(1000);
 	      	};
 	      }
 	    });
@@ -29,8 +29,4 @@ Loviz.Views.HomeSlider = Backbone.View.extend({
 	    	window.views.tienda.pagina_cargada();
 	    });
 	},
-	aparecer:function(){
-		window.views.tienda.pagina_cargada();
-	    this.$el.show();
-	}
 });
