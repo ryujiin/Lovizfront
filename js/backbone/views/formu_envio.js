@@ -9,11 +9,13 @@ Loviz.Views.Formu_envio = Backbone.View.extend({
   initialize: function () {
     this.$el = $('#formu_envio');
     this.buscar_region();
+    this.listenTo(window.models.carro, "change", this.mostrarse, this);
   },
 
   render: function () {
     var html = this.template(album);
     this.$el.html(html);
+    this.mostrarse();
   },
   buscar_region:function () {
     var self = this;
@@ -45,5 +47,13 @@ Loviz.Views.Formu_envio = Backbone.View.extend({
   },
   seleccionar_calle:function () {
     this.$('#calle_envio').fadeIn('slow');
+  },
+  mostrarse:function() {
+    var lineas = window.models.carro.toJSON().lineas
+    if (lineas===0) {
+      this.$el.hide();
+    }else{
+      this.$el.show()
+    }
   }
 });

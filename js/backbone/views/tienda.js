@@ -71,6 +71,7 @@ Loviz.Views.Tienda = Backbone.View.extend({
     },
     //Funcion para crear Carro
     crear_carro:function () {
+        
         var modelo = new Loviz.Models.Carro();
         window.models.carro = modelo;
         var carro = new Loviz.Views.CarroCompras({
@@ -82,6 +83,7 @@ Loviz.Views.Tienda = Backbone.View.extend({
         var token = $.sessionStorage.get('token_login');
         var user = $.sessionStorage.get('usuario');
         if (token) {
+            
             modelo.fetch({
                 headers:{'Authorization':'JWT '+token}
             }).fail(function(data){
@@ -92,11 +94,14 @@ Loviz.Views.Tienda = Backbone.View.extend({
                 };
                 modelo.save().done(function(data){
                     $.sessionStorage.set('carro_id',data.id);
+                    
                 })
             }).done(function(data){
                 $.sessionStorage.set('carro_id',data.id);
+                
             });
         }else{
+            
             modelo.fetch({
                 data:$.param({session:galleta})
             })
@@ -104,11 +109,13 @@ Loviz.Views.Tienda = Backbone.View.extend({
                 modelo.set('sesion_carro',galleta);
                 modelo.set('estado','Abierto');
                 modelo.save().done(function(data){
-                    $.sessionStorage.set('carro_id',data.id)                    
+                    $.sessionStorage.set('carro_id',data.id)  
+                                      
                 })
             })
             .done(function(data){
                 $.sessionStorage.set('carro_id',data.id)
+                
             })
         }
         return carro
@@ -117,6 +124,7 @@ Loviz.Views.Tienda = Backbone.View.extend({
         if (window.views.carro) {
             var modelo = window.views.mini_carrito.model;
             var num_vista = new Loviz.Views.CarroNum({model:modelo});
+            
             window.views.carro_info = new Loviz.Views.CarroInfo({model:modelo});
         };
         return num_vista

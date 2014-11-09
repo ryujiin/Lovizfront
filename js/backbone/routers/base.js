@@ -112,7 +112,6 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	},
 	notFound:function(){
 		console.log('No se encontro la pagina')
-		debugger;
 	},
 	obt_galleta : function(){
 		galleta = $.cookie('carrito');
