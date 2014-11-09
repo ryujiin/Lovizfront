@@ -52,36 +52,44 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
     this.$el.fadeOut();
     this.navigateCatalogo();
   },
-  addtocart:function(){
-    //revisar valores de formulario
-    var variacion = $('.formulario_producto input[name=variacion]').val();
-    var cantidad = $('.formulario_producto input[name=cantidad]').val();
-    var producto = $('.formulario_producto input[name=producto]').val();
-    if (variacion!=='') {
-      if (window.views.carro) {
-        var carrito = window.views.carro.model.get('id');
-        window.routers.base.crear_vistaLineas();
-        if (window.views.lineas) {
-          var modelo = new Loviz.Models.Linea()
-          modelo.set({carro:carrito,producto:producto,variacion:variacion,cantidad:cantidad});
-          window.views.mini_linea = new Loviz.Views.Mini_Linea({
-            model:modelo
-          });
-          modelo.save().done(function () {
-            window.views.mini_linea.render();
-            window.views.mini_linea.aparecer();
-            window.views.mini_carrito.model.fetch().done(function () {
-              var total=window.models.carro.toJSON().total
-              $.sessionStorage.set('total_carro',total)
-            });
-            window.views.lineas.collection.add(window.views.mini_linea.model);
-          });
-        };
-      };
-    }else{
-      this.selecciontalla('olvido');
-    }
-  },
+    addtocart:function(){
+        //revisar valores de formulario
+        var variacion = $('.formulario_producto input[name=variacion]').val();
+        var cantidad = $('.formulario_producto input[name=cantidad]').val();
+        var producto = $('.formulario_producto input[name=producto]').val();
+        if (variacion!=='') {
+            debugger;
+            if (window.views.carro) {
+                debugger;
+                var carrito = window.views.carro.model.get('id');
+                if (window.views.lineas===undefined) {
+                    window.views.lineas=window.routers.base.crear_vistaLineas();
+                };                
+                if (window.views.lineas) {
+                    debugger;
+                    var modelo = new Loviz.Models.Linea()
+                    modelo.set({carro:carrito,producto:producto,variacion:variacion,cantidad:cantidad});
+                    window.views.mini_linea = new Loviz.Views.Mini_Linea({
+                        model:modelo
+                    });
+                    modelo.save().done(function () {
+                        debugger;
+                        window.views.mini_linea.render();
+                        window.views.mini_linea.aparecer();
+                        window.views.mini_carrito.model.fetch().done(function () {
+                            var total=window.models.carro.toJSON().total
+                            $.sessionStorage.set('total_carro',total)
+                            debugger;
+                        });
+                        window.views.lineas.collection.add(window.views.mini_linea.model);
+                        debugger;
+                    });
+                };
+            };
+        }else{
+            this.selecciontalla('olvido');
+        }
+    },
   selecciontalla:function(o){
     this.num++
     if (o==='olvido') {

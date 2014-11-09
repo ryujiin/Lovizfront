@@ -17,6 +17,7 @@ Loviz.Views.Linea = Backbone.View.extend({
     var album = this.model.toJSON()
     var html = this.template(album);
     this.$el.html(html);
+    debugger;
     return this;
   },
   eliminar_linea:function () {

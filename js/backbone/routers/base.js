@@ -87,18 +87,26 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		}
 	},
 	crear_vistaLineas:function () {
-		var coleccion_lineas = new Loviz.Collections.Lineas();
-		var carro = $.sessionStorage.get('carro_id');
-		var vista_lineas = new Loviz.Views.Lineas({
-			model:window.views.mini_carrito.model,
-			collection:coleccion_lineas,
-		});
-		coleccion_lineas.fetch({
-			data:$.param({carro:carro})
-		}).done(function () {
-			var num = coleccion_lineas.length
-		});
-		return vista_lineas;
+		if (window.views.lineas===undefined) {
+			debugger;
+			var coleccion_lineas = new Loviz.Collections.Lineas();
+			var carro = $.sessionStorage.get('carro_id');
+			var vista_lineas = new Loviz.Views.Lineas({
+				model:window.views.mini_carrito.model,
+				collection:coleccion_lineas,
+			});
+			debugger;
+			coleccion_lineas.fetch({
+				data:$.param({carro:carro})
+			}).done(function () {
+				debugger;
+				var num = coleccion_lineas.length
+			});
+			return vista_lineas;	
+		}else{
+			debugger;
+			return window.views.lineas
+		}
 	},
 	cargarSliderHome : function(){
 		var modelo,slider_view;

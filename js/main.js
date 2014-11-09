@@ -15,7 +15,7 @@ $(document).ready(function(){
     //creo Carro
     window.views.carro = window.views.tienda.crear_carro();
 
-    window.views.lineas = window.routers.base.crear_vistaLineas();
+    //window.views.lineas = window.routers.base.crear_vistaLineas();
     window.views.carro_num = window.views.tienda.crear_carro_num();
 
 
