@@ -1,8 +1,7 @@
 Loviz.Views.Overlayverde = Backbone.View.extend({
 	el:$('.overlayverde'),
 	events:{
-		'click .back': 'cerrar_back',
-		'click #capaPage':'no_hacernada',
+		'click':'cerrar_back',
 	},
 	initialize: function () {
 		var self = this;
@@ -19,12 +18,10 @@ Loviz.Views.Overlayverde = Backbone.View.extend({
 		}
 	},
 	cerrar_back:function () {
-		if (this.verse===true) {
-			window.routers.base.back();
-		}
-		this.verse = true
+		window.app.page===false;
+		window.routers.base.back();
 	},
 	no_hacernada:function () {
 		this.verse = false;
-	}
+	},
 });
