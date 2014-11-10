@@ -367,27 +367,29 @@
         </script>
 
         <script id="producto_catalogo_template" type="text/template">
-           <a class="enlace_producto" data-id="{{id}}" href="/tienda/{{slug}}_{{id}}/">
-                <figure class="img_producto">
-                    <img src="{{thum}}" alt="" class="">
-                </figure>
-                <div class="producto_name">
-                    <h3>{{categoria}} {{estilo}}</h3>
-                    <h4>{{nombre}} {{color}}</h4>
-                </div>
-                <div class="producto_precio">
-                    {%if en_oferta %}
-                    <div class="old_precio enlinea">
-                        <span class="moneda">S/.</span>
-                        <span class="cantidad">{{precio}}</span>
+            <div class="marco_producto_catalogo">
+                <a class="enlace_producto" data-id="{{id}}" href="/tienda/{{slug}}_{{id}}/">
+                    <figure class="img_producto">
+                        <img src="{{thum}}" alt="" class="">
+                    </figure>
+                    <div class="producto_name">
+                        <h3>{{categoria}} {{estilo}}</h3>
+                        <h4>{{nombre}} {{color}}</h4>
                     </div>
-                    {% endif %}
-                    <div class="precio enlinea">
-                        <span class="moneda">S/.</span>                                                 
-                        <span class="cantidad">{{precio_venta}}</span>
-                    </div>                                              
-                </div>
-            </a>
+                    <div class="producto_precio">
+                        {%if en_oferta %}
+                        <div class="old_precio enlinea">
+                            <span class="moneda">S/.</span>
+                            <span class="cantidad">{{precio}}</span>
+                        </div>
+                        {% endif %}
+                        <div class="precio enlinea">
+                            <span class="moneda">S/.</span>                                                 
+                            <span class="cantidad">{{precio_venta}}</span>
+                        </div>                                              
+                    </div>
+                </a>
+            </div>
         </script>
 
         <script id="produto_single_theme" type="text/template">
@@ -568,7 +570,7 @@
         <script src="/js/backbone/views/productoslista.js"></script>
         <script src="/js/backbone/views/producto_lista.js"></script>
         <script src="/js/backbone/views/producto_single.js"></script>
-        <script src="/js/backbone/views/producto_filter.js"></script>
+        <script src="/js/backbone/views/catalogo_filtro.js"></script>
         <script src="/js/backbone/views/filtro.js"></script>
         <script src="/js/backbone/views/loader_view.js"></script>
         <script src="/js/backbone/views/home_slider_view.js"></script>

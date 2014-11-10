@@ -17,6 +17,7 @@ Loviz.Views.Producto = Backbone.View.extend({
     var album = this.model.toJSON()
     var html = this.template(album);
     this.$el.html(html);
+    this.aparecer();
     return this;
   },
   navigateSingleProducto: function(e){
@@ -25,4 +26,10 @@ Loviz.Views.Producto = Backbone.View.extend({
 
     Backbone.history.navigate(enlace, {trigger:true});
   },
+  aparecer:function () {
+    var self = this
+    this.$el.find('img').on('load',function(){
+      self.$('.marco_producto_catalogo').slideDown('slow');
+    });
+  }
 });

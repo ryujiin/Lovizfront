@@ -33,7 +33,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		window.app.state = "tienda";
 
 		this.crear_catalogo();
-		this.crear_producto_filter();
+		this.crear_catalogo_filtro();
 		$('#tienda').show()
 	},
 	crear_catalogo: function () {
@@ -64,10 +64,10 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			modelo.fetch();
 		}
 	},
-	crear_producto_filter:function (argument) {
-		if (window.views.producto_filter===undefined) {
-			var vista = new Loviz.Views.Producto_filter();
-			window.views.producto_filter = vista;
+	crear_catalogo_filtro:function (argument) {
+		if (window.views.catalogo_filtro===undefined) {
+			var vista = new Loviz.Views.Catalogo_filtro();
+			window.views.catalogo_filtro = vista;
 		};
 	},
 	custom_Url:function(){
@@ -80,13 +80,24 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		window.app.page = true;
 
 		if (window.views.carro) {
-			if(window.views.lineas===undefined){
-				this.crear_vistaLineas();
-			}
+			this.crear_vistaLineas();
 			window.views.formu_envio = new Loviz.Views.Formu_envio();
 		}
 	},
 	crear_vistaLineas:function () {
+		var carro_id = $.sessionStorage.get('carro_id');
+		if (carro_id===null) {
+			window.models.carro.fetch().done(function (data) {
+				$.sessionStorage.set('carro_id',data.id);
+				window.collections.lineas.fetch({
+					data:$.param({carro:data.id})	
+				});
+			});
+		};
+		window.collections.lineas.fetch({
+			data:$.param({carro:carro_id})
+		});
+		/*
 		if (window.views.lineas===undefined) {
 			debugger;
 			var coleccion_lineas = new Loviz.Collections.Lineas();
@@ -107,6 +118,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			debugger;
 			return window.views.lineas
 		}
+		*/
 	},
 	cargarSliderHome : function(){
 		var modelo,slider_view;

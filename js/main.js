@@ -14,6 +14,11 @@ $(document).ready(function(){
 
     //creo Carro
     window.views.carro = window.views.tienda.crear_carro();
+    //creo la coleccion para guardar las lineas del carro
+    window.collections.lineas = new Loviz.Collections.Lineas();
+    window.views.lineas = new Loviz.Views.Lineas({
+        collection:window.collections.lineas,
+    });
 
     //window.views.lineas = window.routers.base.crear_vistaLineas();
     window.views.carro_num = window.views.tienda.crear_carro_num();

@@ -54,39 +54,39 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
   },
     addtocart:function(){
         //revisar valores de formulario
-        var variacion = $('.formulario_producto input[name=variacion]').val();
-        var cantidad = $('.formulario_producto input[name=cantidad]').val();
-        var producto = $('.formulario_producto input[name=producto]').val();
+        var variacion = this.$('.formulario_producto input[name=variacion]').val();
+        var cantidad = this.$('.formulario_producto input[name=cantidad]').val();
+        var producto = this.$('.formulario_producto input[name=producto]').val();
+        //Si la talla del producto si esta marcado
         if (variacion!=='') {
-            debugger;
+          //Verifico si la vista del carro exite
             if (window.views.carro) {
-                debugger;
+              //obetengo la id del carro
                 var carrito = window.views.carro.model.get('id');
+                //Verifico si exite la vista de las lineas en el carro
                 if (window.views.lineas===undefined) {
+                  //Si no existe la vista de las lineas las crea
                     window.views.lineas=window.routers.base.crear_vistaLineas();
                 };                
                 if (window.views.lineas) {
-                    debugger;
                     var modelo = new Loviz.Models.Linea()
                     modelo.set({carro:carrito,producto:producto,variacion:variacion,cantidad:cantidad});
                     window.views.mini_linea = new Loviz.Views.Mini_Linea({
                         model:modelo
                     });
                     modelo.save().done(function () {
-                        debugger;
                         window.views.mini_linea.render();
                         window.views.mini_linea.aparecer();
                         window.views.mini_carrito.model.fetch().done(function () {
                             var total=window.models.carro.toJSON().total
                             $.sessionStorage.set('total_carro',total)
-                            debugger;
                         });
                         window.views.lineas.collection.add(window.views.mini_linea.model);
-                        debugger;
                     });
                 };
             };
         }else{
+          //Si no Extiste talla de producto en el formulario
             this.selecciontalla('olvido');
         }
     },
