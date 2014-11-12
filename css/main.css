@@ -1,117 +1,74 @@
-body,html{color:#333;font-family:'Raleway',sans-serif}
-body a{text-decoration:none;color:#333;}
-body a:hover{text-decoration:underline}
-body button,body .login-acceder{box-shadow:rgba(73,116,35,0.129) 0 0 7px inset,rgba(255,255,255,0.247) 1px 1px 1px inset,rgba(0,0,0,0.2) 1px 1px 5px;background:linear-gradient(#7fc940 0%,#6aa538 100%);color:#fff;font-size:13px;font-weight:bold;text-transform:uppercase;padding:15px 30px 15px;border-radius:4px;border:none;outline:none;}
-body button:hover,body .login-acceder:hover{color:#87d445;background:linear-gradient(to bottom,#5c5a5a 0%,#373636 100%)}
+body{font-size:16px;font-family:'PT Sans',sans-serif;}
+body a{text-decoration:none}
+body .banner_top{background:#1a1a1a;color:#fcfbf6;padding:10px;text-align:center;font-size:15px}
+body .bold{font-weight:bold}
 body .contenedor{width:1200px;margin:0 auto}
-body .clear{clear:both}
-body .enlinea{display:inline-block}
-body h1,body h2,body h3,body h4{margin:0;padding:0}
 body img{width:100%}
+body p{color:#818181}
+body .menu{list-style:none;margin:0;padding:0;}
+body .menu li{display:inline-block}
 body .left{float:left}
-body .letra1{color:#bbb}
-body .menu{padding:0;margin:0;}
-body .menu li{display:inline-block;border-right:1px dotted #4d4d4d}
-body .text-aling-right{text-align:right}
-body .text-aling-left{text-align:left}
-body .overlayverde{background:url("//lovizdelcarpio.com/css/img/popup_bg.png");width:100%;height:100%;position:fixed;display:none;z-index:1;}
-body .overlayverde .back{position:absolute;width:100%;height:100%}
 body .right{float:right}
-body .nolink{cursor:default}
-#capaPage{width:74%;position:absolute;left:13%;margin:auto;height:100%;z-index:1;}
-#capaPage .page{background-color:#fff;margin:auto;height:100%;}
-#capaPage .page .marco_page{padding:60px;}
-#capaPage .page .marco_page .cajalogin{width:48%}
-#capaPage .page .marco_page h2.titulo_page{color:#1b1b1b;font-size:30px;font-weight:normal;border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:30px;text-align:left;}
-#capaPage .page .marco_page h2.titulo_page span{color:#6e6e6e}
-#filtros_productos .filter-field{position:relative;}
-#filtros_productos .filter-field .seccion-orientacion{position:absolute;top:-70px;text-transform:initial;text-align:center;width:160px;display:none;}
-#filtros_productos .filter-field .seccion-orientacion .cuadro-orientacion{background:#fff;border-radius:5px;font-size:13px;padding:5px;box-shadow:0 0 10px rgba(0,0,0,0.5)}
-#filtros_productos .filter-field .title{width:30%}
-#filtros_productos .filter-field .todos-filtros{position:fixed;bottom:90px;width:100%;background:#333;left:0;color:#b8b8b8;display:none;}
-#filtros_productos .filter-field .todos-filtros a{color:#b8b8b8}
-#filtros_productos .filter-field .todos-filtros .titulo-opcion{display:inline-block;width:240px;color:#fff;border-left:1px solid #b8b8b8;float:left;padding:20px 0;background:#1c1c1c}
-#filtros_productos .filter-field .todos-filtros .opcion-valor{display:inline-block;width:240px;padding:20px 0;border-right:1px solid #b8b8b8;position:relative;}
-#filtros_productos .filter-field .todos-filtros .opcion-valor:hover{background:url("//lovizdelcarpio.com/css/img/ruido.png") 0 0 #415136 repeat}
-#filtros_productos .filter-field .todos-filtros .opcion-valor .flecha{position:absolute;width:0;top:15%;height:0;border-top:20px solid transparent;border-left:10px solid #1c1c1c;border-bottom:20px solid transparent}
-#filtros_productos .filter-field .todos-filtros .opcion{text-align:center;font-weight:bold;}
-#filtros_productos .filter-field .todos-filtros .opcion.sinada{border:none}
-.footer-contenido{background:#333;position:absolute;color:#acacac;bottom:57px;width:100%;text-align:center;font-weight:bold;display:none;}
-.footer-contenido .conte{padding:10px;}
-.footer-contenido .conte .option-value{padding:3px 0;}
-.footer-contenido .conte .option-value:hover{color:#fff;transition:0s}
-.footer-contenido .pin-selection{color:#7fc940;position:absolute;font-size:25px;height:15px;bottom:1px;left:47%}
-.footer-holder{box-shadow:6px 6px 16px #333;background:#fff;position:fixed;width:100%;bottom:32px;}
-.footer-holder .filter-field{text-align:left;float:left;width:20%;background:url("//lovizdelcarpio.com/css/img/greypix.gif");background-repeat:repeat-y;padding-top:20px;height:37px;text-transform:uppercase;position:relative;cursor:pointer;font-size:14px;}
-.footer-holder .filter-field.selecionado{background-color:#7fc940}
-.footer-holder .filter-field:hover{background-color:#7fc940;}
-.footer-holder .filter-field:hover .gray{color:#333 !important}
-.footer-holder .filter-field.add-to-cart{font-size:20px;}
-.footer-holder .filter-field.add-to-cart .title,.footer-holder .filter-field.add-to-cart span{display:inline-block;position:absolute}
-.footer-holder .filter-field.add-to-cart .title{text-align:right;right:10px}
-.footer-holder .filter-field.add-to-cart span{left:10px}
-.footer-holder .filter-field.titulo_precio{width:40% !important;}
-.footer-holder .filter-field.titulo_precio:hover{background-color:#fff}
-.footer-holder .filter-field.titulo_precio h2{font-size:16px}
-.footer-holder .filter-field.titulo_precio .precio{position:absolute;top:15px;right:10px;font-weight:bold;font-size:25px;display:none;}
-.footer-holder .filter-field.titulo_precio .precio .moneda{display:inline-block;color:#7fc940;font-size:13px}
-.footer-holder .filter-field.titulo_precio .precio .cantidad_precio,.footer-holder .filter-field.titulo_precio .precio .precio-mostrar{display:inline-block}
-.footer-holder .filter-field.titulo_precio .precio .precio-old{position:absolute;left:-55px;top:5px;font-size:11px;}
-.footer-holder .filter-field.titulo_precio .precio .precio-old .cantidad_precio{text-decoration:line-through}
-.footer-holder .filter-field .olvido{position:absolute;width:100px;background-color:#fff;text-transform:initial;left:-120px;top:-65px;text-align:center;padding:5px;box-shadow:0 0 5px rgba(0,0,0,0.2);border-radius:5px;display:none}
-.footer-holder .filter-field .text-over{display:none;position:absolute;left:10px;font-size:13px;font-weight:bold}
-.footer-holder .filter-field .selected{color:#1b1b1b;font-weight:800;position:absolute;right:25px;}
-.footer-holder .filter-field .selected.gray{color:#999}
-.footer-holder .filter-field .title{font-weight:800;position:absolute;left:25px}
-.footer-holder .filter-field .widget-selector{position:absolute;opacity:.5;right:10px;top:22px;}
-.footer-holder .filter-field .widget-selector.estando{opacity:1;right:40%;top:-18px;font-size:30px;width:10%;z-index:1;color:#7fc940}
-.footer-holder #type-selection .selected{left:10px;font-size:24px;top:14px}
-#fondo-page{position:fixed;background:url("//lovizdelcarpio.com/css/img/bg.png") repeat-x 50% 50% #dfe2e4;height:100%;width:100%;z-index:-1}
-header{background:#333;color:#fff;position:fixed;width:100%;height:60px;z-index:2;}
-header a{color:#fff}
-header .contenedor{margin-top:10px}
-header .links-principales ul li{border:none;padding:16px 5px}
-header .logo h1{margin:0}
-header ul{padding:0;margin:0}
-#inicio{overflow:hidden;position:fixed}
-#menu_header{margin:0 40px;}
-#menu_header ul li{padding:15px 0;border:none;cursor:pointer;}
-#menu_header ul li:hover a{color:#6ba63a}
-#menu_header ul li a{color:#b8b8b8;text-transform:uppercase;font-size:13px;font-weight:700;padding:0 20px;text-shadow:1px 1px 0 #1b1b1b;border-right:1px dotted #4d4d4d;}
-#menu_header ul li a:hover{text-decoration:none}
-footer{z-index:2;position:fixed;bottom:0;background:#333;color:#fff;width:100%;padding:12px 0 8px 0;height:13px;font-size:10px;}
-footer .menu li{padding:0 20px}
-footer a{color:#fff;font-size:11px;text-transform:uppercase;font-weight:600;text-shadow:1px 1px 0 #000}
-#productos{margin:0;padding:0;}
-#productos a{text-decoration:none}
-#productos .producto{display:inline-block;margin-top:20px;width:220px;}
-#productos .producto:hover .producto_name h3{color:#6ba63a}
-#productos .producto:hover .img_producto img{transform:scale(1.2)}
-#productos .producto .img_producto img{width:152px;margin:0 auto;transition:1s ease}
-#productos .producto .producto_name{text-transform:uppercase;}
-#productos .producto .producto_name h3{color:#333;transition:1s all}
-#productos .producto .producto_name h4{color:#888;font-size:13px}
-#productos .producto .producto_precio{font-weight:800;color:#333;}
-#productos .producto .producto_precio .moneda{color:#6ba63a;font-size:12px}
-#productos .producto .producto_precio .old_precio{text-decoration:line-through;margin:0 5px;font-size:12px}
-#producto_single .back-tienda{background-color:#fff;position:fixed;top:40%;cursor:pointer;left:-80px;}
-#producto_single .back-tienda:hover{left:0;background-color:#333;color:#6ba63a;}
-#producto_single .back-tienda:hover .grilla-menu{border-left:1px solid #dfe2e4}
-#producto_single .back-tienda .back-to-text{width:80px;float:left;font-size:11px;font-weight:bold;text-transform:uppercase;padding-top:13px}
-#producto_single .back-tienda .grilla-menu{float:left;width:50px;height:50px;}
-#producto_single .back-tienda .grilla-menu span{font-size:30px;line-height:50px}
-#producto_single .formulario_producto{display:none}
-#producto_single .marco_producto{width:1200px;margin:80px auto;display:table;}
-#producto_single .marco_producto .imagen_principal{vertical-align:middle;width:600px}
-#producto_single .marco_producto .descripcion{width:450px;vertical-align:middle;background:#fff;padding:20px 30px;position:relative;}
-#producto_single .marco_producto .descripcion .cerrar_producto{width:35px;height:35px;background:#fff;position:absolute;top:0;right:-36px;}
-#producto_single .marco_producto .descripcion .cerrar_producto:hover{cursor:pointer;background:#333;}
-#producto_single .marco_producto .descripcion .cerrar_producto:hover span{color:#6ba63a}
-#producto_single .marco_producto .descripcion .cerrar_producto span{font-size:32px;color:#6e6e6e}
-#producto_single .marco_producto .colores ul li{list-style:none;width:100px;display:inline-block}
-#producto_single .secciones_producto{position:absolute;right:0;top:30%;}
-#producto_single .secciones_producto .caja{background:#fff;width:50px;margin-bottom:1px;font-size:20px;line-height:45px;}
-#producto_single .secciones_producto .caja.flechita:hover{background:#333;color:#6ba63a;cursor:pointer}
-#producto_single .secciones_producto .info{font-size:14px;font-weight:bold}
-section#contenido{padding-top:60px}
-#tienda,#producto_single{text-align:center}
+body h1,body h2,body h3,body h4{padding:0;margin:0}
+#contenido{background:#fff;padding-top:20px;position:relative}
+#comentarios{margin-bottom:50px;}
+#comentarios h3{font-family:'Quantico',sans-serif;font-weight:normal;text-align:center;text-transform:uppercase;padding:15px}
+#comentarios .ancho50{width:48%}
+#comentarios .comentario{display:inline-block;margin:20px 0;}
+#comentarios .comentario a{color:#000;text-decoration:underline}
+#comentarios .comentario .titulo_comentario{font-family:'Quantico',sans-serif;font-weight:normal}
+#comentarios .comentario .imageuser{width:100px;display:inline-block;border:2px solid #ddd;border-radius:50px;line-height:15px;}
+#comentarios .comentario .imageuser img{border-radius:50px}
+#comentarios .comentario .cuerpo_coment{width:70%;display:inline-block;}
+#comentarios .comentario .cuerpo_coment p{font-size:14px;margin:5px 0}
+#comentarios .comentario .username span{color:#bbb}
+#comentarios .comentario .estrellas{color:#facc2e}
+header #menu_top{background:rgba(255,255,255,0.75);overflow:hidden;text-transform:uppercase;color:#777;}
+header #menu_top a{color:#777}
+header #menu_top li{padding:10px 5px;font-size:14px}
+header #menu_principal{background-color:rgba(0,0,0,0.7);color:#fff;overflow:hidden;}
+header #menu_principal a{color:#fff;padding:25px 20px;display:inline-block;text-transform:uppercase}
+header #menu_principal .logo{padding:10px 20px 0;cursor:pointer;font-size:40px;font-family:'Great Vibes',cursive;margin:10px;font-weight:normal}
+header #menu_principal .menu{margin-right:50px}
+header #slider_home{height:500px;overflow:hidden;width:100%;}
+header #slider_home .slide{position:absolute;width:100%;top:0;z-index:-1}
+.inicio #menu_principal{position:absolute;top:130px;width:100%;border-bottom:3px solid #fff;}
+.inicio #menu_principal li a{padding:30px 20px}
+#home .landing{position:relative;height:1200px;}
+#home .landing .titulo{font-family:'Quantico',sans-serif;text-transform:uppercase;position:absolute;right:5%;}
+#home .landing .titulo .sub{font-size:20px}
+#home .landing .titulo .bold{font-size:40px;line-height:20px}
+#home .landing .cuadro_titulo{text-transform:uppercase;background:#fff;position:absolute;z-index:10;width:300px;top:400px;left:40%;}
+#home .landing .cuadro_titulo .marco{margin:10px;padding:80px 10px;text-align:center;border:4px solid #000;}
+#home .landing .cuadro_titulo .marco span{text-decoration:underline}
+#home .landing .cuadro_titulo .marco .marca{font-size:30px;text-decoration:none;font-family:'Quantico',sans-serif}
+#home .landing .producto{display:none;position:absolute;width:300px;}
+#home .landing .producto.imagen_foto .marco{position:relative;color:#fff;}
+#home .landing .producto.imagen_foto .marco .datos{position:absolute;text-transform:uppercase;}
+#home .landing .producto.imagen_foto .marco .datos .nombre{font-weight:bold}
+#home .landing .producto.imagen_foto .marco .datos .coleccion{font-size:12px}
+#home .landing .producto.imagen_foto .marco .datos .precio{font-weight:bold}
+#home .landing .producto.imagen_foto .marco .negro{color:#000}
+#home .landing .producto.imagen_foto .marco .blanco{color:#fff}
+#home .landing .producto.imagen_foto .marco .top{top:5px}
+#home .landing .producto.imagen_foto .marco .aling_left{left:10px}
+#home .landing .producto.imagen_foto .marco .aling_right{right:10px}
+#home .landing .produ1{left:22%;width:360px;display:block}
+#home .landing .produ2{right:25%;top:125px;display:block}
+#home .landing .produ3{width:210px;right:5%;top:160px;display:block}
+#home .landing .produ4{top:250px;left:5%;display:block;width:500px}
+#home .landing .produ5{display:block;top:470px;left:15%}
+#home .landing .produ6{width:340px;top:500px;right:10%;display:block}
+#home .landing .produ7{top:620px;left:36%;display:block}
+#home .landing .produ8{display:block;left:10%;top:780px}
+#home .landing .produ9{top:890px;right:10%;display:block}
+footer{overflow:hidden;background:#fff;}
+footer .footer-inferior{overflow:hidden;background:#333;padding:5px 0;}
+footer .footer-inferior a{color:#fff;font-size:11px;text-transform:uppercase;font-weight:600;text-shadow:1px 1px 0 #000}
+footer .footer-inferior .letra1{color:#bbb;font-size:12px}
+#subscripcion{background:url("https://s3-us-west-2.amazonaws.com/lovizfront/img/bg_suscriptio.jpg") no-repeat fixed;background-position:center center;min-height:330px;position:relative;text-align:center;background-size:cover;background-attachment:fixed;}
+#subscripcion .capa_superior{background:rgba(0,0,0,0.3);width:100%;height:100%;position:absolute;}
+#subscripcion .capa_superior .formu_suscription{margin:100px 0;font-size:30px;}
+#subscripcion .capa_superior .formu_suscription h4{color:#fff;font-weight:normal;text-transform:uppercase;font-family:'Quantico',sans-serif}
+#subscripcion .capa_superior .formu_suscription input{border:none;padding:5px;font-family:serif;width:480px;font-style:italic}
+#subscripcion .capa_superior .formu_suscription button{font-family:'Quantico',sans-serif;text-transform:uppercase;background:#000;color:#fff;font-size:25px;border:none;padding:4px}
