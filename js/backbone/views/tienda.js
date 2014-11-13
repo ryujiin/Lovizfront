@@ -1,53 +1,32 @@
 Loviz.Views.Tienda = Backbone.View.extend({
 	events: {
-		'click .logo' : 'navigateHome',
-		'click header .menu-principal li' : 'navegacionPrincipal',
-		'click a.nolink' : 'nomandarLink',
-		'click a.link' : 'linknormal',
-		'click .overlayverde' : 'cerrarOverlay',
+		'click a' : 'linknormal',
+		'click .logo' : 'navega_home',
 	},
 	initialize : function ($el) {
+		var self = this;
 		this.$el = $el;
+		window.routers.base.on('route',function(e){
+			if (e === 'root') {
+				self.$el.addClass('inicio');
+			}else{
+				self.$el.removeClass('inicio');
+			}
+		});
+		window.routers.catalogo.on('route:catalogo',function(e){
+			self.$el.removeClass('inicio');
+		});
 	},
-	navigateHome : function(e){
-		window.app.page=false;
+	navega_home:function (e) {
 		if (e) {
-			e.preventDefault();			
+			e.preventDefault();
 		};
 		window.routers.base.navigate('/', {trigger:true});
-		this.colocar_clase(e);
-
 	},
-	navegacionPrincipal: function(e){
-		var enlace = e.currentTarget;
-		enlace = $(enlace).data('url');
-		window.routers.base.navigate(enlace, {trigger:true});
-		this.colocar_clase(e);
-
-	},
-	colocar_clase:function(e){
-		if(e){
-			var li=e.currentTarget;
-			//remueve todos los stilos
-			$('header .menu li').each(function(indice,elemento){
-				$(elemento).removeClass('activo');
-			});
-		}		
-		$(li).addClass('activo');
-		//navegar a donde se tiene q ir
-	},
-	nomandarLink:function(e){
-		e.preventDefault();
-	},
-	linknormal:function(e){
+	linknormal:function (e) {
 		e.preventDefault();
 		var link = e.currentTarget.pathname;
 		
 		window.routers.base.navigate(link, {trigger:true});
-
-	},
-	pagina_cargada: function(){
-
-		this.$el.addClass('loaded');
-	},
+	}
 });
