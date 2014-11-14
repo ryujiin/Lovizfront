@@ -17,6 +17,6 @@ Loviz.Routers.Catalogo = Backbone.Router.extend({
 		coleccion.fetch();
 	},
 	producto_single:function () {
-		
+
 	}
 })
