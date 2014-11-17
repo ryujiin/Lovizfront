@@ -6,15 +6,30 @@ $(document).ready(function(){
     window.routers.catalogo = new Loviz.Routers.Catalogo();
     
     window.views.tienda = new Loviz.Views.Tienda( $('body') );
-    //Componentes de la web
+    galleta = window.views.tienda.obt_galleta();
+    
+    //Crear Carro
+    window.collections.lineas = new Loviz.Collections.Lineas();
+    window.models.carro = crear_carromodel();
+    window.views.mini_carrito = new Loviz.Views.Mini_carrito({model:window.models.carro})
+
+
     window.views.menu_principal = new Loviz.Views.Menu_principal();
-    window.views.slider_home = new Loviz.Views.Slider_home();
+    window.views.banner_header = new Loviz.Views.Banner_header();
     window.views.landing_nuevos_productos = new Loviz.Views.Landing_nuevos_productos();
+    window.views.slider_novedades = new Loviz.Views.Slider_home($('#novedades'));
+    window.views.slider_ofertas = new Loviz.Views.Slider_home($('#oferta'));
+    window.views.suscribcion = new Loviz.Views.Suscribcion();
+    window.views.testimonios = new Loviz.Views.Testimonios();
+    window.views.redes = new Loviz.Views.Redes_sociales();
+
+    
 
     //Vistas de Catalogos
-    window.views.catalogo_contenedor = new Loviz.Views.Catalogo_contenedor();
-    window.views.catalogo = new Loviz.Views.Catalogos();
-    window.views.catalogos = {};
+    window.collections.catalogo = new Loviz.Collections.Catalogo();
+    window.views.catalogo_contenedor = new Loviz.Views.Catalogo_contenedor({
+        collection:window.collections.catalogo,
+    });
 
     
 	Backbone.history.start({
@@ -45,4 +60,27 @@ $(document).ready(function(){
          	}
      	} 
 	});
+    function crear_carromodel () {
+        var token = $.sessionStorage.get('token_login')
+        var carro_local = $.sessionStorage.get('carro_local')
+        if (token) {
+            //poner si tengo usuarios
+        }else if(carro_local){
+            modelo = new Loviz.Models.Carro({id:carro_local});
+            modelo.fetch();
+            return modelo
+        }else{
+            modelo = new Loviz.Models.Carro();
+            modelo.fetch({
+                data:$.param({session:galleta})
+            }).fail(function () {
+                modelo = new Loviz.Models.Carro();
+                modelo.set('sesion_carro',galleta);
+                modelo.save().done(function (data) {
+                    $.sessionStorage.set('carro_local',data.id)
+                });
+            })
+            return modelo
+        }
+    }
 });

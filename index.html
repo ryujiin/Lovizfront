@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Loviz</title>
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display|Great+Vibes|Pathway+Gothic+One|Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="https://s3-us-west-2.amazonaws.com/lovizfront/img/logodelcarpio2_1.ico" />
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/iconos.css">
     <link rel="stylesheet" href="/css/main.css">
@@ -43,17 +44,22 @@
                     <li><a href="/sobre-marca/">Sobre la marca</a></li>
                     <li><a href="/blog/">Blog</a></li>
                 </ul>
-                <div class="carrito-icon right fuente_imprenta">
-                    <a href="#"><span class="icon-cart3"></span>Carrito</a>
+                <div id="mini_carrito" class="carrito-icon right fuente_imprenta">                    
                 </div>
             </div>            
         </nav>
+        <div id="linea_addcart">
+        </div>
         <div id="banner_header" class="parallax">
             <div class="capa_parallax">
             </div>
         </div>
     </header>
-    <section id="contenido">
+    <section id="contenido">        
+        <div id="pagina">
+        </div>
+        <div id="carro">
+        </div>
         <div id="novedades" class="slider overflow">
             <div class="contenedor">
                 <div class="titulo_slider left">
@@ -180,6 +186,54 @@
                 </div>
             </div>
         </div>
+        <div id="producto_single">
+        </div>
+        <div id="catalogo" class="overflow">
+            <div class="contenedor">
+                <aside class="lateral_menu left">
+                    <div class="bloque">
+                        <h3>Genero</h3>
+                        <ul>
+                            <li><a href="/"><span class="icon-stop"></span>Mujer</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>Hombre</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>Niños</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>Niñas</a></li>
+                        </ul>
+                    </div>
+                    <div class="bloque">
+                        <h3>Precio</h3>
+                        <ul>
+                            <li><a href="/"><span class="icon-stop"></span>S/. 20.00 y menores</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>S/. 30.00 y menores</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>S/. 40.00 y menores</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>S/. 50.00 y menores</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>S/. 50.00 y mayores</a></li>
+                        </ul>
+                    </div>
+                    <div class="bloque">
+                        <h3>Categoria</h3>
+                        <ul>
+                            <li><a href="/"><span class="icon-stop"></span>Pantuflas</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>Sandalias</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>Flats</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>Botas</a></li>
+                        </ul>
+                    </div>
+                    <div class="bloque">
+                        <h3>Color</h3>
+                        <ul>
+                            <li><a href="/"><span class="icon-stop"></span>Fucsia</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>Verde</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>Rosado</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>Lila</a></li>
+                            <li><a href="/"><span class="icon-stop"></span>Estampado Multi</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <div class="productos rigth">
+                </div>
+            </div>
+        </div>
         <div id="suscripcion">
             <div class="capa_parallax">
                 <div class="formu_suscription">
@@ -236,7 +290,7 @@
                     </p>
                 </div>
             </div>
-        </div>
+        </div>        
         <div id="testimonios">
             <div class="contenedor">
                 <h2 class="subtitulo">Esto es Loviz DelCarpio</h2>
@@ -380,5 +434,282 @@
             </div>
         </div>
     </footer>
+
+
+        <script id="productos_lista_template" type="text/template">
+            <span class="icono icon-search"></span>
+            <a href="/producto/{{slug}}/{{id}}/">
+                <figure>
+                    <img src="{{thum}}" alt="{{full_name}} {{marca}}">
+                </figure>
+                <div class="nombre_producto">
+                    <div class="estilo">{{categoria}} {{estilo}}</div>
+                    <div class="nombre">{{nombre}} {{color}}</div>
+                </div>
+
+                <div class="precios">
+                    {%if en_oferta%}
+                    <span class="old_precio">S/. {{precio}}</span>
+                    {%endif%}
+                    <span class="precio {%if en_oferta%}en_oferta{% endif %}">S/. {{precio_venta}}</span>
+                </div>
+            </a>
+            <div class="estrellas">
+                <span class="icon-star3"></span>
+                <span class="icon-star3"></span>
+                <span class="icon-star3"></span>
+                <span class="icon-star2"></span>
+                <span class="icon-star"></span>
+            </div>
+        </script>
+
+        <script id="linea_addcart_template" type="text/template">
+            <img src="https://apiloviz.s3.amazonaws.com/cache/f0/56/f0567e5d0c8de7b2cc49c90fc77ff622.jpg" alt="">
+            <div class="nombre_produ">
+                <h4>PANTUFLA GATITO ESTAMPADO</h4>
+                <p>Añadido al carrito</p>
+            </div>
+        </script>
+
+        <script id="producto_single_template" type="text/template">
+            <div class="contenedor">
+                <div class="conte_galerias">
+                    <div class="imagenes_grandes">
+                        {%for img in imagenes_producto%}
+                            {%if loop.first%}
+                            <img class="imagen_normal" src="{{img.imagen}}" alt="">
+                            {%endif%}
+                        {%endfor%}
+                    </div>                    
+                    <div class="thum_gale">
+                        {%for img in imagenes_producto%}
+                        <a href="" data-bigimga="{{img.imagen}}">
+                            <img src="{{img.imagen_thum}}" alt="">
+                        </a>
+                        {%endfor%}
+                    </div>
+                </div>
+                <div class="conte_datos">
+                    <div class="genero">Mujer</div>
+                    <h1>{{full_name}} - <span class="marca">{{marca}}</span></h1>
+                    <div class="precios_single">
+                        {%for varia in variaciones %}
+                            <div class="variacion {%if loop.first%}visible{%endif%} {{varia.id}}">
+                                {%if varia.oferta > 0 %}
+                                <span class="old_precio">S/. {{varia.precio}}</span>
+                                {%endif%}
+                                <span class="precio">S/. {{varia.precio_venta}}</span>    
+                            </div>                            
+                        {%endfor%}
+                    </div>
+                    <div class="reviews">
+                        <div class="estrellas">
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                        </div>
+                        <div class="escribe_review">Escribe un comentario</div>
+                    </div>
+                    <div class="descripcion">
+                        <label for="">Descripcion</label>
+                        <p>
+                            {{descripcion}}
+                        </p>
+                    </div>
+                    <div class="color_selection">
+                        <label for="">Color Seleccionado:</label><span class="color">{{color}}</span>
+                        <div class="colores">
+                            <a href="#" class="nolink">
+                                {%for img in imagenes_producto%}
+                                {%if loop.first%}
+                                <img src="{{img.imagen_thum}}" alt="">
+                                {%endif%}
+                                {%endfor%}
+                            </a>
+                            {%for pariente in parientes%}
+                            <a href="/producto/{{pariente.slug}}/{{pariente.id}}/">
+                                <img src="{{pariente.thum}}" alt="">
+                            </a>
+                            {%endfor%}
+                        </div>
+                    </div>
+                    <div class="formulario_producto">
+                        <div>
+                            <select name="talla" id="" class="talla">
+                                <option value=''>Selecciona una talla</option>
+                                {%for varia in variaciones%}
+                                    <option value="{{varia.id}}">{{varia.talla}}</option>
+                                {%endfor%}
+                            </select>    
+                        </div>
+                        <div>
+                            <button class="addcart"><span class="icon-cart2"></span> Agregar al Carrito</button>                                
+                        </div>                            
+                    </div>
+                </div>                    
+                <div class="detalles_producto">
+                    <h2>Detalles de producto</h2>
+                        <ul class="infoSizeChart">
+                            <li>
+                                <a href="" class="">View the size chart</a>
+                            </li>
+                        </ul>
+                        <div itemprop="description">
+                            <ul class="product-description">
+                                <li>The timeless <a class="zph" href="/jack-purcell">Jack Purcell</a>
+                                    ® CP sneaker has gone virtually unchanged since the '30s—leaving you with that classic vintage feel and look.
+                                </li>
+                                <li><strong><em>Please note: Items in stock are mixed with the older style, as well as the updated style. Updates include: the logo on the tongue and heel, the footbed, and some exterior stitching.</em></strong> </li>
+                                <li>Durable canvas uppers.</li>
+                                <li>Canvas lining and a removable EVA insert.</li>
+                                <li>Traditional lace-up front with metallic eyelets detail.</li>
+                                <li>Signature <a class="zph" href="/jack-purcell">Jack Purcell</a> "Smiley Face" detail on a rubber toe box.</li>
+                                <li>Rubber-wrapped midsole with medial-side air vent holes and <a class="zph" href="/jack-purcell">Jack Purcell</a> heel patch.</li>
+                                <li>Classic light-blue rubber outsole.</li>
+                                <li>Imported.</li>
+                                <li class="measurements">Measurements:
+                                    <ul>
+                                        <li> Weight: 12 oz</li>
+                                    </ul>
+                                </li>
+                                <li>Product measurements were taken using size Men's 7, Women's 8.5, width Medium. Please note that measurements may vary by size.</li>
+                            </ul>
+                        </div>
+                </div>
+                <div class="productos_relacionas">
+                    <h3>Los clientes que compraron este artículo también compraron</h3>
+                    <div class="productos">
+                    </div>
+                </div>
+                <div class="comentarios left">
+                    <h3>Comentarios de clientes</h3>
+                    <div class="formu_comentario">
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script id="carro_num_items_template" type="text/template">
+            Tu tienes <span>{{lineas}}</span> producto en tu carrito de compras
+        </script>
+
+        <script id="linea_template" type="text/template">
+            <td class="img"><img src="{{thum}}" alt=""></td>
+            <td class="name">{{nombre}}</td>
+            <td class="tall">{{talla}}</td>
+            <td class="precio">S/. {{precio}}</td>
+            <td class="cantidad"><span class="up"></span><span class="numero">{{cantidad}}</span><span class="down"></span></td>
+            <td class="total">S/. {{subtotal}}</td>
+            <td class="accion"><span class="icon-trashcan"></span></td>
+        </script>
+
+        <script id="carro_tabla_total_template" type="text/template">
+            <table>
+                <tr>
+                    <td><label for="">Subtotal</label></td>
+                    <td>S/. {{subtotal}}</td>
+                </tr>
+                <tr>
+                    <td><label for="">Envio estimado</label></td>
+                    <td>S/. --.--?</td>
+                </tr>
+                <tr>
+                    <td><label for="">Total</label></td>
+                    <td>S/. {{total}}</td>
+                </tr>
+            </table>
+        </script>
+
+        <script id="carro_lleno_template" type="text/template">
+            <div class="contenedor">
+                <h1>Tu Carrito de Compra</h1>
+                <h3 class="numero_items"></h3>
+                <p>Comprar en Loviz DelCarpio es Seguro , su compra se realizara en una conexion cifrada.</p>
+                <div class="botones">
+                    <button>Continuar Comprando</button>
+                    <span>No es su Carrito de compras? <a href="#">Eliminar elementos</a></span>
+                    <button class="naranja right">Pagar su compra</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Ref. de producto</th>
+                            <th>talla</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>subtotal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class="lineas">
+                    </tbody>
+                </table>
+                <div class="footer_carro">
+                    <div id="tabla_carro" class="right">
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script id="carro_vacio_template" type="text/template">
+            <div class="contenedor">
+                <h1>Tu Carrito de Compra</h1>
+                <h3>Tu carro de compras esta vacio</h3>
+                <button>Continuar Comprando</button>
+                <div class="cajalogin">
+                    <h3>Tenes productos favoritos o ver el carrito de la ultima vez?</h3>
+                    <button>Entrar a LovizDelCarpio</button>
+                </div>
+
+            </div>
+        </script>
+
+        <script id="mini_carrito_template" type="text/template">
+            <a href="/carro/"><span class="icon-cart3"></span>Carrito<span class="number">{{lineas}}</span></a>
+        </script>
+
+        <script src="/js/vendor/jquery-1.11.1.js"></script>
+        <script src="/js/vendor/underscore.js"></script>
+        <script src="/js/vendor/swig.js"></script>  
+        <script src="/js/vendor/backbone-min.js"></script>
+        
+        <script src="/js/vendor/jquery.cookie.js"></script>
+        <script src="/js/vendor/jquery.storageapi.min.js"></script>
+        <script src="/js/vendor/jquery.zoom.js"></script>        
+
+        <script src="/js/init.js"></script>
+        
+        <script src="/js/backbone/models/productos.js"></script>
+        <script src="/js/backbone/models/linea.js"></script>
+        <script src="/js/backbone/models/carro.js"></script>
+        
+        <script src="/js/backbone/collections/catalogo.js"></script>
+        <script src="/js/backbone/collections/lineas.js"></script>
+        
+        <script src="/js/backbone/routers/base.js"></script>
+        <script src="/js/backbone/routers/catalogo.js"></script>
+
+        <script src="/js/backbone/views/tienda.js"></script>
+        <script src="/js/backbone/views/menu_principal.js"></script>
+        <script src="/js/backbone/views/banner_header.js"></script>
+        <script src="/js/backbone/views/landing_nuevos_productos.js"></script>
+        <script src="/js/backbone/views/catalogo_contenedor.js"></script>
+        <script src="/js/backbone/views/producto_lista.js"></script>
+        <script src="/js/backbone/views/producto_single.js"></script>        
+        <script src="/js/backbone/views/slider_home.js"></script>
+        <script src="/js/backbone/views/suscripcion.js"></script>
+        <script src="/js/backbone/views/redes_sociales.js"></script>
+        <script src="/js/backbone/views/testimonios.js"></script>
+        <script src="/js/backbone/views/carro.js"></script>
+        <script src="/js/backbone/views/carro/carro_num_productos.js"></script>
+        <script src="/js/backbone/views/carro/carro_tabla_total.js"></script>
+        <script src="/js/backbone/views/carro/linea.js"></script>
+        <script src="/js/backbone/views/carro/linea_add_cart.js"></script>
+        <script src="/js/backbone/views/carro/mini_carrito.js"></script>
+
+        <script src="/js/main.js"></script>
 </body>
 </html>

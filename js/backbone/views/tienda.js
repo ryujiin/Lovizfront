@@ -28,5 +28,25 @@ Loviz.Views.Tienda = Backbone.View.extend({
 		var link = e.currentTarget.pathname;
 		
 		window.routers.base.navigate(link, {trigger:true});
+	},
+	obt_galleta : function(){
+		var galleta = $.cookie('carrito');
+		if (galleta==null) {
+			console.log('veamos');
+			var session = getRandomChar();
+			$.cookie('carrito',session,{ expires: 1, path: '/'});
+			galleta = session;
+		};
+		function getRandomChar() {
+			numCara = 50
+			chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+			pass ='';
+			for (i=0;i<numCara;i++) {
+				x = Math.floor(Math.random()*62);
+				pass+=chars.charAt(x);
+			};
+			return pass
+		};
+		return galleta
 	}
 });

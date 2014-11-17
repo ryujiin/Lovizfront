@@ -1,123 +1,91 @@
 Loviz.Views.ProductoSingle = Backbone.View.extend({
-  tagName: 'article',
+	el:$("#producto_single"),
+	events: {
+		'click .thum_gale a' : 'nuevo_galeria',
+		'click .addcart' : 'add_to_cart',
+		'change .talla' : 'talla_seleccionada',
+	},
+	template: swig.compile($("#producto_single_template").html()),
 
-  events: {
-    'click .cerrar_producto' : 'cerrar_info',
-    'click .back-tienda' : 'cerrar_info',
-    'click .add-to-cart' : 'addtocart',
-    'click .filter-field.talla' : 'selecciontalla',
-    'click .filter-field.talla .option-value' : 'tallaelegida',
-    'click .filter-field.cantidad' : 'seleccionCantidad',
-    'click .filter-field.cantidad .option-value' : 'cantidadelegida',
-  },
+	initialize: function () {
+	    var self = this;
+	    this.listenTo(this.model, "change", this.render, this);
+	    this.render();
 
-  template: swig.compile($("#produto_single_theme").html()),
-
-  initialize: function () {
-    var self = this;
-    this.listenTo(this.model, "change", this.render, this);
-    this.render();
-    window.routers.base.on('route',function(e,i){
-      self.aparecer(e);
-    });
-  },
-
-  render: function () {
-    var producto = this.model.toJSON()
-    var html = this.template(producto);
-    this.$el.html(html);    
-    $("#producto_single").append(this.$el);
-  },
-  aparecer:function (e) {
-    if (e==='singleProducto') {
-      var id = this.model.toJSON();
-      id = id.id
-      if (id==window.app.produto_id) {
-        this.$el.show();
-        console.log('show ' +id )
-      }else{
-        this.$el.hide();
-        console.log('hide ' +id )
-      }  
-    }else{
-      this.$el.hide();
-    }
-  },
-  navigateCatalogo: function(){
-    Backbone.history.navigate('/tienda/', {trigger:true});    
-  },
-  /*
-  cargaCompleta:function(){
-    this.$el.find('img').load(function(){
-      $('body').addClass('loaded');
-    })
-    this.$el.show();
-  },*/
-  cerrar_info:function(){
-    this.$el.fadeOut();
-    this.navigateCatalogo();
-  },
-  addtocart:function(){
-    //revisar valores de formulario
-    var variacion = $('.formulario_producto input[name=variacion]').val();
-    var cantidad = $('.formulario_producto input[name=cantidad]').val();
-    var producto = $('.formulario_producto input[name=producto]').val();
-    if (variacion!=='') {
-      if (window.views.carro) {
-        var carrito = window.views.carro.model.get('id');
-        window.routers.base.crear_vistaLineas();
-        if (window.views.lineas) {
-          var modelo = new Loviz.Models.Linea()
-          modelo.set({carro:carrito,producto:producto,variacion:variacion,cantidad:cantidad});
-          window.views.mini_linea = new Loviz.Views.Mini_Linea({
-            model:modelo
-          });
-          modelo.save().done(function () {
-            window.views.mini_linea.render();
-            window.views.mini_linea.aparecer();
-            window.views.mini_carrito.model.fetch();
-            window.views.lineas.collection.add(window.views.mini_linea.model);
-          });
-        };
-      };
-    }else{
-      this.selecciontalla('olvido');
-    }
-  },
-  crear_linea_chiquita:function () {
-  },
-  selecciontalla:function(o){
-    this.num++
-    if (o==='olvido') {
-      $('.filter-field.talla .olvido').slideDown().delay(4000).slideUp();
-    };
-    var div = $('.filter-field.talla');
-    var conte = $('.filter-field.talla .footer-contenido');
-    $(div).toggleClass('selecionado');
-    $(conte).slideToggle('slow');
-  },
-  tallaelegida:function(e){
-    var div = e.currentTarget;
-    var variacion = $(div).data('variacion');
-    var talla = $(div).data('talla');
-    $('.talla .selected').html(talla);
-    //Colocar variacion a formulario
-    $('.formulario_producto input[name=variacion]').val(variacion)
-    //Mostrar precio
-    $('.titulo_precio .precio').removeClass('visible');
-    $('.titulo_precio .precio.'+variacion).addClass('visible');
-  },
-  seleccionCantidad:function () {
-    var div = $('.filter-field.cantidad');
-    var conte = $('.filter-field.cantidad .footer-contenido');
-    $(div).toggleClass('selecionado');
-    $(conte).slideToggle('slow');
-  },
-  cantidadelegida: function (e) {
-    var div = e.currentTarget;
-    var cantidad = $(div).data('cantidad');
-    $('.cantidad .selected').html(cantidad);
-    $('.formulario_producto input[name=cantidad]').val(cantidad)
-  }
+	    window.routers.catalogo.on('route',function(e){
+			self.aparecer(e);
+		});
+		window.routers.base.on('route',function(e){
+			self.aparecer(e);
+		});
+	},
+	render: function () {
+	    var producto = this.model.toJSON()
+	    var html = this.template(producto);
+	    this.$el.html(html);
+	    this.crear_galeria();
+	    this.crear_relacionados();
+	},
+	crear_galeria:function () {
+		this.$('.imagenes_grandes').zoom();
+	},
+	nuevo_galeria:function (e) {
+		this.$('.imagenes_grandes').trigger('zoom.destroy');
+		this.$('.imagenes_grandes').empty();
+		var url = $(e.currentTarget).data('bigimga');
+		var img = '<img src="'+url+'" alt="">';
+		this.$('.imagenes_grandes').html(img);
+		this.crear_galeria();
+	},
+	aparecer:function (e) {
+		if (e==='producto_single') {
+			this.$el.show();
+		}else{
+			this.$el.hide();
+		}
+	},
+	add_to_cart:function () {
+		var linea = new Loviz.Models.Linea();
+		var produ = this.model.toJSON().id;
+		var varia = this.$('.formulario_producto .talla').val();
+		if (varia !=='') {
+			var carro = window.models.carro.toJSON().id;
+			linea.set({carro:carro,producto:produ,variacion:varia,cantidad:1});
+			linea.save().done(function () {
+				var miniline = new Loviz.Views.Linea_addcart({model:linea})
+				window.models.carro.fetch();
+			})
+		}else{
+			this.elige_talla();
+		}
+	},
+	elige_talla:function () {
+		this.$('.formulario_producto .talla').addClass('no_seleccionado');
+	},
+	talla_seleccionada:function () {
+		this.$('.formulario_producto .talla').removeClass('no_seleccionado');
+		this.$('.precios .visible').removeClass('visible');
+		var varia = this.$('.formulario_producto .talla').val();
+		this.$('.precios .'+varia).addClass('visible');
+	},
+	crear_relacionados:function () {
+		var self = this;
+		if (window.collections.catalogo.length===0) {
+			window.collections.catalogo.fetch().done(function() {
+				self.agregar_relacionados();
+			})
+		}else{
+			self.agregar_relacionados();
+		}
+	},
+	agregar_relacionados:function () {
+		var self = this;
+		window.collections.catalogo.forEach(function(modelo){
+			if (modelo.toJSON().id!==self.model.toJSON().id) {
+				var pro_rela = new Loviz.Views.ProductoLista({model:modelo});
+				self.$('.productos').append(pro_rela.render().el);	
+			};			
+		});
+	}
 });
 

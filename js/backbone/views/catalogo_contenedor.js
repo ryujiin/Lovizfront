@@ -1,9 +1,12 @@
 Loviz.Views.Catalogo_contenedor = Backbone.View.extend({
-	el:$('#catalogos'),
+	el:$('#catalogo'),
 	events: {
 	},
 	initialize : function () {
-		var self = this;		
+		var self = this;
+    	
+    	this.listenTo(this.collection, "add", this.addOne, this);
+
 		window.routers.catalogo.on('route',function(e){
 			self.aparecer(e);
 		});
@@ -18,4 +21,8 @@ Loviz.Views.Catalogo_contenedor = Backbone.View.extend({
 			this.$el.hide();
 		}
 	},
+	addOne: function (produ) {
+		var producto = new Loviz.Views.ProductoLista({ model: produ });
+		this.$('.productos').append(producto.render().el);
+	}
 });

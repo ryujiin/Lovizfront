@@ -1,5 +1,30 @@
 f_imprenta ='Pathway Gothic One', sans-serif;
 f_cusrsiva = 'Great Vibes', cursive;
+segundo_color = #F7727A
+aside.lateral_menu
+	width 280px
+	margin 0px 10px
+	.bloque
+		border 1px solid #f4f4f4
+		border-left none
+		border-right none
+		h3
+			margin 10px 0
+			font-family f_imprenta
+			font-weight 400
+			text-transform uppercase
+			text-decoration underline			
+		ul
+			margin 5px 0
+			list-style none
+			padding 0
+			li
+				width 130px
+				display inline-block
+				a
+					font-family f_imprenta
+					display inline-block
+					width 100%
 body
 	font-size 16px
 	font-family: 'Open Sans', sans-serif;
@@ -8,6 +33,36 @@ body
 		text-decoration none
 		&:hover
 			text-decoration underline
+	button
+		border-radius 5px
+		font-family f_imprenta
+		outline none
+		padding 5px 10px
+		background: rgba(255,255,255,1);
+		background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+		background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+		background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+		background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+		background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+		&.naranja
+			color: #fef4e9;
+			border: solid 1px #da7c0c;
+			background: #f78d1d;
+			background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+			background: -moz-linear-gradient(top, #faa51a, #f47a20);			
+			&:hover
+				background: #f47c20;
+				background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+				background: -moz-linear-gradient(top, #f88e11, #f06015);			
+			&:active
+				color: #fcd3a5;
+				background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+				background: -moz-linear-gradient(top, #f47a20, #faa51a);			
+		&.verde
+			border solid 1px #538312
+			background -webkit-gradient(linear, left top, left bottom, from(#7db72f), to(#4e7d0e))
+			background -moz-linear-gradient(top, #7db72f, #4e7d0e);
 	.contenedor
 		max-width 1200px
 		margin 0 auto
@@ -52,8 +107,20 @@ body
 		text-align center
 	.right
 		float right
+	select
+		text-transform capitalize
+		margin 0 0 15px 0
+		border 1px solid #ccc
+		border-radius 5px
+		background #fff
+		padding 5px 8px
+		outline none
+		&:focus
+			box-shadow 0px 0px 10px #87e0fd
 	.overflow
 		overflow hidden
+	.visible
+		display block!important
 #banner_top_envio
 	padding 5px 0
 #banner_header
@@ -65,6 +132,8 @@ body
 	background-size cover
 	background-attachment fixed
 	position relative
+	&.no_home
+		min-height 170px
 	.capa_parallax
 		position absolute
 		width 100%
@@ -81,8 +150,60 @@ body
 	li
 		padding 7px 10px
 		border-right 1px solid #f4f4f4
+#carro
+	overflow hidden
+	margin-bottom 40px
+	h1
+		font-family f_imprenta
+		font-weight normal
+		text-align center
+		font-size 45px
+		margin 0
+	h3
+		font-family Georgia
+		font-style italic
+		span
+			color segundo_color
+	.botones
+		span
+			font-size 0.8em
+			a
+				color segundo_color
+	table
+		width 100%
+		font-family f_imprenta		
+		thead
+			border-bottom 3px solid #333
+		.lineas
+			text-align center
+			.img
+				width 100px
+			.name
+				text-align left
+			td
+				padding 20px 0
+		tr
+			border-bottom 1px solid #333
+	
 #contenido
+	position relative
 	padding 30px 0
+#catalogo
+	padding 20px 0
+	.productos
+		.producto
+			border 1px solid #fff
+			margin 0 0 30px 0
+			&:hover
+				border 1px solid #f4f4f4
+				.icono
+					display block
+			.icono
+				display none
+				top 10px
+				font-size 20px
+				right 10px
+				position absolute
 footer
 	color #fff
 	background #111
@@ -116,26 +237,34 @@ footer
 #footer_bottom
 	border-top 1px solid #333
 	padding 10px 0
-.producto
-	width 296px
-	text-transform uppercase
+#linea_addcart
+	position fixed
+	z-index 2
+	right 20px
+	padding 5px 40px
 	text-align center
-	display inline-block
-	.nombre_producto
-		font-size 0.9em
-		.nombre
-			font-weight bold
-	.precios
-		.old_precio
-			font-size 0.7em
-			text-decoration line-through
-		.precio
-			font-weight bold
+	background #fff
+	box-shadow 0px 10px 15px rgba(0,0,0,0.5)
+	display none
+	img
+		width 100px
+	h4
+		font-family f_imprenta
+		font-size 18px
+		text-transform uppercase
+		margin 0
+		font-weight normal
+	p
+		margin 0
 #menu_principal
 	border-bottom 1px solid #F4F4F4
-	height 74px	
+	height 74px
+	background #fff
+	position relative
 	&.fijo
 		position fixed
+		width 100%
+		z-index 1
 		top 0
 		box-shadow 0px 0px 8px 0px rgba(0,0,0,0.4)
 	.carrito-icon
@@ -185,6 +314,157 @@ footer
 			margin 5px 0
 		p
 			margin 0 10px 0 0
+#mini_carrito
+	.number
+		background #111
+		color #fff
+		padding 1px 6px
+		border-radius 12px
+		margin-left 2px
+.producto
+	width 294px
+	text-transform uppercase
+	text-align center
+	display inline-block
+	position relative
+	&:hover
+		.estrellas
+			opacity 1			
+	figure
+		padding 15px
+	.nombre_producto
+		font-size 1.1em
+		font-family f_imprenta
+		.nombre
+			font-weight bold
+	.precios
+		.old_precio
+			font-size 0.7em
+			text-decoration line-through
+		.precio
+			font-weight bold
+			&.en_oferta
+				color #F7727A
+	.estrellas
+		opacity 0
+#producto_single
+	overflow hidden
+	margin 0
+	.conte_galerias
+		width 60%
+		float left
+		overflow hidden
+		.imagenes_grandes
+			width 620px
+			float right
+			margin-right 20px			
+		.thum_gale
+			width 70px
+			float left
+	.conte_datos
+		width 38%
+		float left
+	.color_selection
+		border-top 1px solid #f4f4f4
+		padding 10px 0
+		.color
+			font-style italic
+		.colores
+			a
+				display inline-block
+				width 90px
+	.descripcion
+		border-top 1px solid #f4f4f4
+		padding 10px 0
+		p
+			margin 0
+			font-size 13px
+			font-style italic
+	.formulario_producto
+		padding 10px
+		background #f1f1f1
+		text-align center
+		>div
+			margin 10px
+		input,select,button
+			width 200px
+			font-size 14px
+			font-family f_imprenta
+			letter-spacing 1px
+		.no_seleccionado
+			box-shadow 0px 0px 8px red
+		.addcart
+			background #729331
+			color #fff
+			font-size 18px
+			border-radius 8px
+			padding 10px 0
+			font-weight bold
+			border-bottom 3px solid #557423
+			border-top 1px solid #557423
+			border-right 1px solid #557423
+			border-left 1px solid #557423
+			outline none
+	h1
+		font-size 26px
+		font-family f_imprenta
+		text-transform uppercase
+		font-weight normal
+		margin 5px 0
+		.marca
+			font-weight normal
+	.genero
+		text-transform uppercase
+		font-size 14px
+		font-weight bold
+		font-family f_imprenta
+	label
+		font-weight normal
+		text-transform uppercase
+		font-size 16px
+		font-family f_imprenta
+	.precios_single
+		font-size 30px
+		.variacion
+			display none
+		.old_precio
+			font-size 13px
+			text-decoration line-through
+		>div
+			font-weight bold
+			display inline-block
+	.reviews
+		padding 10px 0
+		border-top 1px solid #f4f4f4
+		>div
+			display inline-block
+		.estrellas
+			margin-right 10px
+	.detalles_producto
+		width 75%
+		float left
+		font-size 12px
+		.product-description
+			margin 0 20px
+		h2
+			font-size 20px
+			text-transform uppercase
+			font-family f_imprenta			
+	.productos_relacionas
+		width 20%
+		float left
+		padding 20px 
+		text-align center
+		border-left 1px solid #f4f4f4
+		a
+			color #333
+		h3
+			font italic 14px Georgia, "Times New Roman", serif
+			color #777
+		.producto
+			width 100%
+			.icono
+				display none
 .slider
 	overflow hidden
 	margin-bottom 40px

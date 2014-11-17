@@ -8,9 +8,9 @@ Loviz.Views.Menu_principal = Backbone.View.extend({
 
 		$(window).on('scroll', function() {
 			if($(window).scrollTop() > menu_offset.top) {
-				self.$el.addClass('menu_fijo');
+				self.$el.addClass('fijo');
 			} else {
-				self.$el.removeClass('menu_fijo');
+				self.$el.removeClass('fijo');
 			}
 		});
 	},

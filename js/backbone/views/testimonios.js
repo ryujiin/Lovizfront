@@ -1,9 +1,9 @@
-Loviz.Views.Slider_home = Backbone.View.extend({
+Loviz.Views.Testimonios = Backbone.View.extend({
+	el:$('#testimonios'),
 	events: {
 	},
-	initialize : function ($el) {
+	initialize : function () {
 		var self = this;
-		this.$el = $el;
 		window.routers.base.on('route',function(e){
 			self.aparecer(e);
 		});
@@ -11,11 +11,11 @@ Loviz.Views.Slider_home = Backbone.View.extend({
 			self.aparecer(e);
 		});
 	},
-	aparecer: function (e) {
-		if (e==='root') {
+	aparecer:function (e) {
+		if (e === 'root') {
 			this.$el.show();
 		}else{
 			this.$el.hide();
 		}
-	}
+	},
 });
