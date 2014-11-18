@@ -67,7 +67,7 @@ $(document).ready(function(){
             //poner si tengo usuarios
         }else if(carro_local){
             modelo = new Loviz.Models.Carro({id:carro_local});
-            modelo.fetch();
+            modelo.fetch()
             return modelo
         }else{
             modelo = new Loviz.Models.Carro();
