@@ -12,6 +12,9 @@ $(document).ready(function(){
     window.collections.lineas = new Loviz.Collections.Lineas();
     window.models.carro = crear_carromodel();
     window.views.mini_carrito = new Loviz.Views.Mini_carrito({model:window.models.carro})
+    window.views.carro = new Loviz.Views.Carro({
+        collection: window.collections.lineas,
+    }); 
 
 
     window.views.menu_principal = new Loviz.Views.Menu_principal();

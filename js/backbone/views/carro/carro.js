@@ -5,8 +5,7 @@ Loviz.Views.Carro = Backbone.View.extend({
 
 	initialize: function () {
 		var self = this;
-		this.listenTo(this.collection, "add", this.addlinea, this);
-		this.listenTo(window.models.carro, "change", this.agre_linea, this);
+		
 		this.listenTo(window.models.carro, "change", this.querender, this);
 		
 		window.routers.catalogo.on('route',function(e){
@@ -49,8 +48,12 @@ Loviz.Views.Carro = Backbone.View.extend({
 		this.$('.lineas').append(linea_view.render().el);
 	},
 	agre_linea:function () {
+		var self = this;
 		this.collection.fetch({
 			data:$.param({carro:window.models.carro.toJSON().id})
-		});	
+		}).done(function () {
+			debugger;
+    		self.collection.forEach(self.addlinea, self);
+		})
 	}
 });
