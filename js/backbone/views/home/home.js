@@ -1,5 +1,5 @@
-Loviz.Views.Suscribcion = Backbone.View.extend({
-	el:$('#suscripcion'),
+Loviz.Views.Home = Backbone.View.extend({
+	el:$("#home"),
 	events: {
 	},
 	initialize : function () {
@@ -13,9 +13,9 @@ Loviz.Views.Suscribcion = Backbone.View.extend({
 	},
 	aparecer:function (e) {
 		if (e === 'root') {
-			this.$el.removeClass('no_home');
+			this.$el.show();
 		}else{
-			this.$el.addClass('no_home');
+			this.$el.hide();
 		}
-	},
+	}
 });

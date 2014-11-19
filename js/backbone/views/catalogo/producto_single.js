@@ -10,7 +10,6 @@ Loviz.Views.ProductoSingle = Backbone.View.extend({
 	initialize: function () {
 	    var self = this;
 	    this.listenTo(this.model, "change", this.render, this);
-	    this.render();
 
 	    window.routers.catalogo.on('route',function(e){
 			self.aparecer(e);

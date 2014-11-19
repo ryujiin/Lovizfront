@@ -7,6 +7,7 @@
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display|Great+Vibes|Pathway+Gothic+One|Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="https://s3-us-west-2.amazonaws.com/lovizfront/img/logodelcarpio2_1.ico" />
     <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/iconos.css">
     <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -26,7 +27,7 @@
             </ul>
             <ul class="menu right">
                 <li class="buscar"><span class="icon-search2"></span></li>
-                <li class="login"><a href="#"><span class="icon-user"></span> Ingresar</a></li>
+                <li class="login"><a href="/ingresar/"><span class="icon-user"></span> Ingresar</a></li>
             </ul>
         </div>
         <nav id="menu_principal" class="overflow">
@@ -56,139 +57,344 @@
         </div>
     </header>
     <section id="contenido">        
-        <div id="pagina">
-        </div>
-        <div id="carro">
-        </div>
-        <div id="novedades" class="slider overflow">
+        <div id="usuario" class="page">
             <div class="contenedor">
-                <div class="titulo_slider left">
-                    <div>
-                        <h2 class="subtitulo">Novedades Loviz DelCarpio</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nisi eget nunc laoreet posuere. Suspendisse adipiscing placerat augue, dictum blandit justo laoreet a. Pellentesque quam vitae urna fermentum elementum.p
-                        </p>
-                        <span class="esquina esq_top esq_l"></span>
-                        <span class="esquina esq_top esq_r"></span>
-                        <span class="esquina esq_botton esq_l"></span>
-                        <span class="esquina esq_botton esq_r"></span>
-                    </div>                    
-                </div>
-                <div class="cuerpo_slider right">
-                    <article class="producto">
-                        <a href="/">
-                            <figure>
-                                <img src="https://apiloviz.s3.amazonaws.com/cache/2a/05/2a05405d4b6b409dc32670531552a54e.jpg" alt="">
-                            </figure>
-                            <div class="nombre_producto">
-                                <div class="estilo">Pantufla Scuff</div>
-                                <div class="nombre">Bolitas Chiquitas</div>
+                <div id="ingresar">
+                    <div class="container-fluid">
+                        <h1 class="titulo">Bienvenido a LovizDelCarpio</h1>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="bloque">
+                                    <div class="titulo-bloque">
+                                        <h3 class="titulo">Ingresar a su cuenta existente</h3>
+                                    </div>
+                                    <div class="cuerpo-bloque">
+                                        <p>
+                                            Si usted tiene una cuenta con nosotros, por favor introduzca su email y contraseña.
+                                        </p>
+                                        <form role="form" id="formu_login">
+                                            <div class="form-group email">
+                                                <label for="email">Correo Electronico</label>
+                                                <input data-div="email" type="email" class="form-control" id="email" placeholder="Ingresar email">
+                                                <p class="text_help"></p>
+                                            </div>
+                                            <div class="form-group pass">
+                                                <label for="pass">Contraseña</label>
+                                                <input data-div="pass" type="password" class="form-control" id="pass" placeholder="Contraseña">
+                                                <p class="text_help"></p>
+                                            </div>                                    
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Acuerdate de mi
+                                                </label>
+                                                <a href="#">¿Has olvidado tu contraseña?</a>
+                                            </div>
+                                            <button type="submit" class="btn btn-default">Ingresar</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="precios">
-                                <span class="old_precio">S/. 20.00</span>
-                                <span class="precio">S/. 12.00</span>
+                            <div class="col-md-6">
+                                <div class="bloque formu_crear">
+                                    <div class="titulo-bloque">
+                                        <h3 class="titulo">Soy nuevo Cliente</h3>
+                                    </div>
+                                    <div class="cuerpo-bloque">
+                                        <p>
+                                            Al crear una cuenta en LovizdelCarpio.com tu proceso de compra es más rápido porque tus datos ya están registrados en nuestra tienda, además podrás hacer un seguimiento de tus pedidos y estar informado de las últimas novedades.
+                                        </p>
+                                        <button type="button" class="btn btn-default aparecer">Crear cuenta nueva</button>
+                                        <div id="formu_crear_cuenta">
+                                            <form role="form">
+                                              <div class="form-group email_crear">
+                                                <label for="email_crear">Correo Electronico</label>
+                                                <input data-div="email_crear" type="email" class="form-control" id="email_crear" placeholder="Ingresar email">
+                                                <p class="text_help"></p>                                                
+                                              </div>
+                                              <div class="form-group pass_crear">
+                                                <label for="pass_crear">Contraseña</label>
+                                                <input data-div="email" type="password" class="form-control" id="pass_crear" placeholder="Contraseña">
+                                                <p class="text_help"></p>                                                
+                                              </div>
+                                              <div class="form-group pas2_crear">
+                                                <label for="pass2_crear">Repite Contraseña</label>
+                                                <input type="password" class="form-control" id="pass2_crear" placeholder="Contraseña">
+                                                <p class="text_help"></p>                                                
+                                              </div>                                    
+                                              <button type="submit" class="btn btn-default">Crear Cuenta Nueva</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </a>
-                    </article>
-                    <article class="producto">
-                        <a href="/">
-                            <figure>
-                                <img src="https://apiloviz.s3.amazonaws.com/cache/2a/05/2a05405d4b6b409dc32670531552a54e.jpg" alt="">
-                            </figure>
-                            <div class="nombre_producto">
-                                <div class="estilo">Pantufla Scuff</div>
-                                <div class="nombre">Bolitas Chiquitas</div>
-                            </div>
-                            <div class="precios">
-                                <span class="old_precio">S/. 20.00</span>
-                                <span class="precio">S/. 12.00</span>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="producto">
-                        <a href="/">
-                            <figure>
-                                <img src="https://apiloviz.s3.amazonaws.com/cache/2a/05/2a05405d4b6b409dc32670531552a54e.jpg" alt="">
-                            </figure>
-                            <div class="nombre_producto">
-                                <div class="estilo">Pantufla Scuff</div>
-                                <div class="nombre">Bolitas Chiquitas</div>
-                            </div>
-                            <div class="precios">
-                                <span class="old_precio">S/. 20.00</span>
-                                <span class="precio">S/. 12.00</span>
-                            </div>
-                        </a>
-                    </article>
-                </div>
-            </div>
-        </div>
-        <div id="oferta" class="slider">
-            <div class="contenedor">
-                <div class="titulo_slider right">
-                    <div>
-                        <h2 class="subtitulo">Ofertas Loviz DelCarpio</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nisi eget nunc laoreet posuere. Suspendisse adipiscing placerat augue, dictum blandit justo laoreet a. Pellentesque quam vitae urna fermentum elementum.p
-                        </p>
-                        <span class="esquina esq_top esq_l"></span>
-                        <span class="esquina esq_top esq_r"></span>
-                        <span class="esquina esq_botton esq_l"></span>
-                        <span class="esquina esq_botton esq_r"></span>
+                        </div>                        
                     </div>
                 </div>
-                <div class="cuerpo_slider left">
-                    <article class="producto">
+            </div>
+        </div>
+        <div id="carro" class="page">
+        </div>
+        <div id="home" class='page'>
+            <div id="novedades" class="slider overflow">
+                <div class="contenedor">
+                    <div class="titulo_slider left">
+                        <div>
+                            <h2 class="subtitulo">Novedades Loviz DelCarpio</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nisi eget nunc laoreet posuere. Suspendisse adipiscing placerat augue, dictum blandit justo laoreet a. Pellentesque quam vitae urna fermentum elementum.p
+                            </p>
+                            <span class="esquina esq_top esq_l"></span>
+                            <span class="esquina esq_top esq_r"></span>
+                            <span class="esquina esq_botton esq_l"></span>
+                            <span class="esquina esq_botton esq_r"></span>
+                        </div>                    
+                    </div>
+                    <div class="cuerpo_slider right">
+                        <article class="producto">
+                            <a href="/">
+                                <figure>
+                                    <img src="https://apiloviz.s3.amazonaws.com/cache/2a/05/2a05405d4b6b409dc32670531552a54e.jpg" alt="">
+                                </figure>
+                                <div class="nombre_producto">
+                                    <div class="estilo">Pantufla Scuff</div>
+                                    <div class="nombre">Bolitas Chiquitas</div>
+                                </div>
+                                <div class="precios">
+                                    <span class="old_precio">S/. 20.00</span>
+                                    <span class="precio">S/. 12.00</span>
+                                </div>
+                            </a>
+                        </article>
+                        <article class="producto">
+                            <a href="/">
+                                <figure>
+                                    <img src="https://apiloviz.s3.amazonaws.com/cache/2a/05/2a05405d4b6b409dc32670531552a54e.jpg" alt="">
+                                </figure>
+                                <div class="nombre_producto">
+                                    <div class="estilo">Pantufla Scuff</div>
+                                    <div class="nombre">Bolitas Chiquitas</div>
+                                </div>
+                                <div class="precios">
+                                    <span class="old_precio">S/. 20.00</span>
+                                    <span class="precio">S/. 12.00</span>
+                                </div>
+                            </a>
+                        </article>
+                        <article class="producto">
+                            <a href="/">
+                                <figure>
+                                    <img src="https://apiloviz.s3.amazonaws.com/cache/2a/05/2a05405d4b6b409dc32670531552a54e.jpg" alt="">
+                                </figure>
+                                <div class="nombre_producto">
+                                    <div class="estilo">Pantufla Scuff</div>
+                                    <div class="nombre">Bolitas Chiquitas</div>
+                                </div>
+                                <div class="precios">
+                                    <span class="old_precio">S/. 20.00</span>
+                                    <span class="precio">S/. 12.00</span>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div id="oferta" class="slider">
+                <div class="contenedor">
+                    <div class="titulo_slider right">
+                        <div>
+                            <h2 class="subtitulo">Ofertas Loviz DelCarpio</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nisi eget nunc laoreet posuere. Suspendisse adipiscing placerat augue, dictum blandit justo laoreet a. Pellentesque quam vitae urna fermentum elementum.p
+                            </p>
+                            <span class="esquina esq_top esq_l"></span>
+                            <span class="esquina esq_top esq_r"></span>
+                            <span class="esquina esq_botton esq_l"></span>
+                            <span class="esquina esq_botton esq_r"></span>
+                        </div>
+                    </div>
+                    <div class="cuerpo_slider left">
+                        <article class="producto">
+                            <a href="/">
+                                <figure>
+                                    <img src="https://apiloviz.s3.amazonaws.com/cache/2a/05/2a05405d4b6b409dc32670531552a54e.jpg" alt="">
+                                </figure>
+                                <div class="nombre_producto">
+                                    <div class="estilo">Pantufla Scuff</div>
+                                    <div class="nombre">Bolitas Chiquitas</div>
+                                </div>
+                                <div class="precios">
+                                    <span class="old_precio">S/. 20.00</span>
+                                    <span class="precio">S/. 12.00</span>
+                                </div>
+                            </a>
+                        </article>
+                        <article class="producto">
+                            <a href="/">
+                                <figure>
+                                    <img src="https://apiloviz.s3.amazonaws.com/cache/2a/05/2a05405d4b6b409dc32670531552a54e.jpg" alt="">
+                                </figure>
+                                <div class="nombre_producto">
+                                    <div class="estilo">Pantufla Scuff</div>
+                                    <div class="nombre">Bolitas Chiquitas</div>
+                                </div>
+                                <div class="precios">
+                                    <span class="old_precio">S/. 20.00</span>
+                                    <span class="precio">S/. 12.00</span>
+                                </div>
+                            </a>
+                        </article>
+                        <article class="producto">
+                            <a href="/">
+                                <figure>
+                                    <img src="https://apiloviz.s3.amazonaws.com/cache/2a/05/2a05405d4b6b409dc32670531552a54e.jpg" alt="">
+                                </figure>
+                                <div class="nombre_producto">
+                                    <div class="estilo">Pantufla Scuff</div>
+                                    <div class="nombre">Bolitas Chiquitas</div>
+                                </div>
+                                <div class="precios">
+                                    <span class="old_precio">S/. 20.00</span>
+                                    <span class="precio">S/. 12.00</span>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div id="medios_estamos">
+                <div class="contenedor">
+                    <h2 class="subtitulo">Lo que estamos haciendo</h2>
+                    <div class="hastag">
+                        #LovizDC
+                    </div>
+                    <div class="bloque">
                         <a href="/">
-                            <figure>
-                                <img src="https://apiloviz.s3.amazonaws.com/cache/2a/05/2a05405d4b6b409dc32670531552a54e.jpg" alt="">
-                            </figure>
-                            <div class="nombre_producto">
-                                <div class="estilo">Pantufla Scuff</div>
-                                <div class="nombre">Bolitas Chiquitas</div>
-                            </div>
-                            <div class="precios">
-                                <span class="old_precio">S/. 20.00</span>
-                                <span class="precio">S/. 12.00</span>
-                            </div>
+                            <img src="http://demandware.edgesuite.net/aaff_prd/on/demandware.static/Sites-UGG-US-Site/Sites/default/v1415894231686/ugg/home/F14-OCT-home-social-blog.jpg" alt="">
                         </a>
-                    </article>
-                    <article class="producto">
+                        <h4>Desde el Blog</h4>
+                        <p>
+                            Descubra inspiración de temporada, consejos de estilo, detrás de las escenas furtivamente asoma, creadores de tendencias internas y colaboradores creativos.
+                        </p>
+                    </div>
+                    <div class="bloque">
                         <a href="/">
-                            <figure>
-                                <img src="https://apiloviz.s3.amazonaws.com/cache/2a/05/2a05405d4b6b409dc32670531552a54e.jpg" alt="">
-                            </figure>
-                            <div class="nombre_producto">
-                                <div class="estilo">Pantufla Scuff</div>
-                                <div class="nombre">Bolitas Chiquitas</div>
-                            </div>
-                            <div class="precios">
-                                <span class="old_precio">S/. 20.00</span>
-                                <span class="precio">S/. 12.00</span>
-                            </div>
+                            <img src="http://demandware.edgesuite.net/aaff_prd/on/demandware.static/Sites-UGG-US-Site/Sites/default/v1415894231686/ugg/home/F14-NOV-home-social-instagram.jpg" alt="">
                         </a>
-                    </article>
-                    <article class="producto">
+                        <h4>Instagram</h4>
+                        <p>
+                            Encuentra lo último en estilos e ir detrás de las escenas con nosotros en Instagram.
+                        </p>
+                    </div>
+                    <div class="bloque">
                         <a href="/">
-                            <figure>
-                                <img src="https://apiloviz.s3.amazonaws.com/cache/2a/05/2a05405d4b6b409dc32670531552a54e.jpg" alt="">
-                            </figure>
-                            <div class="nombre_producto">
-                                <div class="estilo">Pantufla Scuff</div>
-                                <div class="nombre">Bolitas Chiquitas</div>
-                            </div>
-                            <div class="precios">
-                                <span class="old_precio">S/. 20.00</span>
-                                <span class="precio">S/. 12.00</span>
-                            </div>
+                            <img src="http://demandware.edgesuite.net/aaff_prd/on/demandware.static/Sites-UGG-US-Site/Sites/default/v1415894231686/ugg/home/F14-OCT-home-social-pinterest.jpg" alt="">
                         </a>
-                    </article>
+                        <h4>Pinterest</h4>
+                        <p>
+                            Compruebe en nuestros pines favoritos y ver lo que nos inspira en Pinterest.
+                        </p>
+                    </div>
+                    <div class="bloque">
+                        <a href="/">
+                            <img src="http://www.1001consejos.com/wp-content/uploads/2011/05/sandalias-negras-con-puntitos.jpg" alt="">
+                        </a>
+                        <h4>Siguenos en Facebook</h4>
+                        <p>
+                            Enterare de todas nuestras novedades desde nuestra pagina de facebook
+                        </p>
+                    </div>
+                </div>
+            </div>        
+            <div id="testimonios">
+                <div class="contenedor">
+                    <h2 class="subtitulo">Esto es Loviz DelCarpio</h2>
+                    <p>
+                        La vida nos dice que debemos encontrar esos grandes momentos. Los que cambian las cosas para siempre. Las grandes aventuras. Pero la vida real ocurre en los momentos de menor tamaño, que es donde está la riqueza. Esto Es LOVIZ DELCARPIO es una colección de historias que abarcan estos momentos pequeños, pero importantes en nuestras vidas. Los momentos en los que compartir y conectarse con otros. Estos son momentos de  LOVIZ DELCARPIO. Esto es lo que se siente como ninguna otra cosa.
+                    </p>
+                    <div class="comentarios_home">
+                        <ariticle class="comentario ancho50">
+                            <figure class="imageuser">
+                                <img src="http://www.vrmonster.com/themes/rift/images/no_user_pic.jpg" alt="">
+                            </figure>
+                            <div class="cuerpo_coment">
+                                <h2 class="titulo_comentario"><a href="#">Muy buena pantufla</a></h2>
+                                <div class="username"><span>Por:</span><a href="#">Enrique Lopez</a></div>
+                                <div class="estrellas">
+                                    <span class="icon-star3"></span>
+                                    <span class="icon-star3"></span>
+                                    <span class="icon-star3"></span>
+                                    <span class="icon-star2"></span>
+                                    <span class="icon-star"></span>
+                                </div>
+                                <p class="coment">
+                                    Muy buen producto, comodo y calzable. Mi primera compra aqui pero les aseguro q no sera la ultima.
+                                </p>    
+                            </div>                                
+                        </ariticle>
+                        <ariticle class="comentario ancho50">
+                            <figure class="imageuser">
+                                <img src="http://www.vrmonster.com/themes/rift/images/no_user_pic.jpg" alt="">
+                            </figure>
+                            <div class="cuerpo_coment">
+                                <h2 class="titulo_comentario"><a href="#">Muy buena pantufla</a></h2>
+                                <div class="username"><span>Por:</span><a href="#">Enrique Lopez</a></div>
+                                <div class="estrellas">
+                                    <span class="icon-star3"></span>
+                                    <span class="icon-star3"></span>
+                                    <span class="icon-star3"></span>
+                                    <span class="icon-star2"></span>
+                                    <span class="icon-star"></span>
+                                </div>
+                                <p class="coment">
+                                    Muy buen producto, comodo y calzable. Mi primera compra aqui pero les aseguro q no sera la ultima.
+                                </p>    
+                            </div>                                
+                        </ariticle> 
+                        <ariticle class="comentario ancho50">
+                            <figure class="imageuser">
+                                <img src="http://www.vrmonster.com/themes/rift/images/no_user_pic.jpg" alt="">
+                            </figure>
+                            <div class="cuerpo_coment">
+                                <h2 class="titulo_comentario"><a href="#">Muy buena pantufla</a></h2>
+                                <div class="username"><span>Por:</span><a href="#">Enrique Lopez</a></div>
+                                <div class="estrellas">
+                                    <span class="icon-star3"></span>
+                                    <span class="icon-star3"></span>
+                                    <span class="icon-star3"></span>
+                                    <span class="icon-star2"></span>
+                                    <span class="icon-star"></span>
+                                </div>
+                                <p class="coment">
+                                    Muy buen producto, comodo y calzable. Mi primera compra aqui pero les aseguro q no sera la ultima.
+                                </p>    
+                            </div>                                
+                        </ariticle> 
+                        <ariticle class="comentario ancho50">
+                            <figure class="imageuser">
+                                <img src="http://www.vrmonster.com/themes/rift/images/no_user_pic.jpg" alt="">
+                            </figure>
+                            <div class="cuerpo_coment">
+                                <h2 class="titulo_comentario"><a href="#">Muy buena pantufla</a></h2>
+                                <div class="username"><span>Por:</span><a href="#">Enrique Lopez</a></div>
+                                <div class="estrellas">
+                                    <span class="icon-star3"></span>
+                                    <span class="icon-star3"></span>
+                                    <span class="icon-star3"></span>
+                                    <span class="icon-star2"></span>
+                                    <span class="icon-star"></span>
+                                </div>
+                                <p class="coment">
+                                    Muy buen producto, comodo y calzable. Mi primera compra aqui pero les aseguro q no sera la ultima.
+                                </p>    
+                            </div>                                
+                        </ariticle> 
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="producto_single">
+        <div id="producto_single" class="page">
         </div>
-        <div id="catalogo" class="overflow">
+        <div id="catalogo" class="overflow page">
             <div class="contenedor">
                 <aside class="lateral_menu left">
                     <div class="bloque">
@@ -245,136 +451,6 @@
                         </div>
                     </div>                        
                 </div>    
-            </div>
-        </div>
-        <div id="medios_estamos">
-            <div class="contenedor">
-                <h2 class="subtitulo">Lo que estamos haciendo</h2>
-                <div class="hastag">
-                    #LovizDC
-                </div>
-                <div class="bloque">
-                    <a href="/">
-                        <img src="http://demandware.edgesuite.net/aaff_prd/on/demandware.static/Sites-UGG-US-Site/Sites/default/v1415894231686/ugg/home/F14-OCT-home-social-blog.jpg" alt="">
-                    </a>
-                    <h4>Desde el Blog</h4>
-                    <p>
-                        Descubra inspiración de temporada, consejos de estilo, detrás de las escenas furtivamente asoma, creadores de tendencias internas y colaboradores creativos.
-                    </p>
-                </div>
-                <div class="bloque">
-                    <a href="/">
-                        <img src="http://demandware.edgesuite.net/aaff_prd/on/demandware.static/Sites-UGG-US-Site/Sites/default/v1415894231686/ugg/home/F14-NOV-home-social-instagram.jpg" alt="">
-                    </a>
-                    <h4>Instagram</h4>
-                    <p>
-                        Encuentra lo último en estilos e ir detrás de las escenas con nosotros en Instagram.
-                    </p>
-                </div>
-                <div class="bloque">
-                    <a href="/">
-                        <img src="http://demandware.edgesuite.net/aaff_prd/on/demandware.static/Sites-UGG-US-Site/Sites/default/v1415894231686/ugg/home/F14-OCT-home-social-pinterest.jpg" alt="">
-                    </a>
-                    <h4>Pinterest</h4>
-                    <p>
-                        Compruebe en nuestros pines favoritos y ver lo que nos inspira en Pinterest.
-                    </p>
-                </div>
-                <div class="bloque">
-                    <a href="/">
-                        <img src="http://www.1001consejos.com/wp-content/uploads/2011/05/sandalias-negras-con-puntitos.jpg" alt="">
-                    </a>
-                    <h4>Siguenos en Facebook</h4>
-                    <p>
-                        Enterare de todas nuestras novedades desde nuestra pagina de facebook
-                    </p>
-                </div>
-            </div>
-        </div>        
-        <div id="testimonios">
-            <div class="contenedor">
-                <h2 class="subtitulo">Esto es Loviz DelCarpio</h2>
-                <p>
-                    La vida nos dice que debemos encontrar esos grandes momentos. Los que cambian las cosas para siempre. Las grandes aventuras. Pero la vida real ocurre en los momentos de menor tamaño, que es donde está la riqueza. Esto Es LOVIZ DELCARPIO es una colección de historias que abarcan estos momentos pequeños, pero importantes en nuestras vidas. Los momentos en los que compartir y conectarse con otros. Estos son momentos de  LOVIZ DELCARPIO. Esto es lo que se siente como ninguna otra cosa.
-                </p>
-                <div class="comentarios_home">
-                    <ariticle class="comentario ancho50">
-                        <figure class="imageuser">
-                            <img src="http://www.vrmonster.com/themes/rift/images/no_user_pic.jpg" alt="">
-                        </figure>
-                        <div class="cuerpo_coment">
-                            <h2 class="titulo_comentario"><a href="#">Muy buena pantufla</a></h2>
-                            <div class="username"><span>Por:</span><a href="#">Enrique Lopez</a></div>
-                            <div class="estrellas">
-                                <span class="icon-star3"></span>
-                                <span class="icon-star3"></span>
-                                <span class="icon-star3"></span>
-                                <span class="icon-star2"></span>
-                                <span class="icon-star"></span>
-                            </div>
-                            <p class="coment">
-                                Muy buen producto, comodo y calzable. Mi primera compra aqui pero les aseguro q no sera la ultima.
-                            </p>    
-                        </div>                                
-                    </ariticle>
-                    <ariticle class="comentario ancho50">
-                        <figure class="imageuser">
-                            <img src="http://www.vrmonster.com/themes/rift/images/no_user_pic.jpg" alt="">
-                        </figure>
-                        <div class="cuerpo_coment">
-                            <h2 class="titulo_comentario"><a href="#">Muy buena pantufla</a></h2>
-                            <div class="username"><span>Por:</span><a href="#">Enrique Lopez</a></div>
-                            <div class="estrellas">
-                                <span class="icon-star3"></span>
-                                <span class="icon-star3"></span>
-                                <span class="icon-star3"></span>
-                                <span class="icon-star2"></span>
-                                <span class="icon-star"></span>
-                            </div>
-                            <p class="coment">
-                                Muy buen producto, comodo y calzable. Mi primera compra aqui pero les aseguro q no sera la ultima.
-                            </p>    
-                        </div>                                
-                    </ariticle> 
-                    <ariticle class="comentario ancho50">
-                        <figure class="imageuser">
-                            <img src="http://www.vrmonster.com/themes/rift/images/no_user_pic.jpg" alt="">
-                        </figure>
-                        <div class="cuerpo_coment">
-                            <h2 class="titulo_comentario"><a href="#">Muy buena pantufla</a></h2>
-                            <div class="username"><span>Por:</span><a href="#">Enrique Lopez</a></div>
-                            <div class="estrellas">
-                                <span class="icon-star3"></span>
-                                <span class="icon-star3"></span>
-                                <span class="icon-star3"></span>
-                                <span class="icon-star2"></span>
-                                <span class="icon-star"></span>
-                            </div>
-                            <p class="coment">
-                                Muy buen producto, comodo y calzable. Mi primera compra aqui pero les aseguro q no sera la ultima.
-                            </p>    
-                        </div>                                
-                    </ariticle> 
-                    <ariticle class="comentario ancho50">
-                        <figure class="imageuser">
-                            <img src="http://www.vrmonster.com/themes/rift/images/no_user_pic.jpg" alt="">
-                        </figure>
-                        <div class="cuerpo_coment">
-                            <h2 class="titulo_comentario"><a href="#">Muy buena pantufla</a></h2>
-                            <div class="username"><span>Por:</span><a href="#">Enrique Lopez</a></div>
-                            <div class="estrellas">
-                                <span class="icon-star3"></span>
-                                <span class="icon-star3"></span>
-                                <span class="icon-star3"></span>
-                                <span class="icon-star2"></span>
-                                <span class="icon-star"></span>
-                            </div>
-                            <p class="coment">
-                                Muy buen producto, comodo y calzable. Mi primera compra aqui pero les aseguro q no sera la ultima.
-                            </p>    
-                        </div>                                
-                    </ariticle> 
-                </div>
             </div>
         </div>
     </section>
@@ -687,26 +763,25 @@
         <script src="/js/backbone/models/linea.js"></script>
         <script src="/js/backbone/models/carro.js"></script>
         
-        
-
         <script src="/js/backbone/collections/catalogo.js"></script>
         <script src="/js/backbone/collections/lineas.js"></script>
         
-
-
         <script src="/js/backbone/routers/base.js"></script>
         <script src="/js/backbone/routers/catalogo.js"></script>
-        
 
         <script src="/js/backbone/views/catalogo/catalogo.js"></script>
         <script src="/js/backbone/views/catalogo/producto_lista.js"></script>
-        <script src="/js/backbone/views/catalogo/producto_single.js"></script>        
+        <script src="/js/backbone/views/catalogo/producto_single.js"></script>       
         
+        <script src="/js/backbone/views/usuario/usuario.js"></script>
+        <script src="/js/backbone/views/usuario/ingresar.js"></script>
+
         <script src="/js/backbone/views/tienda/suscripcion.js"></script>
         <script src="/js/backbone/views/tienda/banner_header.js"></script>
         <script src="/js/backbone/views/tienda/menu_principal.js"></script>
         <script src="/js/backbone/views/tienda/tienda.js"></script>
 
+        <script src="/js/backbone/views/home/home.js"></script>
         <script src="/js/backbone/views/home/landing_nuevos_productos.js"></script>
         <script src="/js/backbone/views/home/redes_sociales.js"></script>
         <script src="/js/backbone/views/home/testimonios.js"></script>
