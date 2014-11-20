@@ -106,6 +106,9 @@
                                         <button type="button" class="btn btn-default aparecer">Crear cuenta nueva</button>
                                         <div id="formu_crear_cuenta">
                                             <form role="form">
+                                              <div class="form-group ayuda_form">                        
+                                                <p class="text_help"></p>                                                
+                                              </div>                                    
                                               <div class="form-group email_crear">
                                                 <label for="email_crear">Correo Electronico</label>
                                                 <input data-div="email_crear" type="email" class="form-control" id="email_crear" placeholder="Ingresar email">
@@ -116,7 +119,7 @@
                                                 <input data-div="email" type="password" class="form-control" id="pass_crear" placeholder="Contraseña">
                                                 <p class="text_help"></p>                                                
                                               </div>
-                                              <div class="form-group pas2_crear">
+                                              <div class="form-group pass2_crear">
                                                 <label for="pass2_crear">Repite Contraseña</label>
                                                 <input type="password" class="form-control" id="pass2_crear" placeholder="Contraseña">
                                                 <p class="text_help"></p>                                                
@@ -762,6 +765,7 @@
         <script src="/js/backbone/models/productos.js"></script>
         <script src="/js/backbone/models/linea.js"></script>
         <script src="/js/backbone/models/carro.js"></script>
+        <script src="/js/backbone/models/usuario.js"></script>
         
         <script src="/js/backbone/collections/catalogo.js"></script>
         <script src="/js/backbone/collections/lineas.js"></script>

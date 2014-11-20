@@ -48,5 +48,5 @@ Loviz.Views.Tienda = Backbone.View.extend({
 			return pass
 		};
 		return galleta
-	}
+	},
 });

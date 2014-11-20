@@ -10,7 +10,7 @@ $(document).ready(function(){
     
     //Crear Carro
     window.collections.lineas = new Loviz.Collections.Lineas();
-    window.models.carro = crear_carromodel();
+    window.models.carro = new Loviz.Models.Carro();
     window.views.mini_carrito = new Loviz.Views.Mini_carrito({model:window.models.carro})
     window.views.carro = new Loviz.Views.Carro({
         collection: window.collections.lineas,
@@ -26,6 +26,8 @@ $(document).ready(function(){
     window.views.testimonios = new Loviz.Views.Testimonios();
     window.views.redes = new Loviz.Views.Redes_sociales();
 
+    //usuario
+    window.models.usuario = new Loviz.Models.Usuario();
     window.views.usuario = new Loviz.Views.Usuario()
 
     window.models.producto_single = new Loviz.Models.Producto()
@@ -67,27 +69,4 @@ $(document).ready(function(){
          	}
      	} 
 	});
-    function crear_carromodel () {
-        var token = $.sessionStorage.get('token_login')
-        var carro_local = $.sessionStorage.get('carro_local')
-        if (token) {
-            //poner si tengo usuarios
-        }else if(carro_local){
-            modelo = new Loviz.Models.Carro({id:carro_local});
-            modelo.fetch()
-            return modelo
-        }else{
-            modelo = new Loviz.Models.Carro();
-            modelo.fetch({
-                data:$.param({session:galleta})
-            }).fail(function () {
-                modelo = new Loviz.Models.Carro();
-                modelo.set('sesion_carro',galleta);
-                modelo.save().done(function (data) {
-                    $.sessionStorage.set('carro_local',data.id)
-                });
-            })
-            return modelo
-        }
-    }
 });

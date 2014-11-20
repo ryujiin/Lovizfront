@@ -1,4 +1,4 @@
 Loviz.Models.Usuario = Backbone.Model.extend({
-	url : '/ajax/login/',
-	name : 'Usuario',
+	url:'http://lovizdc.herokuapp.com/api/cliente/perfil/',
+	name:'perfil',
 });

@@ -18,6 +18,7 @@ body .fondo_negro a{color:#fff}
 body .enlinea{display:inline-block}
 body p{color:#999;font-size:.8em}
 body .fuente_imprenta{font-family:'Pathway Gothic One',sans-serif;letter-spacing:1px}
+body .page_loading{background:url("https://s3-us-west-2.amazonaws.com/lovizfront/img/ajax-loader.gif");background-repeat:no-repeat;background-position:center}
 body .left{float:left}
 body .menu{padding:0;margin:0;}
 body .menu li{list-style:none;display:inline-block}

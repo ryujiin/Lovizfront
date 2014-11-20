@@ -4,6 +4,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		'carro/':'carro',
 		'carro/pagar/':'pagar',
 		'ingresar/':'ingresar',
+		'perfil/':'perfil',
 		'*notFound': 'notFound',
 	},
 	initialize : function () {
@@ -33,6 +34,14 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			console.log('usuario logeado')
 		}else{
 			var vista_ingresar = new Loviz.Views.Login();
+		}
+	},
+	perfil:function () {
+		var token = $.sessionStorage.get('token_login')		
+		if (token) {
+			console.log('estamos en el perfil')
+		}else{
+			this.navigate('/', {trigger:true});	
 		}
 	}
 })
