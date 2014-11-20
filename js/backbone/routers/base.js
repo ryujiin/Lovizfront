@@ -31,9 +31,9 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	ingresar:function () {
 		var token = $.sessionStorage.get('token_login')
 		if (token) {
-			console.log('usuario logeado')
-		}else{
-			var vista_ingresar = new Loviz.Views.Login();
+			this.navigate('/perfil/', {trigger:true});	
+		}else{			
+			window.login = new Loviz.Views.Login();
 		}
 	},
 	perfil:function () {
