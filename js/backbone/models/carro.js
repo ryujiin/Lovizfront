@@ -5,31 +5,52 @@ Loviz.Models.Carro = Backbone.Model.extend({
 		this.crear_carromodel();
 	},
 	crear_carromodel:function () {
+		debugger;
 		var self = this;
         var token = $.sessionStorage.get('token_login')
         var carro_local = $.sessionStorage.get('carro_local')
-        //var self = new Loviz.Models.Carro();
         var usuario = $.sessionStorage.get('usuario');
         if (token) {
-            self.fetch().fail(function () {
+        	debugger
+            self.fetch({
+            	headers:{'Authorization':'JWT '+token}
+            })
+            .fail(function () {
+            	debugger;
                 self.set('propietario',usuario);
                 self.save().done(function (data) {
-                    $.sessionStorage.set('carro_local',data.id)
+                    //$.sessionStorage.set('carro_local',data.id)
+                    self.saber_que_carro();
                 });
+            }).done(function () {
+            	self.saber_que_carro();
+            	debugger
             })
         }else if(carro_local){
+        	debugger;
             self.id = carro_local;
-            self.fetch()
+            self.fetch().done(function () {
+            	debugger;
+            })
         }else{
+        	debugger;
             self.fetch({
                 data:$.param({session:galleta})
             }).fail(function () {
-                self = new Loviz.Models.Carro();
+            	debugger;
                 self.set('sesion_carro',galleta);
                 self.save().done(function (data) {
                     $.sessionStorage.set('carro_local',data.id)
+                    debugger;
                 });
+            }).done(function () {
+            	debugger;
             })
         }
-    }
+    },
+    saber_que_carro:function(){
+    	if (window.models.carro !== this) {
+    		debugger;
+    	};
+    },
 });

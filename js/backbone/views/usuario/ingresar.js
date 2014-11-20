@@ -117,7 +117,7 @@ Loviz.Views.Login= Backbone.View.extend({
 					})
 					.fail(function () {
 						self.$el.fadeIn();
-						$('#formu_crear_cuenta .ayuda_form .text_help').addClass('text_fallo').append('<span class="icon-cross2">El usuario ya existe en nuestro sistema');
+						$('#formu_crear_cuenta .ayuda_form .text_help').empty().addClass('text_fallo').append('<span class="icon-cross2">El usuario ya existe en nuestro sistema');
 						$('#usuario').removeClass('page_loading');
 						email.val('');
 						pass.val('');
@@ -156,11 +156,15 @@ Loviz.Views.Login= Backbone.View.extend({
       		storage.set({'token_login' : data.token});
       		self.datos_user();
       		window.routers.base.navigate('/perfil/', {trigger:true});
-      		$("#usuario").removeClass('page_loading');      		
-
+      		$("#usuario").removeClass('page_loading');
 		})
 		.fail(function () {
-			console.log('salio mal el login1')
+			self.$el.fadeIn();
+			$('#formu_login .ayuda_form .text_help').empty().addClass('text_fallo').append('<span class="icon-cross2">El usuario o la contraseña no son correctos');
+			$('#usuario').removeClass('page_loading');
+			$( "#formu_login input" ).each(function() {
+				$(this).val('');
+			});
 		})
 	},
 	datos_user:function(){
@@ -172,7 +176,8 @@ Loviz.Views.Login= Backbone.View.extend({
 	    		headers:{'Authorization':'JWT '+token}
 	    	})
 	    	.done(function(data){
-	    		$.sessionStorage.set('usuario',data.id)
+	    		$.sessionStorage.set('usuario',data.id);
+      			self.modelo = new Loviz.Models.Carro();
 	    	})
 	    	.fail(function(){
 	    		console.log('salio mal el login')
