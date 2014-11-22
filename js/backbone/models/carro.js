@@ -1,6 +1,11 @@
 Loviz.Models.Carro = Backbone.Model.extend({
 	urlRoot : 'http://lovizdc.herokuapp.com/api/carro/',
 	name : 'Carro',
+    url : function() {
+        var base = this.urlRoot;
+        if (this.isNew()) return base;
+        return base + (base.charAt(base.length - 1) == '/' ? '' : '/') + this.id+'/';
+    },
 	initialize : function () {
 		this.crear_carromodel();
 	},
@@ -49,8 +54,29 @@ Loviz.Models.Carro = Backbone.Model.extend({
         }
     },
     saber_que_carro:function(){
+        var usuario = $.sessionStorage.get('usuario');
     	if (window.models.carro !== this) {
-    		debugger;
+            if (this.toJSON().lineas !==0 ) {
+                var carro = this.id
+                var modelo = window.models.carro;
+                window.collections.lineas.forEach(function(linea){
+                    linea.set('carro',carro);
+                    debugger;
+                    linea.save();
+                });
+                window.models.carro.set(this.toJSON());
+                window.models.carro.save().done(function () {
+                    debugger;
+                })
+
+            }else{
+                window.models.carro.set({'propietario':usuario,'estado':'Abierto'});
+                this.set('estado','Fusionada');
+                this.save().done(function () {
+                    window.models.carro.save();
+                    debugger;
+                });
+            }
     	};
     },
 });

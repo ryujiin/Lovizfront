@@ -32,8 +32,10 @@ Loviz.Routers.Base = Backbone.Router.extend({
 		var token = $.sessionStorage.get('token_login')
 		if (token) {
 			this.navigate('/perfil/', {trigger:true});	
-		}else{			
-			window.login = new Loviz.Views.Login();
+		}else{
+			if (window.views.login===undefined) {
+				window.views.login = new Loviz.Views.Login();
+			};
 		}
 	},
 	perfil:function () {
