@@ -10,18 +10,18 @@ Loviz.Models.Carro = Backbone.Model.extend({
 		this.crear_carromodel();
 	},
 	crear_carromodel:function () {
-		debugger;
+		
 		var self = this;
         var token = $.sessionStorage.get('token_login')
         var carro_local = $.sessionStorage.get('carro_local')
         var usuario = $.sessionStorage.get('usuario');
         if (token) {
-        	debugger
+        	
             self.fetch({
             	headers:{'Authorization':'JWT '+token}
             })
             .fail(function () {
-            	debugger;
+            	
                 self.set('propietario',usuario);
                 self.save().done(function (data) {
                     //$.sessionStorage.set('carro_local',data.id)
@@ -29,32 +29,33 @@ Loviz.Models.Carro = Backbone.Model.extend({
                 });
             }).done(function () {
             	self.saber_que_carro();
-            	debugger
+            	
             })
         }else if(carro_local){
-        	debugger;
+        	
             self.id = carro_local;
             self.fetch().done(function () {
-            	debugger;
+            	
             })
         }else{
-        	debugger;
+        	
             self.fetch({
                 data:$.param({session:galleta})
             }).fail(function () {
-            	debugger;
+            	
                 self.set('sesion_carro',galleta);
                 self.save().done(function (data) {
                     $.sessionStorage.set('carro_local',data.id)
-                    debugger;
+                    
                 });
             }).done(function () {
-            	debugger;
+            	
             })
         }
     },
     saber_que_carro:function(){
         var usuario = $.sessionStorage.get('usuario');
+        var token = $.sessionStorage.get('token_login')
     	if (window.models.carro !== this) {
             if (this.toJSON().lineas !==0 ) {
                 var self = this;
@@ -68,14 +69,17 @@ Loviz.Models.Carro = Backbone.Model.extend({
                         linea.save();
                     });
                     self.set('estado','Fusionada');
-                    self.save();
+                    self.save().done(function () {
+                        window.models.carro.set('propietario',usuario)
+                        window.models.carro.save();
+                    });                    
                 });
             }else{
                 window.models.carro.set({'propietario':usuario,'estado':'Abierto'});
                 this.set('estado','Fusionada');
                 this.save().done(function () {
                     window.models.carro.save();
-                    debugger;
+                    
                 });
             }
     	};

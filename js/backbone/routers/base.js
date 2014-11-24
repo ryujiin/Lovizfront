@@ -34,6 +34,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			this.navigate('/perfil/', {trigger:true});	
 		}else{
 			if (window.views.login===undefined) {
+				debugger;
 				window.views.login = new Loviz.Views.Login();
 			};
 		}

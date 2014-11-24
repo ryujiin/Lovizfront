@@ -6,13 +6,6 @@ Loviz.Views.Login= Backbone.View.extend({
 		'click .formu_crear .aparecer': 'aparecer_formu',	
 		'submit #formu_login': 'logearse',
 		'submit #formu_crear_cuenta': 'crear_cuenta',
-		/*
-		'blur #login_email':'verificar_email',
-		'blur #email_crear':'verificar_email_crear',
-		'blur #pass_crear':'verificar_pass_crear',
-		'blur #pass2_crear':'verificar_pass_crear',
-		'blur #login_pass':'verificar_pass',
-		*/
 	},
 	initialize : function () {
 		var self = this;
@@ -93,7 +86,6 @@ Loviz.Views.Login= Backbone.View.extend({
 			email.addClass('fallo');
 			$('#formu_login .email .text_help').empty().addClass('text_fallo').append('<span class="icon-cross2"> Este campo es necesario')
 		}
-		//$.post('https://lovizdc.herokuapp.com/api-token-auth/',{username : email, password :pass})
 	},
 	aparecer_formu:function (e) {
 		var div = $(e.currentTarget);
