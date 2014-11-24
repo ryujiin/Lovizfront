@@ -57,18 +57,19 @@ Loviz.Models.Carro = Backbone.Model.extend({
         var usuario = $.sessionStorage.get('usuario');
     	if (window.models.carro !== this) {
             if (this.toJSON().lineas !==0 ) {
-                var carro = this.id
-                var modelo = window.models.carro;
-                window.collections.lineas.forEach(function(linea){
-                    linea.set('carro',carro);
-                    debugger;
-                    linea.save();
-                });
-                window.models.carro.set(this.toJSON());
-                window.models.carro.save().done(function () {
-                    debugger;
+                var self = this;
+                var nueva_collecion = new Loviz.Collections.Lineas();
+                nueva_collecion.fetch({
+                    data:$.param({carro:this.id})
                 })
-
+                .done(function () {
+                    nueva_collecion.forEach(function (linea) {
+                        linea.set('carro',window.models.carro.id);
+                        linea.save();
+                    });
+                    self.set('estado','Fusionada');
+                    self.save();
+                });
             }else{
                 window.models.carro.set({'propietario':usuario,'estado':'Abierto'});
                 this.set('estado','Fusionada');
