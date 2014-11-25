@@ -166,5 +166,5 @@ footer .redes_sociales a{margin:0 10px;font-size:25px}
 #testimonios .comentario .cuerpo_coment p{width:100%;margin:5px 5px 5px 0}
 #testimonios .comentario .cuerpo_coment .username{font-size:.9em}
 #testimonios .comentario .cuerpo_coment .estrellas{color:#facc2e}
+#pagar,#ingresar{display:none}
 #usuario #formu_crear_cuenta{display:none}
-#ingresar{display:none}

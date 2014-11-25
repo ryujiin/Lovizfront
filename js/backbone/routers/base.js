@@ -2,7 +2,7 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	routes : {
 		"" : "root",
 		'carro/':'carro',
-		'carro/pagar/':'pagar',
+		'pagar/':'pagar',
 		'ingresar/':'ingresar',
 		'perfil/':'perfil',
 		'*notFound': 'notFound',
@@ -34,7 +34,6 @@ Loviz.Routers.Base = Backbone.Router.extend({
 			this.navigate('/perfil/', {trigger:true});	
 		}else{
 			if (window.views.login===undefined) {
-				debugger;
 				window.views.login = new Loviz.Views.Login();
 			};
 		}
@@ -42,9 +41,16 @@ Loviz.Routers.Base = Backbone.Router.extend({
 	perfil:function () {
 		var token = $.sessionStorage.get('token_login')		
 		if (token) {
-			console.log('estamos en el perfil')
+			window.views.perfil = new Loviz.Views.Perfil({
+				model:window.models.usuario,
+			})
 		}else{
 			this.navigate('/', {trigger:true});	
+		}
+	},
+	pagar:function () {
+		if (window.views.pagar===undefined) {
+			window.views.pagar = new Loviz.Views.Pagar()
 		}
 	}
 })

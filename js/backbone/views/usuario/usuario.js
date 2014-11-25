@@ -12,7 +12,7 @@ Loviz.Views.Usuario = Backbone.View.extend({
 		});
 	},
 	aparecer:function (e) {
-		if (e === 'ingresar') {
+		if (e === 'ingresar' || e==='perfil') {
 			this.$el.show();
 		}else{
 			this.$el.hide();

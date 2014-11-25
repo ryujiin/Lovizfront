@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?-gz8aik');
-	src:url('fonts/icomoon.eot?#iefix-gz8aik') format('embedded-opentype'),
-		url('fonts/icomoon.woff?-gz8aik') format('woff'),
-		url('fonts/icomoon.ttf?-gz8aik') format('truetype'),
-		url('fonts/icomoon.svg?-gz8aik#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?-9k48vv');
+	src:url('fonts/icomoon.eot?#iefix-9k48vv') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-9k48vv') format('woff'),
+		url('fonts/icomoon.ttf?-9k48vv') format('truetype'),
+		url('fonts/icomoon.svg?-9k48vv#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -62,8 +62,14 @@
 .icon-cart:before {
 	content: "\e600";
 }
+.icon-tag:before {
+	content: "\e611";
+}
 .icon-phone:before {
 	content: "\e605";
+}
+.icon-addressbook:before {
+	content: "\e612";
 }
 .icon-heart:before {
 	content: "\2665";
@@ -154,6 +160,9 @@
 }
 .icon-instagram2:before {
 	content: "\f16d";
+}
+.icon-apple:before {
+	content: "\f179";
 }
 .icon-checkmark:before {
 	content: "\e610";

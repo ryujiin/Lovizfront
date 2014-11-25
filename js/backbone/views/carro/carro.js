@@ -3,6 +3,9 @@ Loviz.Views.Carro = Backbone.View.extend({
 	template : swig.compile($("#carro_lleno_template").html()),
 	template_vacio : swig.compile($("#carro_vacio_template").html()),
 
+	events :{
+		'click .pagar-boton':'ir_pagar',
+	},
 	initialize: function () {
 		var self = this;
 		
@@ -52,8 +55,10 @@ Loviz.Views.Carro = Backbone.View.extend({
 		this.collection.fetch({
 			data:$.param({carro:window.models.carro.toJSON().id})
 		}).done(function () {
-			debugger;
     		self.collection.forEach(self.addlinea, self);
 		})
+	},
+	ir_pagar:function () {
+		window.routers.base.navigate('/pagar/', {trigger:true});
 	}
 });

@@ -27,7 +27,7 @@
             </ul>
             <ul class="menu right">
                 <li class="buscar"><span class="icon-search2"></span></li>
-                <li class="login"><a href="/ingresar/"><span class="icon-user"></span> Ingresar</a></li>
+                <li id="mini_user" class="login"></li>
             </ul>
         </div>
         <nav id="menu_principal" class="overflow">
@@ -75,7 +75,7 @@
                                         <form role="form" id="formu_login">
                                             <div class="form-group ayuda_form">                        
                                                 <p class="text_help"></p>                                                
-                                              </div>             
+                                              </div>  
                                             <div class="form-group email">
                                                 <label for="email">Correo Electronico</label>
                                                 <input data-div="email" type="email" class="form-control" id="email" placeholder="Ingresar email">
@@ -136,7 +136,13 @@
                         </div>                        
                     </div>
                 </div>
+                <div id="perfil">
+                    
+                </div>
             </div>
+        </div>
+        <div id="pagar" class="page">
+            
         </div>
         <div id="carro" class="page">
         </div>
@@ -712,7 +718,7 @@
                 <div class="botones">
                     <button>Continuar Comprando</button>
                     <span>No es su Carrito de compras? <a href="#">Eliminar elementos</a></span>
-                    <button class="naranja right">Pagar su compra</button>
+                    <button class="naranja right pagar-boton">Pagar su compra</button>
                 </div>
                 <table>
                     <thead>
@@ -753,6 +759,107 @@
             <a href="/carro/"><span class="icon-cart3"></span>Carrito<span class="number">{{lineas}}</span></a>
         </script>
 
+        <script id="mini_user_template" type="text/template">
+            {%if username %}
+                <a href="/perfil/"><span class="icon-user"></span> {{username}}</a>                
+            {%else%}
+                <a href="/ingresar/"><span class="icon-user"></span> Ingresar</a>
+            {%endif%}
+        </script>
+
+        <script id="perfil_template" type="text/template">
+            <div class="container-fluid">
+                <div class="row">
+                    <h1 class="titulo">Hola, {{email}}</h1>
+                    <div class="col-md-3">
+                        <ul>
+                            <li><a href="">Resumen</a></li>
+                            <li><a href="">Mi cuenta</a></li>
+                            <li><a href="">Mis Direcciones</a></li>
+                            <li><a href="">Mis Pedidos</a></li>
+                            <li><a href="">Mi Lista de deseos</a></li>
+                            <li><a href="">Mis Invitaciones</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-9">
+                        <button class="salir right">Salir</button>                        
+                        <p>Puede Revisar y editar los ajustes y las ordenes de su cuenta</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="bloque">
+                                    <h3 class="titulo"><span class="icon-cart3"></span> Mis Pedidos</h3>
+                                    <div class="cuerpo_bloque">
+                                        <p>Usted no tiene ordenes en su carrito</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="bloque">
+                                    <h3 class="titulo"><span class="icon-addressbook"></span> Mis Direcciones</h3>
+                                    <div class="cuerpo_bloque">
+                                        <p>No tienes direeciones agregadas</p>
+                                        <a href="">Agrega una Direccion</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="bloque">
+                                    <h3 class="bloque"><span class="icon-tag"></span> Tickets de incidencias</h3>
+                                </div>
+                                <div class="cuerpo_bloque">
+                                    <p>Usted no ha tenido ningun problema con la plataforma</p>
+                                    <a href="">Crear un Ticket</a>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="bloque">
+                                    <h3 class="titulo"><span class="icon-heart2"></span>Mi Lista de Deseos</h3>
+                                    <div class="cuerpo_bloque">
+                                        <p>No tienes un producto que te guste aun? Buscalo y agregalo!</p>
+                                        <a href="/catalogo/">Buscar Productos</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script id="pagar_template" type="text/template">
+            <div class="contenedor">
+                <h3 class="subtitulo">Bienvenido a la pasarela de pago</h3>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="barra-progreso">
+                                <span class="paso">
+                                    <span class="progreso">1</span>
+                                    <span class="text-paso">Identificar Usuario</span>                                    
+                                </span>
+                                <span class="paso">
+                                    <span class="progreso">2</span>
+                                    <span class="text-paso">Direccion Envio</span>
+                                </span>
+                                <span class="paso">
+                                    <span class="progreso">3</span>
+                                    <span class="text-paso">Metodo de pago</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="bloque">
+                                <h2 class="titulo">Resumen de compra</h2>
+                                <div class="cuerpo_bloque">
+                                    
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+
         <script src="/js/vendor/jquery-1.11.1.js"></script>
         <script src="/js/vendor/underscore.js"></script>
         <script src="/js/vendor/swig.js"></script>  
@@ -782,6 +889,9 @@
         
         <script src="/js/backbone/views/usuario/usuario.js"></script>
         <script src="/js/backbone/views/usuario/ingresar.js"></script>
+        <script src="/js/backbone/views/usuario/mini_user.js"></script>
+        <script src="/js/backbone/views/usuario/perfil.js"></script>
+        <script src="/js/backbone/views/usuario/pagar.js"></script>
 
         <script src="/js/backbone/views/tienda/suscripcion.js"></script>
         <script src="/js/backbone/views/tienda/banner_header.js"></script>

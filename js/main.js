@@ -28,7 +28,10 @@ $(document).ready(function(){
 
     //usuario
     window.models.usuario = new Loviz.Models.Usuario();
-    window.views.usuario = new Loviz.Views.Usuario()
+    window.views.usuario = new Loviz.Views.Usuario();
+    window.views.mini_user = new Loviz.Views.Mini_user({
+        model:window.models.usuario
+    });
 
     window.models.producto_single = new Loviz.Models.Producto()
     window.views.producto_single = new Loviz.Views.ProductoSingle({model:window.models.producto_single,}); 

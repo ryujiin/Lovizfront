@@ -17,7 +17,6 @@ Loviz.Views.Login= Backbone.View.extend({
 		});
 	},
 	aparecer:function (e) {
-		debugger;
 		if (e === 'ingresar') {
 			this.$el.show();
 		}else{
